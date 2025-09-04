@@ -8,6 +8,13 @@ data class CommonResponse(
     val message: String?, val success: Boolean?
 )
 
+data class CommonSecondResponse(
+    val courtId: String?,
+    val message: String?,
+    val success: Boolean?
+)
+
+
 data class PostCommentResponse(
     val commentId: String?,
     val message: String?,

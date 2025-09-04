@@ -31,5 +31,6 @@ object Constants {
     const val USER_GET_USER_BY_ID = "user/get-user-by-id"
     const val GET_COURTS = "court/get-courts"
     const val GET_COURTS_BY_ID = "court/get-court/"
+    const val CREATE_COURT = "court/new"
 
 }

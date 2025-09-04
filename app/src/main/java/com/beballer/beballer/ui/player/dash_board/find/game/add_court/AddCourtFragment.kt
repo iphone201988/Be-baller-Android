@@ -30,6 +30,7 @@ import com.google.android.libraries.places.api.Places
 import com.google.android.libraries.places.api.model.Place
 import com.google.android.libraries.places.widget.AutocompleteSupportFragment
 import com.google.android.material.bottomsheet.BottomSheetBehavior
+import com.google.gson.Gson
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.Locale
 
@@ -42,6 +43,7 @@ class AddCourtFragment : BaseFragment<FragmentAddCourtBinding>() {
     private lateinit var autocompleteFragment: AutocompleteSupportFragment
     private var lat: Double? = null
     private var long: Double? = null
+    private var addressBody = ""
     override fun getLayoutResource(): Int {
         return R.layout.fragment_add_court
     }
@@ -91,7 +93,7 @@ class AddCourtFragment : BaseFragment<FragmentAddCourtBinding>() {
                     if (validate()) {
                         val bundle = Bundle().apply {
                             putString("courtName", binding.etCourtName.text.toString().trim())
-                            putString("courtAddress", binding.etCourtAddress.text.toString().trim())
+                            putString("courtAddress", addressBody)
                             putString("accessibility", binding.etAccessibility.text.toString().trim())
                             putString("hoopsCount", binding.etHoopsCount.text.toString().trim())
                         }
@@ -165,6 +167,50 @@ class AddCourtFragment : BaseFragment<FragmentAddCourtBinding>() {
                     binding.etCourtAddress.setText(fullAddress)
                 }
             }
+
+            location?.let {
+                val geocoder = Geocoder(requireContext(), Locale.getDefault())
+                val addresses = geocoder.getFromLocation(it.latitude, it.longitude, 1)
+
+                if (!addresses.isNullOrEmpty()) {
+                    val address = addresses[0]
+
+                    val fullAddress = address.getAddressLine(0) ?: ""
+                    val city = address.locality ?: ""
+                    val region = address.adminArea ?: ""
+                    val country = address.countryName ?: ""
+                    val zipCode = address.postalCode ?: ""
+
+                    val locationData = mapOf(
+                        "lat" to it.latitude,
+                        "long" to it.longitude,
+                        "addressString" to fullAddress,
+                        "city" to city,
+                        "region" to region,
+                        "country" to country,
+                        "zipCode" to zipCode
+                    )
+
+                    binding.etCourtAddress.setText(fullAddress)
+
+                    val gson = Gson()
+                     addressBody = gson.toJson(locationData)
+
+                }
+            }
+
+
+
+
+
+
+
+
+
+
+
+
+
         }
     }
 

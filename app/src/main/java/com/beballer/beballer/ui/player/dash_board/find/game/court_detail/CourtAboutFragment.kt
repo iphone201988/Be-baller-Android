@@ -63,6 +63,7 @@ class CourtAboutFragment : BaseFragment<FragmentCourtAboutBinding>() {
                             putString("accessibility", accessibility)
                             putString("hoopsCount",hoopsCount)
                         }
+
                         BindingUtils.navigateWithSlide(
                             findNavController(), R.id.navigateAddPhotoFragment, bundle
                         )

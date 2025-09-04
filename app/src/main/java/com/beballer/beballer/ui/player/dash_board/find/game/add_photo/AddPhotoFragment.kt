@@ -16,18 +16,28 @@ import androidx.navigation.fragment.findNavController
 import com.beballer.beballer.R
 import com.beballer.beballer.base.BaseFragment
 import com.beballer.beballer.base.BaseViewModel
+import com.beballer.beballer.data.model.CommonResponse
+import com.beballer.beballer.data.model.CommonSecondResponse
+import com.beballer.beballer.data.model.GameModeModel
 import com.beballer.beballer.utils.BaseCustomDialog
 import com.beballer.beballer.utils.BindingUtils
 import com.beballer.beballer.databinding.AddPhotoDialogItemBinding
 import com.beballer.beballer.databinding.FragmentAddPhotoBinding
 import com.beballer.beballer.databinding.VideoImagePickerDialogBoxBinding
+import com.beballer.beballer.ui.player.add_post.AddPostActivity.Companion.addPostInterface
 import com.beballer.beballer.ui.player.create_profile.choose_avtar.ChooseAvatarFragment.Companion.sendMultipartImage
+import com.beballer.beballer.ui.player.dash_board.profile.user.UserProfileActivity
 import com.beballer.beballer.utils.AppUtils
+import com.beballer.beballer.utils.Status
 import com.github.dhaval2404.imagepicker.util.FileUtil
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
 import dagger.hilt.android.AndroidEntryPoint
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody
+import okhttp3.RequestBody
 import okhttp3.RequestBody.Companion.asRequestBody
+import okhttp3.RequestBody.Companion.toRequestBody
 import java.io.File
 import java.io.IOException
 
@@ -42,6 +52,20 @@ class AddPhotoFragment : BaseFragment<FragmentAddPhotoBinding>() {
     private var multipartImageSecond: MultipartBody.Part? = null
     private var multipartImageThird: MultipartBody.Part? = null
    private var imageType = 0
+    private var gradeValue = 1.0
+
+
+    data class CourtAddress(
+        val lat: Double,
+        val long: Double,
+        val addressString: String,
+        val city: String,
+        val region: String,
+        val country: String,
+        val zipCode: String
+    )
+
+
     companion object{
 
     }
@@ -57,7 +81,47 @@ class AddPhotoFragment : BaseFragment<FragmentAddPhotoBinding>() {
     override fun onCreateView(view: View) {
         // click
         initOnclick()
+        // observer
+        initObserver()
 
+    }
+    fun mapAccessibility(input: String?): String {
+        return when {
+            input?.contains("Everyone", ignoreCase = true) == true -> "availableToEveryone"
+            input?.contains("Licensee", ignoreCase = true) == true -> "availableToLicensees"
+            input?.contains("Special", ignoreCase = true) == true -> "specialOpeningHours"
+            else -> ""
+        }
+    }
+
+    fun mapBoardType(input: String?): String {
+        return when {
+            input?.contains("Steel", ignoreCase = true) == true -> "steel"
+            input?.contains("Wood", ignoreCase = true) == true -> "wood"
+            input?.contains("Plastic", ignoreCase = true) == true -> "plastic"
+            input?.contains("Plexi", ignoreCase = true) == true -> "plexiglas"
+            else -> ""
+        }
+    }
+
+    fun mapNetType(input: String?): String {
+        return when {
+            input?.contains("String", ignoreCase = true) == true -> "string"
+            input?.contains("Chain", ignoreCase = true) == true -> "chains"
+            input?.contains("Plastic", ignoreCase = true) == true -> "plastic"
+            input?.contains("Without", ignoreCase = true) == true -> "without"
+            else -> ""
+        }
+    }
+
+    fun mapFloorType(input: String?): String {
+        return when {
+            input?.contains("Synthetic", ignoreCase = true) == true -> "synthetic"
+            input?.contains("Bitumen", ignoreCase = true) == true -> "bitumen"
+            input?.contains("Wood", ignoreCase = true) == true -> "woodenFloor"
+            input?.contains("Gravel", ignoreCase = true) == true -> "gravelBitumen"
+            else -> ""
+        }
     }
 
     /*** click event handel **/
@@ -70,6 +134,14 @@ class AddPhotoFragment : BaseFragment<FragmentAddPhotoBinding>() {
                 }
                 // next button
                 R.id.btnNext -> {
+                    if (binding.etCourtDescription.text.toString().trim().isEmpty()){
+                        showInfoToast("Please enter court description")
+                        return@observe
+                    }else if (multipartImageFirst==null){
+                        showInfoToast("Please select court image")
+                        return@observe
+                    }
+
                     val courtName = arguments?.getString("courtName")
                     val courtAddress = arguments?.getString("courtAddress")
                     val accessibility = arguments?.getString("accessibility")
@@ -79,7 +151,44 @@ class AddPhotoFragment : BaseFragment<FragmentAddPhotoBinding>() {
                     val floorType = arguments?.getString("floorType")
                     val linesAnd = arguments?.getString("linesAnd")
                     val waterPoint = arguments?.getString("waterPoint")
-                    addPhotoDialogItem()
+                    val gson = Gson()
+                    val courtAddressObj: CourtAddress? = gson.fromJson(courtAddress, CourtAddress::class.java)
+
+                    val data = HashMap<String,RequestBody>()
+                    data["name"] = RequestBody.create("text/plain".toMediaTypeOrNull(),courtName.toString())
+                  //  data["accessibility"] = RequestBody.create("text/plain".toMediaTypeOrNull(),accessibility.toString())
+                    data["hoopsCount"] = RequestBody.create("text/plain".toMediaTypeOrNull(),hoopsCount.toString())
+                  //  data["boardType"] = RequestBody.create("text/plain".toMediaTypeOrNull(),boardType.toString())
+                 //   data["netType"] = RequestBody.create("text/plain".toMediaTypeOrNull(),netType.toString())
+                 //   data["floorType"] = RequestBody.create("text/plain".toMediaTypeOrNull(),floorType.toString())
+                    data["grade"]=gradeValue.toString().toRequestBody("text/plain".toMediaTypeOrNull())
+                    data["description"] = binding.etCourtDescription.text.toString().toRequestBody("text/plain".toMediaTypeOrNull())
+                    val isStandard = linesAnd?.equals("Up to standards") == true
+                    val hasWaterPoint = waterPoint?.equals("With") == true
+                    data["areDimensionsStandard"] = RequestBody.create("text/plain".toMediaTypeOrNull(), isStandard.toString())
+                    data["hasWaterPoint"] = RequestBody.create("text/plain".toMediaTypeOrNull(), hasWaterPoint.toString())
+                    if (courtAddressObj!=null){
+                        data["lat"] = courtAddressObj.lat.toString().toRequestBody("text/plain".toMediaTypeOrNull())
+                        data["long"] = courtAddressObj.long.toString().toRequestBody("text/plain".toMediaTypeOrNull())
+                        data["addressString"] = courtAddressObj.addressString.toRequestBody("text/plain".toMediaTypeOrNull())
+                        data["city"] = courtAddressObj.city.toRequestBody("text/plain".toMediaTypeOrNull())
+                        data["region"] = courtAddressObj.region.toRequestBody("text/plain".toMediaTypeOrNull())
+                        data["country"] = courtAddressObj.country.toRequestBody("text/plain".toMediaTypeOrNull())
+                        data["zipCode"] = courtAddressObj.zipCode.toRequestBody("text/plain".toMediaTypeOrNull())
+                    }
+
+
+                    val accessibilityMapped = mapAccessibility(accessibility)
+                    val boardTypeMapped = mapBoardType(boardType)
+                    val netTypeMapped = mapNetType(netType)
+                    val floorTypeMapped = mapFloorType(floorType)
+
+                    data["accessibility"] = accessibilityMapped.toRequestBody("text/plain".toMediaTypeOrNull())
+                    data["boardType"] = boardTypeMapped.toRequestBody("text/plain".toMediaTypeOrNull())
+                    data["netType"] = netTypeMapped.toRequestBody("text/plain".toMediaTypeOrNull())
+                    data["floorType"] = floorTypeMapped.toRequestBody("text/plain".toMediaTypeOrNull())
+
+                  viewModel.createCourtApi(data,multipartImageFirst,multipartImageSecond,multipartImageThird)
                 }
                 // first image
                 R.id.cardAddImage1,R.id.ivFabFirst->{
@@ -87,7 +196,7 @@ class AddPhotoFragment : BaseFragment<FragmentAddPhotoBinding>() {
                     imageDialog()
                 }
                 // second image
-                R.id.cardAddImage2,R.id.image_2_fab->{
+                R.id.cardAddImage2,R.id.ivFabTwo->{
                     imageType = 2
                     imageDialog()
                 }
@@ -100,18 +209,58 @@ class AddPhotoFragment : BaseFragment<FragmentAddPhotoBinding>() {
             }
         }
 
-
+        // handel ratings
         binding.courtRatingBar.setOnRatingBarChangeListener = { rating, fromUser ->
-            // rating -> Float, fromUser -> Boolean
             if (fromUser) {
-                Toast.makeText(requireContext(), "Rating: $rating", Toast.LENGTH_SHORT).show()
-                // Save it or update your UI
+                gradeValue = rating.toDouble()
+                binding.tvCourtRating.text = gradeValue.toString()
             }
         }
 
 
 
 
+    }
+
+    /**  api response observer  **/
+    private fun initObserver() {
+        viewModel.commonObserver.observe(viewLifecycleOwner) {
+            when (it?.status) {
+                Status.LOADING -> {
+                    showLoading()
+                }
+
+                Status.SUCCESS -> {
+                    when (it.message) {
+                        "createCourtApi" -> {
+                            try {
+                                val myDataModel: CommonSecondResponse? =
+                                    BindingUtils.parseJson(it.data.toString())
+                                if (myDataModel != null) {
+                                    if (myDataModel.message?.isNotEmpty() == true) {
+                                        addPostInterface?.addPost(true)
+                                        showSuccessToast(myDataModel.message.toString())
+                                        addPhotoDialogItem()
+                                    }
+                                }
+                            } catch (e: Exception) {
+                                Log.e("error", "createPostApi: $e")
+                            } finally {
+                                hideLoading()
+                            }
+                        }
+                    }
+                }
+
+                Status.ERROR -> {
+                    hideLoading()
+                    showErrorToast(it.message.toString())
+                }
+
+                else -> {
+                }
+            }
+        }
     }
 
 
@@ -300,7 +449,7 @@ class AddPhotoFragment : BaseFragment<FragmentAddPhotoBinding>() {
         val newFile = File(file.parent, fileName)
         file.renameTo(newFile)
         return MultipartBody.Part.createFormData(
-            "photo", newFile.name, newFile.asRequestBody("image/*".toMediaTypeOrNull())
+            "photos", newFile.name, newFile.asRequestBody("image/*".toMediaTypeOrNull())
         )
     }
 
@@ -311,7 +460,7 @@ class AddPhotoFragment : BaseFragment<FragmentAddPhotoBinding>() {
             return null
         }
         val requestFile = file.asRequestBody("image/*".toMediaTypeOrNull())
-        return MultipartBody.Part.createFormData("photo", file.name, requestFile)
+        return MultipartBody.Part.createFormData("photos", file.name, requestFile)
     }
 
     /**** alert dialog item ****/
@@ -321,8 +470,11 @@ class AddPhotoFragment : BaseFragment<FragmentAddPhotoBinding>() {
         ) {
             when (it?.id) {
                 R.id.tvBtn -> {
-                    BindingUtils.navigateWithSlide(
-                        findNavController(), R.id.navigateGameDetailsFragment, null
+                    val intent = Intent(requireContext(), UserProfileActivity::class.java)
+                    intent.putExtra("userType", "courtFragment")
+                    startActivity(intent)
+                    requireActivity().overridePendingTransition(
+                        R.anim.slide_in_right, R.anim.slide_out_left
                     )
                     addDialogItem.dismiss()
                 }

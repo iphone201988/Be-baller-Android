@@ -17,6 +17,9 @@ interface ApiHelper {
     suspend fun apiForPostMultipartList(url: String,map: HashMap<String, RequestBody>, part: MutableList<MultipartBody.Part>): Response<JsonObject>
     suspend fun apiForPostMultipart(url: String,map: HashMap<String, RequestBody>?, part: MultipartBody.Part?): Response<JsonObject>
     suspend fun apiForMultipartPut(url: String,map: HashMap<String, RequestBody>?, part: MultipartBody.Part?): Response<JsonObject>
+    suspend fun apiForMultipartCourt(url: String,map: HashMap<String, RequestBody>?,courtPicFirst: MultipartBody.Part?,
+                                     courtPicSecond: MultipartBody.Part?,
+                                     courtPicThird: MultipartBody.Part?,): Response<JsonObject>
     suspend fun apiPutForRawBody(url: String,map: HashMap<String, Any>): Response<JsonObject>
 
 }

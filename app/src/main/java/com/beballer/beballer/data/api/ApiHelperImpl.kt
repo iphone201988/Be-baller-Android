@@ -6,6 +6,7 @@ import com.google.gson.JsonObject
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
 import retrofit2.Response
+import retrofit2.http.Part
 import javax.inject.Inject
 
 class ApiHelperImpl @Inject constructor(private val apiService: ApiService, private val sharedPrefManager: SharedPrefManager) :
@@ -71,6 +72,17 @@ class ApiHelperImpl @Inject constructor(private val apiService: ApiService, priv
         part: MultipartBody.Part?
     ): Response<JsonObject> {
         return apiService.apiForMultipartPut(url,getTokenFromSPref(), map, part)
+    }
+
+
+    override suspend fun apiForMultipartCourt(
+        url: String,
+        map: HashMap<String, RequestBody>?,
+       courtPicFirst: MultipartBody.Part?,
+       courtPicSecond: MultipartBody.Part?,
+       courtPicThird: MultipartBody.Part?,
+    ): Response<JsonObject> {
+        return apiService.apiForMultipartCourt(url,getTokenFromSPref(), map,courtPicFirst,courtPicSecond,courtPicThird)
     }
 
     override suspend fun apiPutForRawBody(

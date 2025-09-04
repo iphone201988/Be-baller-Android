@@ -114,5 +114,18 @@ interface ApiService {
         @Part profilePic: MultipartBody.Part?,
     ): Response<JsonObject>
 
+    @Headers(Constants.HEADER_API)
+    @Multipart
+    @JvmSuppressWildcards
+    @POST
+    suspend fun apiForMultipartCourt(
+        @Url url: String,
+        @Header("Authorization") token: String,
+        @PartMap data: Map<String, RequestBody>?,
+        @Part courtPicFirst: MultipartBody.Part?,
+        @Part courtPicSecond: MultipartBody.Part?,
+        @Part courtPicThird: MultipartBody.Part?,
+    ): Response<JsonObject>
+
 
 }
