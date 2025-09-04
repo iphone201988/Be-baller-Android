@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="callback"
+            type="com.beballer.beballer.base.SimpleRecyclerViewAdapter.SimpleCallback" />
+
+        <variable
+            name="pos"
+            type="Integer" />
+
+        <variable
+            name="bean"
+            type="com.beballer.beballer.data.model.OptionModel" />
+
+        <import type="android.view.View" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clMain"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_45sdp"
+        android:layout_margin="@dimen/_5sdp"
+        android:background="@{bean.check?@drawable/red_btn_bg:@drawable/edit_text_bg_with_radius_10}"
+        android:onClick="@{v->callback.onItemClick(v,bean,pos)}">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/ivIcon"
+            style="@style/TextView.InterMedium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:text="@{bean.emoji}"
+            android:textSize="@dimen/_18sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvText"
+            style="@style/TextView.InterMedium"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_5sdp"
+            android:gravity="center"
+            android:text="@{bean.title}"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toBottomOf="@+id/ivIcon"
+            app:layout_constraintEnd_toStartOf="@+id/ivSelect"
+            app:layout_constraintStart_toEndOf="@+id/ivIcon"
+            app:layout_constraintTop_toTopOf="@+id/ivIcon" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivSelect"
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:src="@drawable/unselected_circle"
+            app:layout_constraintBottom_toBottomOf="@+id/ivIcon"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/ivIcon" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivTick"
+            android:layout_width="@dimen/_18sdp"
+            android:layout_height="@dimen/_18sdp"
+            android:src="@drawable/tick"
+            android:visibility="@{bean.check?View.VISIBLE:View.GONE}"
+            app:layout_constraintBottom_toBottomOf="@+id/ivSelect"
+            app:layout_constraintEnd_toEndOf="@+id/ivSelect"
+            app:layout_constraintStart_toStartOf="@+id/ivSelect"
+            app:layout_constraintTop_toTopOf="@+id/ivSelect" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

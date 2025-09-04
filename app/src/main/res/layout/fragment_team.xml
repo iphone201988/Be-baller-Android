@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.beballer.beballer.ui.player.dash_board.profile.team.TeamFragmentVM" />
+
+
+        <variable
+            name="buttonCheck"
+            type="Boolean" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.dash_board.profile.team.TeamFragment">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivBack"
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:onClick="@{v->vm.onClick(v)}"
+            android:padding="@dimen/_6sdp"
+            android:src="@drawable/back_button"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvTitle"
+            style="@style/TextView.InterMedium"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_15sdp"
+            android:textColor="@color/black_040404"
+            android:gravity="center"
+            android:layout_marginTop="-20dp"
+            android:textSize="@dimen/_16ssp"
+            android:paddingHorizontal="@dimen/_15sdp"
+            android:text="Where do you play?"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ivBack" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvChoose"
+            style="@style/TextView.InterRegular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:gravity="center"
+            android:text="Select team"
+            android:textColor="@color/grey_8B8FA0"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
+
+        <androidx.appcompat.widget.SearchView
+            android:id="@+id/teamSearchView"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_26sdp"
+            android:layout_marginHorizontal="@dimen/_14sdp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:background="@drawable/search_view_background"
+            android:backgroundTint="@color/eeeeef"
+            android:focusable="false"
+            android:fontFamily="@font/inter_regular"
+            app:defaultQueryHint="Search"
+            app:iconifiedByDefault="false"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvChoose"
+            app:queryBackground="@null"
+            app:searchIcon="@drawable/ic_search" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvOptions"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:clipToPadding="false"
+            app:spanCount="3"
+            android:layout_marginHorizontal="@dimen/_14sdp"
+            android:paddingBottom="@dimen/_16sdp"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:layout_constraintBottom_toTopOf="@+id/nextBtnDivider"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/tvChoose"
+            app:layout_constraintTop_toBottomOf="@+id/teamSearchView"
+            tools:itemCount="6"
+            tools:listitem="@layout/team_rv_item" />
+
+        <com.google.android.material.divider.MaterialDivider
+            android:id="@+id/nextBtnDivider"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
+            app:dividerColor="#D4D4D4"
+            app:layout_constraintBottom_toTopOf="@id/btnNext"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/btnNext"
+            style="@style/GreenButton"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_45sdp"
+            android:layout_marginHorizontal="@dimen/_13sdp"
+            android:layout_marginTop="@dimen/_40sdp"
+            android:layout_marginBottom="@dimen/_20sdp"
+            android:background="@drawable/green_btn_bg"
+            android:backgroundTint="@{buttonCheck?@color/green:@color/dark_AAB9EF}"
+            android:onClick="@{v->vm.onClick(v)}"
+            android:text="@string/save"
+            android:textSize="@dimen/_14ssp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

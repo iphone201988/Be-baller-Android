@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="callback"
+            type="com.beballer.beballer.base.SimpleRecyclerViewAdapter.SimpleCallback" />
+
+        <variable
+            name="bean"
+            type="com.beballer.beballer.data.model.PlayerPostModel" />
+
+        <variable
+            name="pos"
+            type="Integer" />
+
+        <import type="android.view.View" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_4sdp"
+        android:elevation="@dimen/_2sdp"
+        android:backgroundTint="@color/beballer_grey">
+
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/ivProfilePost"
+            setImageInt="@{bean.avatar}"
+            android:layout_width="@dimen/_25sdp"
+            android:layout_height="@dimen/_25sdp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_round_account_circle_40"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:shapeAppearance="@style/ShapeAppearanceOverlay.App.CornerSize50Percent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvProfilePost"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:fontFamily="@font/inter_medium"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:text="@{bean.title}"
+            android:textColor="@color/beballer_medium_grey"
+            android:textSize="12sp"
+            app:layout_constraintStart_toEndOf="@+id/ivProfilePost"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvSubProfilePost"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:fontFamily="@font/inter_medium"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:text='@{"@"+bean.title}'
+            android:textColor="@color/beballer_medium_grey"
+            android:textSize="12sp"
+            app:layout_constraintStart_toEndOf="@+id/ivProfilePost"
+            app:layout_constraintTop_toBottomOf="@+id/tvProfilePost"
+
+            />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

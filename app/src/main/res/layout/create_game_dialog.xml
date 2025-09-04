@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+    <variable
+        name="callback"
+        type="com.beballer.beballer.utils.BaseCustomDialog.Listener" />
+    </data>
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/green_btn_bg"
+            android:paddingBottom="@dimen/_60sdp"
+            android:paddingHorizontal="@dimen/_10sdp"
+            android:backgroundTint="@color/white"
+    >
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/crown_tv"
+                style="@style/TextView.InterMedium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:text="👑"
+                android:textSize="70sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="HardcodedText" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/title_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/inter_bold"
+                android:gravity="center"
+                android:text="Become King of the court"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_13ssp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/crown_tv" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvDetail1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/inter_medium"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:text="@string/the_court_is_your_kingdom_nwin_games_to_wear_the_crown"
+                android:textColor="@color/beballer_medium_grey"
+                android:textSize="@dimen/_10ssp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/title_tv" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvDetail2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/inter_bold"
+                android:text="How does it work"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_11ssp"
+                app:layout_constraintStart_toStartOf="@+id/tvDetail1"
+                app:layout_constraintTop_toBottomOf="@+id/tvDetail1" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvDetail3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/inter_medium"
+                android:text="On BEBALLER you can create public or\nprivate games."
+                android:textColor="@color/beballer_medium_grey"
+                android:textSize="@dimen/_10ssp"
+                app:layout_constraintEnd_toEndOf="@+id/tvDetail1"
+                app:layout_constraintStart_toStartOf="@+id/tvDetail1"
+                app:layout_constraintTop_toBottomOf="@+id/tvDetail2" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvDetail4"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/inter_medium"
+                android:text="Invite other users and once the game played, enter the score to validate the game. You will earn points for the BEBALLER individual ranking."
+                android:textColor="@color/beballer_medium_grey"
+                android:textSize="@dimen/_10ssp"
+                app:layout_constraintEnd_toEndOf="@+id/tvDetail1"
+                app:layout_constraintStart_toStartOf="@+id/tvDetail1"
+                app:layout_constraintTop_toBottomOf="@+id/tvDetail3" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvDetail5"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/inter_medium"
+                android:text="The player who earns the most points thanks to the games played on that court becomes King of the court."
+                android:textColor="@color/beballer_medium_grey"
+                android:textSize="@dimen/_10ssp"
+                app:layout_constraintEnd_toEndOf="@+id/tvDetail1"
+                app:layout_constraintStart_toStartOf="@+id/tvDetail1"
+                app:layout_constraintTop_toBottomOf="@+id/tvDetail4" />
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/btnCreateGame"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/_38sdp"
+                android:layout_marginTop="@dimen/_25sdp"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:gravity="center"
+                android:paddingHorizontal="@dimen/_14sdp"
+                android:textColor="@color/white"
+                android:fontFamily="@font/inter_medium"
+                android:background="@drawable/green_btn_bg"
+                android:onClick="@{v->callback.onViewClick(v)}"
+                android:text="Create a game"
+                android:textSize="@dimen/_14ssp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvDetail5" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

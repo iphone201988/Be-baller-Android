@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/clTwoType"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="@dimen/_15sdp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clSeconds"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_10sdp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/publisher_image"
+            android:layout_width="@dimen/_45sdp"
+            android:layout_height="@dimen/_45sdp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_round_account_circle_40"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            app:shapeAppearance="@style/ShapeAppearanceOverlay.App.CornerSize50Percent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvPublisherName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:ellipsize="end"
+            android:fontFamily="@font/inter_semi_bold"
+            android:includeFontPadding="false"
+            android:maxLines="1"
+            android:text="FossesMarlyDasket"
+            android:textColor="#1B1B1B"
+            android:textSize="@dimen/_12ssp"
+            app:layout_constrainedWidth="true"
+            app:layout_constraintBottom_toTopOf="@+id/tvPublisherUsername"
+            app:layout_constraintEnd_toStartOf="@id/ivPublisherVerification"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toEndOf="@+id/publisher_image"
+            app:layout_constraintTop_toTopOf="@+id/publisher_image"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivPublisherVerification"
+            android:layout_width="@dimen/_18sdp"
+            android:layout_height="@dimen/_18sdp"
+            android:layout_marginEnd="13dp"
+            android:layout_marginStart="@dimen/_4sdp"
+            android:src="@drawable/ic_round_verified_24"
+            app:layout_constrainedWidth="true"
+            app:layout_constraintBottom_toBottomOf="@+id/tvPublisherName"
+            app:layout_constraintEnd_toStartOf="@+id/ivMenu"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintStart_toEndOf="@id/tvPublisherName"
+            app:layout_constraintTop_toTopOf="@+id/tvPublisherName"
+            />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvPublisherUsername"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/inter_regular"
+            android:includeFontPadding="false"
+            android:text="@string/fossesmarlybasket"
+            android:textColor="@color/grey_50"
+            android:textSize="@dimen/_8ssp"
+            app:layout_constraintBottom_toTopOf="@id/tvPublisherSector"
+            app:layout_constraintStart_toStartOf="@+id/tvPublisherName"
+            app:layout_constraintTop_toBottomOf="@+id/tvPublisherName" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvPublisherSector"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/inter_regular"
+            android:includeFontPadding="false"
+            android:text="Chargement..."
+            android:textColor="@color/grey_50"
+            android:textSize="@dimen/_8ssp"
+            app:layout_constraintBottom_toBottomOf="@+id/publisher_image"
+            app:layout_constraintStart_toStartOf="@+id/tvPublisherName"
+            app:layout_constraintTop_toBottomOf="@+id/tvPublisherUsername" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvHour"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_4sdp"
+            android:fontFamily="@font/inter_regular"
+            android:text="21 h"
+            android:textColor="@color/beballer_medium_grey"
+            android:textSize="@dimen/_9ssp"
+            app:layout_constraintBottom_toBottomOf="@id/ivMenuSecond"
+            app:layout_constraintEnd_toStartOf="@+id/ivMenuSecond"
+            app:layout_constraintTop_toTopOf="@+id/ivMenuSecond" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivMenuSecond"
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:layout_marginEnd="@dimen/_3sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/ivPublisherVerification"
+            app:srcCompat="@drawable/round_more_vert_24"
+            app:tint="@color/beballer_medium_grey" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvTextPost"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_13sdp"
+        android:layout_marginTop="4dp"
+        android:autoLink="all"
+        android:fontFamily="@font/inter_medium"
+        android:text="Benef has added a new 33-hectare playground in the city.Big thanks for your contribution 🙌"
+        android:textColor="@color/black_000000"
+        android:textSize="@dimen/_10ssp"
+        app:layout_constraintTop_toBottomOf="@+id/clSeconds"
+        tools:layout_editor_absoluteX="17dp" />
+
+
+
+
+    <include
+        android:id="@+id/linkPreviewLayout"
+        layout="@layout/link_preview_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginVertical="6dp"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@id/tvTextPost" />
+
+    <include
+        android:id="@+id/linkPreviewImageLayout"
+        layout="@layout/link_preview_image_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginVertical="6dp"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@+id/linkPreviewLayout" />
+
+    <include
+        android:id="@+id/courtPreviewLayout"
+        layout="@layout/recycler_court_item"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginVertical="6dp"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@+id/linkPreviewImageLayout" />
+
+    <include
+        android:id="@+id/gamePreviewLayout"
+        layout="@layout/recycler_game_item"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginVertical="6dp"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@+id/courtPreviewLayout" />
+
+    <include
+        android:id="@+id/event_preview_layout"
+        layout="@layout/recycler_event_item"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginVertical="6dp"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@+id/gamePreviewLayout"
+        tools:visibility="gone" />
+
+
+    <HorizontalScrollView
+        android:id="@+id/buttonsLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_6sdp"
+        android:layout_marginEnd="@dimen/_12sdp"
+        android:scrollbarAlwaysDrawHorizontalTrack="true"
+        app:layout_constraintEnd_toStartOf="@id/tvSubscribe"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/event_preview_layout">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:animateLayoutChanges="true">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/secondLikeImage"
+                android:layout_width="@dimen/_25sdp"
+                android:layout_height="@dimen/_25sdp"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:padding="@dimen/_3sdp"
+                android:src="@drawable/ic_like_0_24"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvLike"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_4sdp"
+                android:fontFamily="@font/inter_semi_bold"
+                android:includeFontPadding="false"
+                android:text="0"
+                android:textColor="#707070"
+                android:textSize="@dimen/_12ssp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/secondLikeImage"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="HardcodedText" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/secondCommentImage"
+                android:layout_width="@dimen/_25sdp"
+                android:layout_height="@dimen/_25sdp"
+                android:layout_marginStart="@dimen/_6sdp"
+                android:padding="@dimen/_2sdp"
+                app:layout_constraintStart_toEndOf="@id/tvLike"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_bubble_left_24"
+                app:tint="@color/black" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvComment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_4sdp"
+                android:fontFamily="@font/inter_semi_bold"
+                android:includeFontPadding="false"
+                android:text="0"
+                android:textColor="#707070"
+                android:textSize="@dimen/_12ssp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/secondCommentImage"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="HardcodedText" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/secondShareImage"
+                android:layout_width="@dimen/_25sdp"
+                android:layout_height="@dimen/_25sdp"
+                android:layout_marginStart="@dimen/_6sdp"
+                android:padding="@dimen/_2sdp"
+                app:layout_constraintStart_toEndOf="@id/tvComment"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_arrowshape_turn_up_right_24"
+                app:tint="@color/black" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvShare"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_4sdp"
+                android:fontFamily="@font/inter_semi_bold"
+                android:includeFontPadding="false"
+                android:text="0"
+                android:textColor="#707070"
+                android:textSize="@dimen/_12ssp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/secondShareImage"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="HardcodedText" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </HorizontalScrollView>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvSubscribe"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/_10sdp"
+        android:fontFamily="@font/inter_bold"
+        android:includeFontPadding="false"
+        android:paddingHorizontal="@dimen/_4sdp"
+        android:paddingVertical="@dimen/_8ssp"
+        android:text="@string/subscribe"
+        android:textColor="@color/beballer_blue"
+        android:textSize="@dimen/_12ssp"
+        app:layout_constraintBottom_toBottomOf="@id/buttonsLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/buttonsLayout"
+        app:layout_constraintTop_toTopOf="@id/buttonsLayout" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

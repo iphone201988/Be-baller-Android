@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="callback"
+            type="com.beballer.beballer.base.SimpleRecyclerViewAdapter.SimpleCallback" />
+
+        <variable
+            name="pos"
+            type="Integer" />
+
+        <variable
+            name="bean"
+            type="com.beballer.beballer.data.model.FindModel" />
+
+        <import type="android.view.View" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clFind"
+        android:layout_width="match_parent"
+        android:layout_height="85dp"
+        android:layout_margin="@dimen/_8sdp"
+        android:background="@drawable/tab_bg"
+        android:elevation="@dimen/_4sdp"
+        android:onClick="@{v->callback.onItemClick(v,bean,pos)}">
+
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/courts_image_card"
+            setCardViewColor="@{bean.id}"
+            android:layout_width="85dp"
+            android:layout_height="match_parent"
+            app:cardBackgroundColor="@color/courts_light_color"
+            app:cardCornerRadius="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                setImageInt="@{bean.image}"
+                android:layout_width="58dp"
+                android:layout_height="58dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_court_24" />
+        </androidx.cardview.widget.CardView>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/courts_tv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="85dp"
+            android:fontFamily="@font/inter_bold"
+            android:gravity="center"
+            android:text="@{bean.title}"
+            android:textAllCaps="false"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_16ssp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

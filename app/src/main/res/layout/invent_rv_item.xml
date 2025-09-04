@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="callback"
+            type="com.beballer.beballer.base.SimpleRecyclerViewAdapter.SimpleCallback" />
+
+        <variable
+            name="pos"
+            type="Integer" />
+
+        <variable
+            name="bean"
+            type="com.beballer.beballer.data.model.InventModel" />
+
+        <import type="android.view.View" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:animateLayoutChanges="true">
+
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/badge_title_tv"
+                android:layout_width="0dp"
+                style="@style/TextView.InterMedium"
+                android:layout_height="wrap_content"
+                android:text="@{bean.match}"
+                android:layout_marginTop="@dimen/_30ssp"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_10ssp"
+                app:layout_constraintBottom_toTopOf="@id/badge_image"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/badge_image"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_margin="5dp"
+                android:src="@drawable/badgeloading"
+                app:layout_constraintBottom_toTopOf="@id/badge_progression_card"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/badge_title_tv" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/badge_progression_card"
+                android:layout_width="0dp"
+                android:layout_height="12dp"
+                android:layout_margin="5dp"
+                android:background="@drawable/card_not_selected"
+                android:backgroundTint="@color/beballer_light_grey"
+                app:layout_constraintEnd_toEndOf="@+id/badge_image"
+                app:layout_constraintStart_toStartOf="@+id/badge_image"
+                app:layout_constraintTop_toBottomOf="@+id/badge_image">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/progression_guideline"
+                        setProgress="@{bean.percentage}"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical" />
+
+                    <View
+                        android:id="@+id/background_progression_view"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_margin="1dp"
+                        android:background="@drawable/gradient_badges_progression"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@id/progression_guideline"
+                        app:layout_constraintHorizontal_bias="0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/percentage_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:elevation="3dp"
+                        android:fontFamily="@font/inter_bold"
+                        android:gravity="center"
+                        android:includeFontPadding="false"
+                        android:paddingHorizontal="5dp"
+                        android:textColor="@color/white"
+                        android:textSize="10sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="@+id/background_progression_view"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:text="12%" />
+
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_20sdp"
+            android:layout_margin="5dp"
+            android:visibility="invisible"
+            android:src="@drawable/badgeloading"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/badge_progression_card" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

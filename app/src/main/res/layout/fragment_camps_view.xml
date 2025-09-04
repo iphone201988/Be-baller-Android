@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.beballer.beballer.ui.organizers.camps_view.CampsViewFragmentVM" />
+
+
+        <variable
+            name="pos"
+            type="Integer" />
+
+
+        <import type="android.view.View" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.organizers.camps_view.CampsViewFragment">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clDot"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_170sdp"
+            android:background="@drawable/bottom_rounded_bg"
+            android:elevation="@dimen/_2sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/ivUser"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_170sdp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/iv_event"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:shapeAppearance="@style/ShapeAppearanceOverlay.App.BottomCorners5Percent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clTab"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_28sdp"
+            android:layout_marginHorizontal="@dimen/_12sdp"
+            android:layout_marginBottom="-25dp"
+            android:background="@drawable/tab_bg"
+            android:backgroundTint="@color/e9e9ea"
+            android:elevation="@dimen/_2sdp"
+            app:layout_constraintBottom_toBottomOf="@+id/clDot"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvPools"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_24sdp"
+                android:layout_marginStart="@dimen/_3sdp"
+                android:layout_marginEnd="@dimen/_3sdp"
+                android:background="@{pos==1?@drawable/round_corner_bg:null}"
+                android:backgroundTint="@{pos==1?@color/camps_dark_color:@color/transparent}"
+                android:gravity="center"
+                android:onClick="@{v->vm.onClick(v)}"
+                android:text="Pools"
+                android:textColor="@{pos==1?@color/white:@color/black_000000}"
+                android:textSize="@dimen/_12ssp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/tvMatch"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvMatch"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_24sdp"
+                android:layout_marginStart="@dimen/_3sdp"
+                android:layout_marginEnd="@dimen/_3sdp"
+                android:background="@{pos==2?@drawable/round_corner_bg:null}"
+                android:backgroundTint="@{pos==2?@color/camps_dark_color:@color/transparent}"
+                android:gravity="center"
+                android:onClick="@{v->vm.onClick(v)}"
+                android:text="Matches"
+                android:textColor="@{pos==2?@color/white:@color/black_000000}"
+                android:textSize="@dimen/_12ssp"
+                app:layout_constraintBottom_toBottomOf="@+id/tvPools"
+                app:layout_constraintEnd_toStartOf="@+id/tvFinals"
+                app:layout_constraintStart_toEndOf="@+id/tvPools"
+                app:layout_constraintTop_toTopOf="@+id/tvPools" />
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvFinals"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_24sdp"
+                android:layout_marginStart="@dimen/_3sdp"
+                android:layout_marginEnd="@dimen/_3sdp"
+                android:background="@{pos==3?@drawable/round_corner_bg:null}"
+                android:backgroundTint="@{pos==3?@color/camps_dark_color:@color/transparent}"
+                android:gravity="center"
+                android:onClick="@{v->vm.onClick(v)}"
+                android:text="Finals"
+                android:textColor="@{pos==3?@color/white:@color/black_000000}"
+                android:textSize="@dimen/_12ssp"
+                app:layout_constraintBottom_toBottomOf="@+id/tvMatch"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/tvMatch"
+                app:layout_constraintTop_toTopOf="@+id/tvMatch" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/viewPagerProfile"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/clTab" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/cancelImage"
+            android:layout_width="@dimen/_33sdp"
+            android:layout_height="@dimen/_33sdp"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:layout_marginTop="@dimen/_25sdp"
+            android:background="@drawable/green_btn_bg"
+            android:backgroundTint="@color/white"
+            android:elevation="@dimen/_2sdp"
+            android:onClick="@{v->vm.onClick(v)}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:shapeAppearance="@style/ShapeAppearanceOverlay.App.CornerSize20Percent" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="@dimen/_22sdp"
+            android:layout_height="@dimen/_22sdp"
+            android:elevation="@dimen/_2sdp"
+            android:onClick="@{v->vm.onClick(v)}"
+            android:src="@drawable/back_button"
+            app:layout_constraintBottom_toBottomOf="@+id/cancelImage"
+            app:layout_constraintEnd_toEndOf="@+id/cancelImage"
+            app:layout_constraintStart_toStartOf="@+id/cancelImage"
+            app:layout_constraintTop_toTopOf="@+id/cancelImage" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

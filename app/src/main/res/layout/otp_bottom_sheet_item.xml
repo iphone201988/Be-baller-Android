@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:background="@drawable/bottom_bg"
+        android:layout_height="match_parent"
+        tools:context=".ui.player.auth.verify.OtpVerifyFragment">
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvTitle"
+            style="@style/TextView.InterMedium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_40sdp"
+            android:gravity="center"
+            android:text="@string/enter_validation_code"
+            android:textSize="@dimen/_16ssp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvChoose"
+            style="@style/TextView.InterRegular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:gravity="center"
+            android:text="You have received six digit code on your\n phone number"
+            android:textColor="@color/grey_8B8FA0"
+            android:textSize="@dimen/_12ssp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clOtt"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_60sdp"
+            android:layout_marginHorizontal="@dimen/_5sdp"
+            android:layout_marginTop="@dimen/_32sdp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/otpET1"
+                style="@style/TextView.InterMedium"
+                android:layout_width="@dimen/_42sdp"
+                android:layout_height="@dimen/_42sdp"
+                android:background="@drawable/otp_bg"
+                android:gravity="center"
+                android:hint="-"
+                android:imeOptions="actionNext"
+                android:inputType="number"
+                android:maxLength="1"
+                android:nextFocusForward="@id/otpET2"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_16ssp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/otpET2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/otpET2"
+                style="@style/TextView.InterMedium"
+                android:layout_width="@dimen/_42sdp"
+                android:layout_height="@dimen/_42sdp"
+                android:background="@drawable/otp_bg"
+                android:gravity="center"
+                android:hint="-"
+                android:imeOptions="actionNext"
+                android:inputType="number"
+                android:maxLength="1"
+                android:nextFocusForward="@id/otpET3"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_16ssp"
+                app:layout_constraintBottom_toBottomOf="@+id/otpET1"
+                app:layout_constraintEnd_toStartOf="@+id/otpET3"
+                app:layout_constraintStart_toEndOf="@+id/otpET1"
+                app:layout_constraintTop_toTopOf="@+id/otpET1" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/otpET3"
+                style="@style/TextView.InterMedium"
+                android:layout_width="@dimen/_42sdp"
+                android:layout_height="@dimen/_42sdp"
+                android:background="@drawable/otp_bg"
+                android:gravity="center"
+                android:hint="-"
+                android:imeOptions="actionNext"
+                android:inputType="number"
+                android:maxLength="1"
+                android:nextFocusForward="@id/otpET4"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_16ssp"
+                app:layout_constraintBottom_toBottomOf="@+id/otpET1"
+                app:layout_constraintEnd_toStartOf="@+id/otpET4"
+                app:layout_constraintStart_toEndOf="@+id/otpET2"
+                app:layout_constraintTop_toTopOf="@+id/otpET1" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/otpET4"
+                style="@style/TextView.InterMedium"
+                android:layout_width="@dimen/_42sdp"
+                android:layout_height="@dimen/_42sdp"
+                android:background="@drawable/otp_bg"
+                android:gravity="center"
+                android:hint="-"
+                android:imeOptions="actionNext"
+                android:inputType="number"
+                android:maxLength="1"
+                android:nextFocusForward="@id/otpET5"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_16ssp"
+                app:layout_constraintBottom_toBottomOf="@+id/otpET1"
+                app:layout_constraintEnd_toStartOf="@+id/otpET5"
+                app:layout_constraintStart_toEndOf="@+id/otpET3"
+                app:layout_constraintTop_toTopOf="@+id/otpET1" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/otpET5"
+                style="@style/TextView.InterMedium"
+                android:layout_width="@dimen/_42sdp"
+                android:layout_height="@dimen/_42sdp"
+                android:background="@drawable/otp_bg"
+                android:gravity="center"
+                android:hint="-"
+                android:imeOptions="actionNext"
+                android:inputType="number"
+                android:maxLength="1"
+                android:nextFocusForward="@id/otpET6"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_16ssp"
+                app:layout_constraintBottom_toBottomOf="@+id/otpET1"
+                app:layout_constraintEnd_toStartOf="@+id/otpET6"
+                app:layout_constraintStart_toEndOf="@+id/otpET4"
+                app:layout_constraintTop_toTopOf="@+id/otpET1" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/otpET6"
+                style="@style/TextView.InterMedium"
+                android:layout_width="@dimen/_42sdp"
+                android:layout_height="@dimen/_42sdp"
+                android:background="@drawable/otp_bg"
+                android:gravity="center"
+                android:hint="-"
+                android:imeOptions="actionDone"
+                android:inputType="number"
+                android:maxLength="1"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_16ssp"
+                app:layout_constraintBottom_toBottomOf="@+id/otpET1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/otpET5"
+                app:layout_constraintTop_toTopOf="@+id/otpET1" />
+
+
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <com.google.android.material.divider.MaterialDivider
+            android:id="@+id/nextBtnDivider1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
+            app:dividerColor="#D4D4D4"
+            app:layout_constraintBottom_toTopOf="@id/btnNext"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/btnNext1"
+            style="@style/GreenButton"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_45sdp"
+            android:layout_marginHorizontal="@dimen/_13sdp"
+            android:layout_marginTop="@dimen/_40sdp"
+            android:layout_marginBottom="@dimen/_20sdp"
+            android:background="@drawable/green_btn_bg"
+            android:backgroundTint="@color/dark_AAB9EF"
+            android:text="@string/validate"
+            android:textSize="@dimen/_14ssp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <com.google.android.material.divider.MaterialDivider
+            android:id="@+id/nextBtnDivider"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:layout_marginBottom="15dp"
+            app:dividerColor="#D4D4D4"
+            app:layout_constraintBottom_toTopOf="@id/btnNext"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/btnNext"
+            style="@style/GreenButton"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_45sdp"
+            android:layout_marginHorizontal="@dimen/_13sdp"
+            android:layout_marginTop="@dimen/_40sdp"
+            android:visibility="gone"
+            android:layout_marginBottom="@dimen/_20sdp"
+            android:background="@drawable/green_btn_bg"
+            android:text="@string/validate"
+            android:textSize="@dimen/_14ssp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

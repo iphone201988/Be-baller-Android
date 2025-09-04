@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.beballer.beballer.ui.player.dash_board.progression.ProgressionsFragmentVM" />
+
+
+        <variable
+            name="type"
+            type="Integer" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        tools:context=".ui.dash_board.progression.ProgressionsFragment">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clMain"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvTitle"
+                style="@style/TextView.InterMedium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_30sdp"
+                android:gravity="center"
+                android:text="Ranking"
+                android:textSize="@dimen/_15ssp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="@dimen/_40ssp"
+                android:padding="@dimen/_30sdp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/star_icn"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/firstCardView"
+                android:layout_width="@dimen/_80sdp"
+                android:layout_height="@dimen/_80sdp"
+                android:layout_marginTop="@dimen/_50sdp"
+                android:background="@drawable/circle_rank"
+                android:onClick="@{v->vm.onClick(v)}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvTitle"
+
+                >
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:layout_width="@dimen/_74sdp"
+                    android:layout_height="@dimen/_74sdp"
+                    android:layout_gravity="center"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/ic_round_account_circle_40"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:shapeAppearance="@style/ShapeAppearanceOverlay.App.CornerSize50Percent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="@dimen/_28sdp"
+                android:layout_height="@dimen/_28sdp"
+                android:layout_marginBottom="@dimen/_3sdp"
+                android:src="@drawable/second_king"
+                app:layout_constraintBottom_toTopOf="@+id/firstCardView"
+                app:layout_constraintEnd_toEndOf="@+id/firstCardView"
+                app:layout_constraintStart_toStartOf="@+id/firstCardView" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvFirst"
+                style="@style/TextView.InterMedium"
+                android:layout_width="@dimen/_16sdp"
+                android:layout_height="@dimen/_16sdp"
+                android:layout_marginBottom="-10dp"
+                android:background="@drawable/circle_rank"
+                android:gravity="center"
+                android:text="1"
+                android:textSize="@dimen/_10ssp"
+                app:layout_constraintBottom_toBottomOf="@+id/firstCardView"
+                app:layout_constraintEnd_toEndOf="@+id/firstCardView"
+                app:layout_constraintStart_toStartOf="@+id/firstCardView" />
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvFirstName"
+                style="@style/TextView.InterMedium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Ravi Don"
+                android:textColor="#546670"
+                android:textSize="@dimen/_10ssp"
+                app:layout_constraintEnd_toEndOf="@+id/firstCardView"
+                app:layout_constraintStart_toStartOf="@+id/firstCardView"
+                app:layout_constraintTop_toBottomOf="@+id/tvFirst" />
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/secondCardView"
+                android:layout_width="@dimen/_70sdp"
+                android:layout_height="@dimen/_70sdp"
+                android:layout_marginBottom="-22dp"
+                android:background="@drawable/circle_rank"
+                android:backgroundTint="#B7B7B7"
+                android:onClick="@{v->vm.onClick(v)}"
+                app:layout_constraintBottom_toBottomOf="@+id/firstCardView"
+                app:layout_constraintEnd_toStartOf="@+id/firstCardView"
+                app:layout_constraintStart_toStartOf="parent"
+
+                >
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:layout_width="@dimen/_64sdp"
+                    android:layout_height="@dimen/_64sdp"
+                    android:layout_gravity="center"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/ic_round_account_circle_40"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:shapeAppearance="@style/ShapeAppearanceOverlay.App.CornerSize50Percent" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="@dimen/_24sdp"
+                android:layout_height="@dimen/_24sdp"
+                android:layout_marginBottom="@dimen/_3sdp"
+                android:src="@drawable/first_king"
+                app:layout_constraintBottom_toTopOf="@+id/secondCardView"
+                app:layout_constraintEnd_toEndOf="@+id/secondCardView"
+                app:layout_constraintStart_toStartOf="@+id/secondCardView" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvSecond"
+                style="@style/TextView.InterMedium"
+                android:layout_width="@dimen/_16sdp"
+                android:layout_height="@dimen/_16sdp"
+                android:layout_marginBottom="-10dp"
+                android:background="@drawable/circle_rank"
+                android:backgroundTint="#B7B7B7"
+                android:gravity="center"
+                android:text="2"
+                android:textSize="@dimen/_10ssp"
+                app:layout_constraintBottom_toBottomOf="@+id/secondCardView"
+                app:layout_constraintEnd_toEndOf="@+id/secondCardView"
+                app:layout_constraintStart_toStartOf="@+id/secondCardView" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvSecondName"
+                style="@style/TextView.InterMedium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Asit"
+                android:textColor="#546670"
+                android:textSize="@dimen/_10ssp"
+                app:layout_constraintEnd_toEndOf="@+id/secondCardView"
+                app:layout_constraintStart_toStartOf="@+id/secondCardView"
+                app:layout_constraintTop_toBottomOf="@+id/tvSecond" />
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/thirdCardView"
+                android:layout_width="@dimen/_70sdp"
+                android:layout_height="@dimen/_70sdp"
+                android:layout_marginBottom="-22dp"
+                android:background="@drawable/circle_rank"
+                android:backgroundTint="#CC7327"
+                android:onClick="@{v->vm.onClick(v)}"
+                app:layout_constraintBottom_toBottomOf="@+id/firstCardView"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/firstCardView"
+
+                >
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:layout_width="@dimen/_64sdp"
+                    android:layout_height="@dimen/_64sdp"
+                    android:layout_gravity="center"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/ic_round_account_circle_40"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:shapeAppearance="@style/ShapeAppearanceOverlay.App.CornerSize50Percent" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="@dimen/_24sdp"
+                android:layout_height="@dimen/_24sdp"
+                android:layout_marginBottom="@dimen/_3sdp"
+                android:src="@drawable/third_king"
+                app:layout_constraintBottom_toTopOf="@+id/thirdCardView"
+                app:layout_constraintEnd_toEndOf="@+id/thirdCardView"
+                app:layout_constraintStart_toStartOf="@+id/thirdCardView" />
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvThird"
+                style="@style/TextView.InterMedium"
+                android:layout_width="@dimen/_16sdp"
+                android:layout_height="@dimen/_16sdp"
+                android:layout_marginBottom="-10dp"
+                android:background="@drawable/circle_rank"
+                android:backgroundTint="#CC7327"
+                android:gravity="center"
+                android:text="3"
+                android:textSize="@dimen/_10ssp"
+                app:layout_constraintBottom_toBottomOf="@+id/thirdCardView"
+                app:layout_constraintEnd_toEndOf="@+id/thirdCardView"
+                app:layout_constraintStart_toStartOf="@+id/thirdCardView" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvThirdName"
+                style="@style/TextView.InterMedium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Ashish Pink"
+                android:textColor="#546670"
+                android:textSize="@dimen/_10ssp"
+                app:layout_constraintEnd_toEndOf="@+id/thirdCardView"
+                app:layout_constraintStart_toStartOf="@+id/thirdCardView"
+                app:layout_constraintTop_toBottomOf="@+id/tvThird" />
+
+
+            <androidx.appcompat.widget.SearchView
+                android:id="@+id/progressionSearchView"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_26sdp"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginVertical="@dimen/_10sdp"
+                android:background="@drawable/search_view_background"
+                android:backgroundTint="@color/eeeeef"
+                android:drawablePadding="10dp"
+                android:fontFamily="@font/inter_regular"
+                android:textSize="@dimen/_11ssp"
+                app:iconifiedByDefault="false"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvThirdName"
+                app:queryBackground="@null"
+                app:queryHint="Search player"
+                app:searchIcon="@drawable/ic_search" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvCity"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:fontFamily="@font/inter_medium"
+            android:gravity="center"
+            android:onClick="@{v->vm.onClick(v)}"
+            android:text="City"
+            android:textColor="@{type==1 ?@color/black_000000 :@color/beballer_medium_grey}"
+            app:layout_constraintEnd_toStartOf="@+id/tvRegion"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/clMain" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvRegion"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/inter_medium"
+            android:gravity="center"
+            android:onClick="@{v->vm.onClick(v)}"
+            android:text="Region"
+            android:textColor="@{type==2 ?@color/black_000000 :@color/beballer_medium_grey}"
+            app:layout_constraintBottom_toBottomOf="@+id/tvCity"
+            app:layout_constraintEnd_toStartOf="@+id/tvCountry"
+            app:layout_constraintStart_toEndOf="@+id/tvCity"
+            app:layout_constraintTop_toTopOf="@+id/tvCity" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvCountry"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/inter_medium"
+            android:gravity="center"
+            android:onClick="@{v->vm.onClick(v)}"
+            android:text="Country"
+            android:textColor="@{type==3 ?@color/black_000000 :@color/beballer_medium_grey}"
+            app:layout_constraintBottom_toBottomOf="@+id/tvCity"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tvRegion"
+            app:layout_constraintTop_toTopOf="@+id/tvCity" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvProgression"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginHorizontal="@dimen/_6sdp"
+            android:clipToPadding="false"
+            android:orientation="vertical"
+            android:paddingTop="@dimen/_10sdp"
+            android:paddingBottom="@dimen/_10sdp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvCountry"
+            tools:itemCount="4"
+            tools:listitem="@layout/rv_ranking_item" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.beballer.beballer.ui.player.dash_board.social.suggested_user.SuggestedUserActivityVM" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/transparent"
+        tools:context=".ui.player.dash_board.social.suggested_user.SuggestedUserActivity">
+
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:id="@+id/mainCoordinatorLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/_20sdp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/clBottomSheet"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/bottom_bg"
+                android:clickable="false"
+                android:focusable="false"
+                app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvSuggested"
+                    style="@style/TextView.InterBold"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_12sdp"
+                    android:gravity="center"
+                    android:text="@string/suggested_users"
+                    android:textColor="@color/black_040404"
+                    android:textSize="@dimen/_18ssp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+                <androidx.appcompat.widget.SearchView
+                    android:id="@+id/svSuggestedSearchView"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_26sdp"
+                    android:layout_marginHorizontal="@dimen/_14sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:background="@drawable/search_view_background"
+                    android:backgroundTint="@color/eeeeef"
+                    android:focusable="false"
+                    android:fontFamily="@font/inter_regular"
+                    app:defaultQueryHint="Search a baller"
+                    app:iconifiedByDefault="false"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvSuggested"
+                    app:queryBackground="@null"
+                    app:searchIcon="@drawable/ic_search" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvSuggested"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:clipToPadding="true"
+                    android:orientation="vertical"
+                    android:paddingBottom="@dimen/_20sdp"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/svSuggestedSearchView"
+                    app:layout_constraintStart_toStartOf="@+id/svSuggestedSearchView"
+                    app:layout_constraintTop_toBottomOf="@+id/svSuggestedSearchView"
+                    tools:itemCount="4"
+                    tools:listitem="@layout/rv_suggested_item" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

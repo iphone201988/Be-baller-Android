@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="callback"
+            type="com.beballer.beballer.base.SimpleRecyclerViewAdapter.SimpleCallback" />
+
+        <variable
+            name="pos"
+            type="Integer" />
+
+        <variable
+            name="bean"
+            type="com.beballer.beballer.data.model.SuggestedUser" />
+
+
+        <import type="android.view.View" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clImageHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/_5sdp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/ivCommonPostProfile"
+            setImageFromUrl="@{bean.profilePicture}"
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:onClick="@{v->callback.onItemClick(v,bean,pos)}"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_round_account_circle_40"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:shapeAppearance="@style/ShapeAppearanceOverlay.App.CornerSize50Percent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvCommonPostName"
+            setName="@{bean}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:ellipsize="end"
+            android:fontFamily="@font/inter_semi_bold"
+            android:includeFontPadding="false"
+            android:maxLines="1"
+            android:onClick="@{v->callback.onItemClick(v,bean,pos)}"
+            android:textColor="@color/black_040404"
+            android:textSize="@dimen/_12ssp"
+            app:layout_constraintEnd_toStartOf="@id/tvSubscription"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toEndOf="@+id/ivCommonPostProfile"
+            app:layout_constraintTop_toTopOf="@+id/ivCommonPostProfile"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvImageTypeUsername"
+            setTextEmptyCheck="@{bean.username}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/inter_regular"
+            android:includeFontPadding="false"
+            android:textColor="@color/grey_50"
+            android:textSize="@dimen/_8ssp"
+            app:layout_constraintBottom_toTopOf="@id/tvImageSector"
+            app:layout_constraintStart_toStartOf="@+id/tvCommonPostName"
+            app:layout_constraintTop_toBottomOf="@+id/tvCommonPostName" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvImageSector"
+            setCountryName="@{bean}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/inter_regular"
+            android:includeFontPadding="false"
+            android:textColor="@color/beballer_medium_grey"
+            android:textSize="@dimen/_8ssp"
+            app:layout_constraintBottom_toBottomOf="@+id/ivCommonPostProfile"
+            app:layout_constraintStart_toStartOf="@+id/tvCommonPostName"
+            app:layout_constraintTop_toBottomOf="@+id/tvImageTypeUsername" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvSubscription"
+            style="@style/TextView.InterMedium"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_28sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:background="@drawable/round_corner_bg"
+            android:backgroundTint="@{bean.isSubscribed() == false ?@color/beballer_blue : @color/text_light}"
+            android:gravity="center"
+            android:onClick="@{v->callback.onItemClick(v,bean,pos)}"
+            android:paddingHorizontal="@dimen/_12sdp"
+            android:text='@{bean.isSubscribed()==false ? "Subscribe" : "Unsubscribe"}'
+            android:textColor="@color/white"
+            android:textSize="@dimen/_10ssp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/ivCommonPostProfile" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

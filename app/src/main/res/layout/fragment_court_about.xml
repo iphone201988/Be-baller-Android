@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.beballer.beballer.ui.player.dash_board.find.game.court_detail.CourtAboutFragmentVM" />
+
+        <variable
+            name="buttonCheck"
+            type="Boolean" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.dash_board.find.game.court_detail.CourtAboutFragment">
+
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/cancelImage"
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:layout_marginStart="2dp"
+            android:layout_marginTop="@dimen/_25sdp"
+            android:onClick="@{v->vm.onClick(v)}"
+            android:padding="6dp"
+            android:src="@drawable/back_button"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvTitle"
+            style="@style/TextView.InterBold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:text="Details about this court"
+            android:textSize="@dimen/_15ssp"
+            app:layout_constraintBottom_toBottomOf="@+id/cancelImage"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/cancelImage" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/_25sdp"
+            android:clipToPadding="false"
+            android:fillViewport="true"
+            android:paddingBottom="@dimen/_15sdp"
+            app:layout_constraintBottom_toTopOf="@+id/nextBtnDivider"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvTitle">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvCourtName"
+                    style="@style/TextView.InterMedium"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:gravity="center"
+                    android:text="Board type"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_12ssp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/etBoardType"
+                    style="@style/EditText"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_marginHorizontal="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_6sdp"
+                    android:background="@drawable/edit_text_bg_with_radius_10"
+                    android:focusable="false"
+                    android:fontFamily="@font/inter_medium"
+                    android:gravity="start|center"
+                    android:imeOptions="actionNext"
+                    android:inputType="textPersonName"
+                    android:nextFocusForward="@id/etCourtAddress"
+                    android:hint="Choose between these proposition"
+                    android:onClick="@{v->vm.onClick(v)}"
+                    android:paddingStart="@dimen/_15sdp"
+                    android:paddingEnd="@dimen/_15sdp"
+                    android:textColor="@color/black_000000"
+                    android:textColorHint="@color/dark_A9A9A9"
+                    android:textSize="@dimen/_11ssp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvCourtName" />
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvCourtAddress"
+                    style="@style/TextView.InterMedium"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:gravity="center"
+                    android:text="Net type"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_12ssp"
+                    app:layout_constraintStart_toStartOf="@+id/etBoardType"
+                    app:layout_constraintTop_toBottomOf="@+id/etBoardType" />
+
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/etNetType"
+                    style="@style/EditText"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_marginTop="@dimen/_6sdp"
+                    android:background="@drawable/edit_text_bg_with_radius_10"
+                    android:focusable="false"
+                    android:fontFamily="@font/inter_medium"
+                    android:gravity="start|center"
+                    android:imeOptions="actionNext"
+                    android:inputType="textPersonName"
+                    android:hint="Choose between these proposition"
+                    android:nextFocusForward="@id/etAccessibility"
+                    android:onClick="@{v->vm.onClick(v)}"
+                    android:paddingStart="@dimen/_15sdp"
+                    android:paddingEnd="@dimen/_15sdp"
+                    android:textColor="@color/black_000000"
+                    android:textColorHint="@color/dark_A9A9A9"
+                    android:textSize="@dimen/_11ssp"
+                    app:layout_constraintEnd_toEndOf="@+id/etBoardType"
+                    app:layout_constraintStart_toStartOf="@+id/etBoardType"
+                    app:layout_constraintTop_toBottomOf="@+id/tvCourtAddress" />
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvAccessibility"
+                    style="@style/TextView.InterMedium"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:gravity="center"
+                    android:text="Floor type"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_12ssp"
+                    app:layout_constraintStart_toStartOf="@+id/etBoardType"
+                    app:layout_constraintTop_toBottomOf="@+id/etNetType" />
+
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/etFloorType"
+                    style="@style/EditText"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_marginTop="@dimen/_6sdp"
+                    android:background="@drawable/edit_text_bg_with_radius_10"
+                    android:focusable="false"
+                    android:fontFamily="@font/inter_medium"
+                    android:gravity="start|center"
+                    android:imeOptions="actionNext"
+                    android:inputType="textPersonName"
+                    android:hint="Choose between these proposition"
+                    android:nextFocusForward="@id/etHoopsCount"
+                    android:onClick="@{v->vm.onClick(v)}"
+                    android:paddingStart="@dimen/_15sdp"
+                    android:paddingEnd="@dimen/_15sdp"
+                    android:textColor="@color/black_000000"
+                    android:textColorHint="@color/dark_A9A9A9"
+                    android:textSize="@dimen/_11ssp"
+                    app:layout_constraintEnd_toEndOf="@+id/etBoardType"
+                    app:layout_constraintStart_toStartOf="@+id/etBoardType"
+                    app:layout_constraintTop_toBottomOf="@+id/tvAccessibility" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvHoopsCount"
+                    style="@style/TextView.InterMedium"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:gravity="center"
+                    android:text="Lines and dimensions"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_12ssp"
+                    app:layout_constraintStart_toStartOf="@+id/etBoardType"
+                    app:layout_constraintTop_toBottomOf="@+id/etFloorType" />
+
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/etLines"
+                    style="@style/EditText"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_marginTop="@dimen/_6sdp"
+                    android:background="@drawable/edit_text_bg_with_radius_10"
+                    android:focusable="false"
+                    android:fontFamily="@font/inter_medium"
+                    android:gravity="start|center"
+                    android:imeOptions="actionNext"
+                    android:inputType="textPersonName"
+                    android:nextFocusForward="@id/etWaterPoint"
+                    android:onClick="@{v->vm.onClick(v)}"
+                    android:hint="Choose between these proposition"
+                    android:paddingStart="@dimen/_15sdp"
+                    android:paddingEnd="@dimen/_15sdp"
+                    android:textColor="@color/black_000000"
+                    android:textColorHint="@color/dark_A9A9A9"
+                    android:textSize="@dimen/_11ssp"
+                    app:layout_constraintEnd_toEndOf="@+id/etBoardType"
+                    app:layout_constraintStart_toStartOf="@+id/etBoardType"
+                    app:layout_constraintTop_toBottomOf="@+id/tvHoopsCount" />
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvWaterPoint"
+                    style="@style/TextView.InterMedium"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:gravity="center"
+                    android:text="Waterpoint"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_12ssp"
+                    app:layout_constraintStart_toStartOf="@+id/etBoardType"
+                    app:layout_constraintTop_toBottomOf="@+id/etLines" />
+
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/etWaterPoint"
+                    style="@style/EditText"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_marginTop="@dimen/_6sdp"
+                    android:background="@drawable/edit_text_bg_with_radius_10"
+                    android:focusable="false"
+                    android:fontFamily="@font/inter_medium"
+                    android:gravity="start|center"
+                    android:imeOptions="actionDone"
+                    android:inputType="textPersonName"
+                    android:onClick="@{v->vm.onClick(v)}"
+                    android:hint="Choose between these proposition"
+                    android:paddingStart="@dimen/_15sdp"
+                    android:paddingEnd="@dimen/_15sdp"
+                    android:textColor="@color/black_000000"
+                    android:textColorHint="@color/dark_A9A9A9"
+                    android:textSize="@dimen/_11ssp"
+                    app:layout_constraintEnd_toEndOf="@+id/etBoardType"
+                    app:layout_constraintStart_toStartOf="@+id/etBoardType"
+                    app:layout_constraintTop_toBottomOf="@+id/tvWaterPoint" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+
+
+        <com.google.android.material.divider.MaterialDivider
+            android:id="@+id/nextBtnDivider"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
+            app:dividerColor="#D4D4D4"
+            app:layout_constraintBottom_toTopOf="@id/btnNext"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/btnNext"
+            style="@style/GreenButton"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_45sdp"
+            android:layout_marginHorizontal="@dimen/_13sdp"
+            android:layout_marginTop="@dimen/_40sdp"
+            android:layout_marginBottom="@dimen/_20sdp"
+            android:background="@drawable/green_btn_bg"
+            android:backgroundTint="@{buttonCheck?@color/green:@color/dark_AAB9EF}"
+            android:onClick="@{v->vm.onClick(v)}"
+            android:text="@string/next"
+            android:textSize="@dimen/_14ssp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

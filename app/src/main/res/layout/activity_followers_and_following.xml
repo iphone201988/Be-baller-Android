@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.beballer.beballer.ui.player.dash_board.profile.followers.FollowersAndFollowingActivityVM" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        tools:context=".ui.player.dash_board.profile.followers.FollowersAndFollowingActivity">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivBack"
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:onClick="@{v->vm.onClick(v)}"
+            android:padding="@dimen/_6sdp"
+            android:src="@drawable/back_button"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvFollowers"
+            style="@style/TextView.InterBold"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Following"
+            android:textColor="@color/black_040404"
+            android:textSize="@dimen/_18ssp"
+            app:layout_constraintBottom_toBottomOf="@+id/ivBack"
+            app:layout_constraintStart_toEndOf="@+id/ivBack"
+            app:layout_constraintTop_toTopOf="@+id/ivBack" />
+
+
+        <androidx.appcompat.widget.SearchView
+            android:id="@+id/svFollowersSearchView"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_26sdp"
+            android:layout_marginHorizontal="@dimen/_14sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:background="@drawable/search_view_background"
+            android:backgroundTint="@color/eeeeef"
+            android:focusable="false"
+            android:fontFamily="@font/inter_regular"
+            app:defaultQueryHint="Search a baller"
+            app:iconifiedByDefault="false"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvFollowers"
+            app:queryBackground="@null"
+            app:searchIcon="@drawable/ic_search" />
+
+
+        <androidx.appcompat.widget.SearchView
+            android:id="@+id/svFollowingsSearchView"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_26sdp"
+            android:layout_marginHorizontal="@dimen/_14sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:background="@drawable/search_view_background"
+            android:backgroundTint="@color/eeeeef"
+            android:focusable="false"
+            android:fontFamily="@font/inter_regular"
+            app:defaultQueryHint="Search a baller"
+            app:iconifiedByDefault="false"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvFollowers"
+            app:queryBackground="@null"
+            app:searchIcon="@drawable/ic_search" />
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvFollowers"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:clipToPadding="true"
+            android:orientation="vertical"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:paddingBottom="@dimen/_20sdp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/svFollowersSearchView"
+            app:layout_constraintStart_toStartOf="@+id/svFollowersSearchView"
+            app:layout_constraintTop_toBottomOf="@+id/svFollowersSearchView"
+            tools:itemCount="4"
+            tools:listitem="@layout/rv_following_item" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvFollowing"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:clipToPadding="true"
+            android:orientation="vertical"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:paddingBottom="@dimen/_20sdp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/svFollowingsSearchView"
+            app:layout_constraintStart_toStartOf="@+id/svFollowingsSearchView"
+            app:layout_constraintTop_toBottomOf="@+id/svFollowingsSearchView"
+            tools:itemCount="4"
+            tools:listitem="@layout/rv_following_item" />
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

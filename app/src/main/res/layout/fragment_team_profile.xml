@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.beballer.beballer.ui.organizers.team_profile.TeamProfileFragmentVM" />
+
+        <variable
+            name="buttonCheck"
+            type="Boolean" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.organizers.team_profile.TeamProfileFragment">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivBack"
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:layout_marginStart="2dp"
+            android:layout_marginTop="@dimen/_30sdp"
+            android:onClick="@{v->vm.onClick(v)}"
+            android:padding="@dimen/_5sdp"
+            android:src="@drawable/back_button"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/ivPerson"
+            android:layout_width="@dimen/_50sdp"
+            android:layout_height="@dimen/_50sdp"
+            android:src="@drawable/profile"
+            android:tint="@color/grey"
+            app:layout_constraintBottom_toBottomOf="@+id/ivBack"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/ivBack" />
+
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivEdit"
+            android:layout_width="@dimen/_16sdp"
+            android:layout_height="@dimen/_16sdp"
+            android:layout_marginBottom="-5dp"
+            android:src="@drawable/pencil"
+            app:layout_constraintBottom_toBottomOf="@+id/ivPerson"
+            app:layout_constraintEnd_toEndOf="@+id/ivPerson" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvTeamName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_15sdp"
+            android:layout_marginTop="@dimen/_56sdp"
+            android:fontFamily="@font/inter_bold"
+            android:text="Team Name:"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_13ssp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ivPerson" />
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clFirst"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_45sdp"
+            android:layout_marginHorizontal="@dimen/_15sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:background="@drawable/edit_text_bg_with_radius_10"
+            android:onClick="@{v->vm.onClick(v)}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvTeamName">
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/etTeamName"
+                style="@style/EditText"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_45sdp"
+                android:layout_margin="@dimen/_2sdp"
+                android:backgroundTint="@color/transparent"
+                android:fontFamily="@font/inter_medium"
+                android:gravity="center|start"
+                android:hint="Enter team name"
+                android:imeOptions="actionNext"
+                android:inputType="textNoSuggestions|textCapWords"
+                android:nextFocusForward="@id/etLastName"
+                android:paddingStart="@dimen/_32ssp"
+                android:paddingEnd="@dimen/_18sdp"
+                android:textColor="@color/black_000000"
+                android:textColorHint="@color/grey_8B8FA0"
+                android:textSize="@dimen/_12ssp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_6sdp"
+                android:text="@string/team_name"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_16ssp"
+                app:layout_constraintBottom_toBottomOf="@+id/etTeamName"
+                app:layout_constraintStart_toStartOf="@+id/etTeamName"
+                app:layout_constraintTop_toTopOf="@+id/etTeamName"
+                tools:ignore="HardcodedText" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_6sdp"
+                android:src="@drawable/baseline_mode_edit_24"
+                android:textSize="@dimen/_16ssp"
+                android:tint="@color/et_stroke_color"
+                app:layout_constraintBottom_toBottomOf="@+id/etTeamName"
+                app:layout_constraintEnd_toEndOf="@+id/etTeamName"
+                app:layout_constraintTop_toTopOf="@+id/etTeamName"
+                tools:ignore="HardcodedText" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvTeamCode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:fontFamily="@font/inter_bold"
+            android:text="Team Code:"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_13ssp"
+            app:layout_constraintStart_toStartOf="@+id/tvTeamName"
+            app:layout_constraintTop_toBottomOf="@+id/clFirst" />
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clSecond"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_45sdp"
+            android:layout_marginHorizontal="@dimen/_15sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:background="@drawable/edit_text_bg_with_radius_10"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvTeamCode">
+
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/etTeamCode"
+                style="@style/EditText"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_45sdp"
+                android:layout_margin="@dimen/_2sdp"
+                android:backgroundTint="@color/transparent"
+                android:fontFamily="@font/inter_medium"
+                android:gravity="center|start"
+                android:hint="U1566"
+                android:imeOptions="actionDone"
+                android:inputType="textNoSuggestions|textCapWords"
+                android:paddingStart="@dimen/_32sdp"
+                android:paddingEnd="@dimen/_18sdp"
+                android:textColor="@color/black_000000"
+                android:textColorHint="@color/grey_8B8FA0"
+                android:textSize="@dimen/_12ssp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_4ssp"
+                android:text="@string/key"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_16ssp"
+                app:layout_constraintBottom_toBottomOf="@+id/etTeamCode"
+                app:layout_constraintStart_toStartOf="@+id/etTeamCode"
+                app:layout_constraintTop_toTopOf="@+id/etTeamCode"
+                tools:ignore="HardcodedText" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="@dimen/_15sdp"
+                android:layout_height="@dimen/_15sdp"
+                android:layout_marginEnd="@dimen/_6sdp"
+                android:rotation="270"
+                android:src="@drawable/copy"
+                android:textSize="@dimen/_16ssp"
+                android:tint="@color/et_stroke_color"
+                app:layout_constraintBottom_toBottomOf="@+id/etTeamCode"
+                app:layout_constraintEnd_toEndOf="@+id/etTeamCode"
+                app:layout_constraintTop_toTopOf="@+id/etTeamCode"
+                tools:ignore="HardcodedText" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvPlayers"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:fontFamily="@font/inter_bold"
+            android:text="Players:"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_13ssp"
+            app:layout_constraintStart_toStartOf="@+id/tvTeamName"
+            app:layout_constraintTop_toBottomOf="@+id/clSecond" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvNoPlayers"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_12sdp"
+            android:layout_marginTop="@dimen/_18sdp"
+            android:fontFamily="@font/inter_regular"
+            android:text="No player in this team for now"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_10ssp"
+            app:layout_constraintStart_toStartOf="@+id/tvTeamName"
+            app:layout_constraintTop_toBottomOf="@+id/tvPlayers" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_1sdp"
+            android:layout_marginTop="@dimen/_22sdp"
+            android:layout_marginEnd="@dimen/_12sdp"
+            android:background="@color/view_color"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/tvNoPlayers"
+            app:layout_constraintTop_toBottomOf="@+id/tvNoPlayers" />
+
+        <com.google.android.material.divider.MaterialDivider
+            android:id="@+id/nextBtnDivider"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
+            app:dividerColor="#D4D4D4"
+            app:layout_constraintBottom_toTopOf="@id/btnNext"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/btnNext"
+            style="@style/GreenButton"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_45sdp"
+            android:layout_marginHorizontal="@dimen/_13sdp"
+            android:layout_marginTop="@dimen/_40sdp"
+            android:layout_marginBottom="@dimen/_20sdp"
+            android:background="@drawable/green_btn_bg"
+            android:backgroundTint="@{buttonCheck?@color/green:@color/dark_AAB9EF}"
+            android:onClick="@{v->vm.onClick(v)}"
+            android:text="@string/save"
+            android:textSize="@dimen/_14ssp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

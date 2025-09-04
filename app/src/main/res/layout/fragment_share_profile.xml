@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.beballer.beballer.ui.player.dash_board.profile.share_profile.ShareProfileFragmentVM" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:fillViewport="true"
+        android:paddingBottom="@dimen/_10sdp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:context=".ui.dash_board.profile.share_profile.ShareProfileFragment">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivBack"
+                android:layout_width="@dimen/_30sdp"
+                android:layout_height="@dimen/_30sdp"
+                android:layout_marginStart="@dimen/_2sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:onClick="@{v->vm.onClick(v)}"
+                android:padding="@dimen/_6sdp"
+                android:src="@drawable/back_button"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvTitle"
+                style="@style/TextView.InterMedium"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-2dp"
+                android:gravity="center"
+                android:text="Share Profile"
+                android:textSize="@dimen/_18ssp"
+                app:layout_constraintBottom_toBottomOf="@+id/ivBack"
+                app:layout_constraintStart_toEndOf="@+id/ivBack"
+                app:layout_constraintTop_toTopOf="@+id/ivBack" />
+
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivBadge"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_16sdp"
+                android:adjustViewBounds="true"
+                android:src="@drawable/godfather"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvTitle"
+                app:layout_constraintWidth_percent="0.25" />
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvSubTitle"
+                style="@style/TextView.InterMedium"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_16sdp"
+                android:gravity="center"
+                android:text="Unlock a badge 🙌\nSponsor a friend by sharing\nyour profil code"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_11ssp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/ivBack"
+                app:layout_constraintTop_toBottomOf="@+id/ivBadge" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvSubTitle1"
+                style="@style/TextView.InterMedium"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_14sdp"
+                android:layout_marginTop="@dimen/_16sdp"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:text="Share your profile on social medias"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_11ssp"
+                app:layout_constraintStart_toStartOf="@+id/tvSubTitle"
+                app:layout_constraintTop_toBottomOf="@+id/tvSubTitle" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/clShareCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_16sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:background="@drawable/edit_text_bg_with_radius_10"
+                android:elevation="@dimen/_1sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvSubTitle1">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvLink"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_42sdp"
+                    android:layout_marginStart="@dimen/_18sdp"
+                    android:layout_marginTop="@dimen/_18sdp"
+                    android:layout_marginEnd="@dimen/_6sdp"
+                    android:background="@drawable/edit_text_bg_with_radius_10"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/inter_medium"
+                    android:gravity="start|center"
+                    android:paddingStart="@dimen/_38sdp"
+                    android:paddingEnd="@dimen/_18sdp"
+                    android:textStyle="bold"
+                    android:singleLine="true"
+                    android:text="https://app.beballerapp.com/rkjd"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/beballer_purple_grey"
+                    android:textSize="@dimen/_13ssp"
+                    app:layout_constraintEnd_toStartOf="@+id/tvCopy"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvCopy"
+                    style="@style/TextView.InterMedium"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_marginEnd="@dimen/_18sdp"
+                    android:background="@drawable/tab_bg"
+                    android:backgroundTint="@color/copy_color"
+                    android:gravity="start|center"
+                    android:onClick="@{v->vm.onClick(v)}"
+                    android:paddingHorizontal="@dimen/_14sdp"
+                    android:text="Copy"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_12ssp"
+                    app:layout_constraintBottom_toBottomOf="@+id/tvLink"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/tvLink" />
+
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="@dimen/_24sdp"
+                    android:layout_height="@dimen/_24sdp"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:src="@drawable/lock"
+                    app:layout_constraintBottom_toBottomOf="@+id/tvLink"
+                    app:layout_constraintStart_toStartOf="@+id/tvLink"
+                    app:layout_constraintTop_toTopOf="@+id/tvLink" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/ivInstagram"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="@dimen/_11sdp"
+                    android:layout_marginTop="@dimen/_25sdp"
+                    android:layout_marginEnd="@dimen/_3sdp"
+                    android:layout_marginBottom="@dimen/_10sdp"
+                    android:onClick="@{v->vm.onClick(v)}"
+                    android:background="@drawable/card_not_selected"
+                    android:padding="12dp"
+                    android:src="@drawable/instagram_logo"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintEnd_toStartOf="@id/ivMessenger"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvLink" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/ivMessenger"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginHorizontal="@dimen/_3sdp"
+                    android:background="@drawable/card_not_selected"
+                    android:padding="12dp"
+                    android:src="@drawable/messenger_logo"
+                    android:onClick="@{v->vm.onClick(v)}"
+                    app:layout_constraintBottom_toBottomOf="@+id/ivInstagram"
+                    app:layout_constraintEnd_toStartOf="@id/ivTwitter"
+                    app:layout_constraintStart_toEndOf="@id/ivInstagram"
+                    app:layout_constraintTop_toTopOf="@id/ivInstagram" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/ivTwitter"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginHorizontal="@dimen/_3sdp"
+                    android:background="@drawable/card_not_selected"
+                    android:padding="12dp"
+                    android:src="@drawable/twitter_logo"
+                    android:onClick="@{v->vm.onClick(v)}"
+                    app:layout_constraintBottom_toBottomOf="@+id/ivInstagram"
+                    app:layout_constraintEnd_toStartOf="@id/ivWhatsapp"
+                    app:layout_constraintStart_toEndOf="@id/ivMessenger"
+                    app:layout_constraintTop_toTopOf="@id/ivInstagram" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/ivWhatsapp"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="@dimen/_3sdp"
+                    android:layout_marginEnd="@dimen/_11sdp"
+                    android:background="@drawable/card_not_selected"
+                    android:padding="12dp"
+                    android:onClick="@{v->vm.onClick(v)}"
+                    android:src="@drawable/whatsapp_logo"
+                    app:layout_constraintBottom_toBottomOf="@+id/ivInstagram"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/ivTwitter"
+                    app:layout_constraintTop_toTopOf="@id/ivInstagram" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvCode"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_42sdp"
+                android:layout_marginStart="@dimen/_28sdp"
+                android:layout_marginTop="@dimen/_28sdp"
+                android:layout_marginEnd="@dimen/_6sdp"
+                android:background="@drawable/edit_text_bg_with_radius_10"
+                android:ellipsize="end"
+                android:fontFamily="@font/inter_medium"
+                android:gravity="center"
+                android:singleLine="true"
+                android:textStyle="bold"
+                android:text="LGROVER61"
+                android:textColor="@color/black"
+                android:textColorHint="@color/beballer_purple_grey"
+                android:textSize="@dimen/_13ssp"
+                app:layout_constraintEnd_toStartOf="@+id/tvCodeCopy"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/clShareCard" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvCodeCopy"
+                style="@style/TextView.InterMedium"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_marginEnd="@dimen/_18sdp"
+                android:background="@drawable/tab_bg"
+                android:backgroundTint="@color/copy_color"
+                android:gravity="start|center"
+                android:onClick="@{v->vm.onClick(v)}"
+                android:paddingHorizontal="@dimen/_14sdp"
+                android:text="Copy"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_12ssp"
+                app:layout_constraintBottom_toBottomOf="@+id/tvCode"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/tvCode" />
+
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="@dimen/_24sdp"
+                android:layout_height="@dimen/_24sdp"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:src="@drawable/lock"
+                app:layout_constraintBottom_toBottomOf="@+id/tvCode"
+                app:layout_constraintStart_toStartOf="@+id/tvCode"
+                app:layout_constraintTop_toTopOf="@+id/tvCode" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+</layout>

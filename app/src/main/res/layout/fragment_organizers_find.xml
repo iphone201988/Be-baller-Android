@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+    <variable
+        name="vm"
+        type="com.beballer.beballer.ui.organizers.dash_board.find.OrganizersFindFragmentVM" />
+
+        <variable
+            name="pos"
+            type="Integer" />
+
+        <import type="android.view.View" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.organizers.dash_board.find.OrganizersFindFragment">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clHeader"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_65sdp"
+            android:background="@color/fafafa"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvTitle"
+                style="@style/TextView.InterMedium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_14sdp"
+                android:layout_marginBottom="@dimen/_2sdp"
+                android:gravity="center"
+                android:text="Find"
+                android:textSize="@dimen/_18ssp"
+                app:layout_constraintBottom_toBottomOf="@+id/ivNotification"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/ivNotification" />
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/ivNotification"
+                android:layout_width="@dimen/_24sdp"
+                android:layout_height="@dimen/_24sdp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_13sdp"
+                android:src="@drawable/only_strock"
+                android:tint="@color/beballer_grey"
+                android:scaleType="centerCrop"
+                app:shapeAppearance="@style/ShapeAppearanceOverlay.App.CornerSize50Percent"/>
+
+
+
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="@dimen/_13sdp"
+                android:layout_height="@dimen/_13sdp"
+                android:src="@drawable/bell"
+                android:tint="@color/beballer_grey"
+                app:layout_constraintBottom_toBottomOf="@+id/ivNotification"
+                app:layout_constraintEnd_toEndOf="@+id/ivNotification"
+                app:layout_constraintStart_toStartOf="@+id/ivNotification"
+                app:layout_constraintTop_toTopOf="@+id/ivNotification" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clTab"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_28sdp"
+            android:layout_marginHorizontal="@dimen/_15sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:background="@drawable/tab_bg"
+            android:backgroundTint="@color/e9e9ea"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/clHeader">
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvFeed"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_24sdp"
+                style="@style/TextView.InterMedium"
+                android:layout_marginStart="@dimen/_3sdp"
+                android:layout_marginEnd="@dimen/_3sdp"
+                android:background="@{pos==1?@drawable/round_corner_bg:null}"
+                android:gravity="center"
+                android:onClick="@{v->vm.onClick(v)}"
+                android:text="@string/my_events"
+                android:textColor="@color/black_000000"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/tvSubscriptions"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvSubscriptions"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_24sdp"
+                style="@style/TextView.InterMedium"
+                android:layout_marginStart="@dimen/_3sdp"
+                android:layout_marginEnd="@dimen/_3sdp"
+                android:background="@{pos==2?@drawable/round_corner_bg:null}"
+                android:gravity="center"
+                android:onClick="@{v->vm.onClick(v)}"
+                android:text="@string/all_events"
+                android:textColor="@color/black_000000"
+                app:layout_constraintBottom_toBottomOf="@+id/tvFeed"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/tvFeed"
+                app:layout_constraintTop_toTopOf="@+id/tvFeed" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvFind"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginHorizontal="@dimen/_12sdp"
+            android:clipToPadding="false"
+            android:orientation="vertical"
+            android:paddingBottom="@dimen/_15sdp"
+            android:layout_marginTop="-12dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/clTab"
+            tools:itemCount="5"
+            tools:listitem="@layout/rv_organizers_find_item"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

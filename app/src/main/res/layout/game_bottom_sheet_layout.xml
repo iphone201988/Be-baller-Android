@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="callback"
+            type="com.beballer.beballer.utils.CommonBottomSheet.Listener" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bottom_bg"
+        android:elevation="@dimen/_10ssp">
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvLetsGo"
+            style="@style/TextView.InterMedium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_9ssp"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:text="Let's Play"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_16ssp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/createTournamentCard"
+            android:layout_width="@dimen/_70sdp"
+            android:layout_height="@dimen/_70sdp"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:background="@drawable/circle_rank"
+            android:backgroundTint="@color/white"
+            android:onClick="@{v->callback.onViewClick(v)}"
+            android:elevation="@dimen/_2sdp"
+            android:padding="@dimen/_8sdp"
+            app:layout_constraintEnd_toStartOf="@+id/requestWorkoutCard"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvLetsGo" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivCreateCircle"
+            android:layout_width="@dimen/_60sdp"
+            android:layout_height="@dimen/_60sdp"
+            android:layout_gravity="center"
+            android:background="@drawable/circle_rank"
+            android:backgroundTint="@color/tournaments_light_color"
+            android:elevation="@dimen/_2sdp"
+            android:padding="@dimen/_8sdp"
+            app:layout_constraintBottom_toBottomOf="@+id/createTournamentCard"
+            app:layout_constraintEnd_toEndOf="@+id/createTournamentCard"
+            app:layout_constraintStart_toStartOf="@+id/createTournamentCard"
+            app:layout_constraintTop_toTopOf="@+id/createTournamentCard" />
+
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_gravity="center"
+            android:elevation="@dimen/_2sdp"
+            android:padding="@dimen/_8sdp"
+            android:src="@drawable/ic_tournament_24"
+            app:layout_constraintBottom_toBottomOf="@+id/ivCreateCircle"
+            app:layout_constraintEnd_toEndOf="@+id/ivCreateCircle"
+            app:layout_constraintStart_toStartOf="@+id/ivCreateCircle"
+            app:layout_constraintTop_toTopOf="@+id/ivCreateCircle" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvCreateTournament"
+            style="@style/TextView.InterMedium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_9ssp"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:gravity="center"
+            android:text="Create a tournament"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_9ssp"
+            app:layout_constraintEnd_toStartOf="@+id/tvRequestWorkout"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/createTournamentCard" />
+
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/requestWorkoutCard"
+            android:layout_width="@dimen/_70sdp"
+            android:layout_height="@dimen/_70sdp"
+            android:layout_gravity="center"
+            android:background="@drawable/circle_rank"
+            android:onClick="@{v->callback.onViewClick(v)}"
+            android:backgroundTint="@color/white"
+            android:elevation="@dimen/_2sdp"
+            android:padding="@dimen/_8sdp"
+            app:layout_constraintBottom_toBottomOf="@+id/createTournamentCard"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/createTournamentCard"
+            app:layout_constraintTop_toTopOf="@+id/createTournamentCard" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivWorkoutCircle"
+            android:layout_width="@dimen/_60sdp"
+            android:layout_height="@dimen/_60sdp"
+            android:layout_gravity="center"
+            android:background="@drawable/circle_rank"
+            android:backgroundTint="@color/workouts_light_color"
+            android:elevation="@dimen/_2sdp"
+            android:padding="@dimen/_8sdp"
+            app:layout_constraintBottom_toBottomOf="@+id/requestWorkoutCard"
+            app:layout_constraintEnd_toEndOf="@+id/requestWorkoutCard"
+            app:layout_constraintStart_toStartOf="@+id/requestWorkoutCard"
+            app:layout_constraintTop_toTopOf="@+id/requestWorkoutCard" />
+
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_gravity="center"
+            android:elevation="@dimen/_2sdp"
+            android:padding="@dimen/_8sdp"
+            android:src="@drawable/ic_workout_24"
+            app:layout_constraintBottom_toBottomOf="@+id/ivWorkoutCircle"
+            app:layout_constraintEnd_toEndOf="@+id/ivWorkoutCircle"
+            app:layout_constraintStart_toStartOf="@+id/ivWorkoutCircle"
+            app:layout_constraintTop_toTopOf="@+id/ivWorkoutCircle" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvRequestWorkout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_9ssp"
+            android:fontFamily="@font/inter_bold"
+            android:gravity="center"
+            android:text="Request a workout"
+            android:textAllCaps="false"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_9ssp"
+            app:layout_constraintBottom_toBottomOf="@+id/tvCreateTournament"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tvCreateTournament"
+            app:layout_constraintTop_toTopOf="@+id/tvCreateTournament" />
+
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/addCourtCard"
+            android:layout_width="@dimen/_70sdp"
+            android:layout_height="@dimen/_70sdp"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/_16sdp"
+            android:background="@drawable/circle_rank"
+            android:backgroundTint="@color/white"
+            android:elevation="@dimen/_2sdp"
+            android:padding="@dimen/_8sdp"
+            android:onClick="@{v->callback.onViewClick(v)}"
+            app:layout_constraintStart_toStartOf="@+id/createTournamentCard"
+            app:layout_constraintTop_toBottomOf="@+id/tvRequestWorkout" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivCardCircle"
+            android:layout_width="@dimen/_60sdp"
+            android:layout_height="@dimen/_60sdp"
+            android:layout_gravity="center"
+            android:background="@drawable/circle_rank"
+            android:backgroundTint="@color/courts_light_color"
+            android:elevation="@dimen/_2sdp"
+            android:padding="@dimen/_8sdp"
+            app:layout_constraintBottom_toBottomOf="@+id/addCourtCard"
+            app:layout_constraintEnd_toEndOf="@+id/addCourtCard"
+            app:layout_constraintStart_toStartOf="@+id/addCourtCard"
+            app:layout_constraintTop_toTopOf="@+id/addCourtCard" />
+
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_gravity="center"
+            android:elevation="@dimen/_2sdp"
+            android:padding="@dimen/_8sdp"
+            android:src="@drawable/ic_court_24"
+            app:layout_constraintBottom_toBottomOf="@+id/ivCardCircle"
+            app:layout_constraintEnd_toEndOf="@+id/ivCardCircle"
+            app:layout_constraintStart_toStartOf="@+id/ivCardCircle"
+            app:layout_constraintTop_toTopOf="@+id/ivCardCircle" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvAddCourt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:fontFamily="@font/inter_bold"
+            android:gravity="center"
+            android:text="Add a court"
+            android:textAllCaps="false"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_9ssp"
+            app:layout_constraintEnd_toStartOf="@+id/tvCreateGame"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/addCourtCard" />
+
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/createGameCard"
+            android:layout_width="@dimen/_70sdp"
+            android:layout_height="@dimen/_70sdp"
+            android:layout_gravity="center"
+            android:background="@drawable/circle_rank"
+            android:onClick="@{v->callback.onViewClick(v)}"
+            android:backgroundTint="@color/white"
+            android:elevation="@dimen/_2sdp"
+            android:padding="@dimen/_8sdp"
+            app:layout_constraintBottom_toBottomOf="@+id/addCourtCard"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/addCourtCard"
+            app:layout_constraintTop_toTopOf="@+id/addCourtCard" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivGameCircle"
+            android:layout_width="@dimen/_60sdp"
+            android:layout_height="@dimen/_60sdp"
+            android:layout_gravity="center"
+            android:background="@drawable/circle_rank"
+            android:backgroundTint="@color/games_light_color"
+            android:elevation="@dimen/_2sdp"
+            android:padding="@dimen/_8sdp"
+            app:layout_constraintBottom_toBottomOf="@+id/createGameCard"
+            app:layout_constraintEnd_toEndOf="@+id/createGameCard"
+            app:layout_constraintStart_toStartOf="@+id/createGameCard"
+            app:layout_constraintTop_toTopOf="@+id/createGameCard" />
+
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_gravity="center"
+            android:elevation="@dimen/_2sdp"
+            android:padding="@dimen/_8sdp"
+            android:src="@drawable/ic_game_24"
+            app:layout_constraintBottom_toBottomOf="@+id/ivGameCircle"
+            app:layout_constraintEnd_toEndOf="@+id/ivGameCircle"
+            app:layout_constraintStart_toStartOf="@+id/ivGameCircle"
+            app:layout_constraintTop_toTopOf="@+id/ivGameCircle" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvCreateGame"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/inter_bold"
+            android:gravity="center"
+            android:text="Create Game"
+            android:textAllCaps="false"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_9ssp"
+            app:layout_constraintBottom_toBottomOf="@+id/tvAddCourt"
+            app:layout_constraintEnd_toEndOf="@+id/tvRequestWorkout"
+            app:layout_constraintStart_toStartOf="@+id/tvRequestWorkout"
+            app:layout_constraintTop_toTopOf="@+id/tvAddCourt" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/inter_bold"
+            android:gravity="center"
+            android:text="Add a court"
+            android:textAllCaps="false"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_9ssp"
+            android:visibility="invisible"
+            app:layout_constraintEnd_toStartOf="@+id/tvCreateGame"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvCreateGame" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

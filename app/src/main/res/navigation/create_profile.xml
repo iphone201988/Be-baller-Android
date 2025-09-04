@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/create_profile"
+    app:startDestination="@id/createProfileFragment">
+
+    <action
+        android:id="@+id/navigateCreateProfileFragment"
+        app:destination="@id/createProfileFragment" />
+    <action
+        android:id="@+id/navigateInformationFragment"
+        app:destination="@id/informationFragment" />
+
+    <action
+        android:id="@+id/navigateAddProfileFragment"
+        app:destination="@id/addProfileFragment" />
+
+    <action
+        android:id="@+id/navigateChooseAvatarFragment"
+        app:destination="@id/chooseAvatarFragment" />
+
+    <fragment
+        android:id="@+id/createProfileFragment"
+        android:name="com.beballer.beballer.ui.player.create_profile.profile.CreateProfileFragment"
+        tools:layout="@layout/fragment_create_profile" />
+    <fragment
+        android:id="@+id/informationFragment"
+        android:name="com.beballer.beballer.ui.player.create_profile.information.InformationFragment"
+        tools:layout="@layout/fragment_information" />
+
+    <fragment
+        android:id="@+id/addProfileFragment"
+        android:name="com.beballer.beballer.ui.player.create_profile.add_profile.AddProfilePictureFragment"
+        tools:layout="@layout/fragment_add_profile_picture" />
+
+    <fragment
+        android:id="@+id/chooseAvatarFragment"
+        android:name="com.beballer.beballer.ui.player.create_profile.choose_avtar.ChooseAvatarFragment"
+        tools:layout="@layout/fragment_choose_avatar" />
+</navigation>

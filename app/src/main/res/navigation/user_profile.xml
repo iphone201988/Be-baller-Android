@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/user_profile">
+
+
+    <fragment
+        android:id="@+id/positionFragment"
+        android:name="com.beballer.beballer.ui.player.dash_board.profile.position.PositionFragment"
+        tools:layout="@layout/fragment_position" />
+
+
+    <fragment
+        android:id="@+id/editFragment"
+        android:name="com.beballer.beballer.ui.player.dash_board.profile.edit_profile.EditProfileFragment"
+        tools:layout="@layout/fragment_edit_profile" />
+
+    <fragment
+        android:id="@+id/friendFragment"
+        android:name="com.beballer.beballer.ui.player.dash_board.profile.friend.FriendFragment"
+        tools:layout="@layout/fragment_friend" />
+
+    <fragment
+        android:id="@+id/policyFragment"
+        android:name="com.beballer.beballer.ui.player.dash_board.profile.policy.PolicyFragment"
+        tools:layout="@layout/fragment_policy" />
+
+    <fragment
+        android:id="@+id/subscriptionFragment"
+        android:name="com.beballer.beballer.ui.player.dash_board.profile.subscriptions.SubscriptionsFragment"
+        tools:layout="@layout/fragment_subscriptions" />
+
+    <fragment
+        android:id="@+id/shareProfileFragment"
+        android:name="com.beballer.beballer.ui.player.dash_board.profile.share_profile.ShareProfileFragment"
+        tools:layout="@layout/fragment_share_profile" />
+
+    <fragment
+        android:id="@+id/suggestionFragment"
+        android:name="com.beballer.beballer.ui.player.dash_board.profile.suggestions.SuggestionFragment"
+        tools:layout="@layout/fragment_suggestion" />
+
+    <fragment
+        android:id="@+id/teamFragment"
+        android:name="com.beballer.beballer.ui.player.dash_board.profile.team.TeamFragment"
+        tools:layout="@layout/fragment_team" />
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.beballer.beballer.ui.player.dash_board.profile.settings.SettingsFragment"
+        tools:layout="@layout/fragment_settings" />
+    <fragment
+        android:id="@+id/editImageFragment"
+        android:name="com.beballer.beballer.ui.player.dash_board.profile.user.edit_image.EditImageFragment"
+        tools:layout="@layout/fragment_edit_image" />
+
+    <fragment
+        android:id="@+id/courtFragment"
+        android:name="com.beballer.beballer.ui.player.dash_board.find.courts.CourtsFragment"
+        tools:layout="@layout/fragment_courts" />
+
+
+    <fragment
+        android:id="@+id/courtsDetailsFragment"
+        android:name="com.beballer.beballer.ui.player.dash_board.find.details.CourtsDetailsFragment"
+        tools:layout="@layout/fragment_courts_details" />
+
+    <fragment
+        android:id="@+id/myGameFragment"
+        android:name="com.beballer.beballer.ui.player.dash_board.find.my_game.MyGameFragment"
+        tools:layout="@layout/fragment_my_game" />
+
+    <fragment
+        android:id="@+id/ticketFragment"
+        android:name="com.beballer.beballer.ui.player.dash_board.find.ticket.TicketFragment"
+        tools:layout="@layout/fragment_ticket" />
+
+    <fragment
+        android:id="@+id/tournamentsFragment"
+        android:name="com.beballer.beballer.ui.player.dash_board.find.tournament.TournamentFragment"
+        tools:layout="@layout/fragment_tournament" />
+
+    <fragment
+        android:id="@+id/campsFragment"
+        android:name="com.beballer.beballer.ui.player.dash_board.find.camps.CampsFragment"
+        tools:layout="@layout/fragment_camps" />
+
+    <fragment
+        android:id="@+id/notificationFragment"
+        android:name="com.beballer.beballer.ui.player.dash_board.notification.NotificationsFragment"
+        tools:layout="@layout/fragment_notifications" />
+
+</navigation>

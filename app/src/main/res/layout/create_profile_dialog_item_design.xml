@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="callback"
+            type="com.beballer.beballer.utils.BaseCustomDialog.Listener" />
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/green_btn_bg"
+        android:backgroundTint="@color/white">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ballerImage"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:src="@drawable/emoji_create_profile"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvWelcome"
+            style="@style/TextView.InterMedium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_3sdp"
+            android:gravity="center"
+            android:text="@string/welcome"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ballerImage" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvLetsGo"
+            style="@style/TextView.InterMedium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:gravity="center"
+            android:text="@string/let_s_create_your_profile"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_14ssp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvWelcome" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvSo"
+            style="@style/TextView.InterMedium"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_20ssp"
+            android:layout_marginTop="@dimen/_26sdp"
+            android:text="@string/so_that_other_players_know_who_they_are_going_to_play_with"
+            android:textColor="@color/black_000000"
+            android:textSize="13sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvLetsGo" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvFirstDesc"
+            style="@style/TextView.InterMedium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_14ssp"
+            android:text="@string/add_your_information"
+            android:textColor="@color/beballer_medium_grey"
+            android:textSize="13sp"
+            app:layout_constraintStart_toStartOf="@+id/tvSo"
+            app:layout_constraintTop_toBottomOf="@+id/tvSo" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvSecondDesc"
+            style="@style/TextView.InterMedium"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:text="@string/your_photo_so_that_other_players_can_recognize_you_on_the_playgrounds"
+            android:textColor="@color/beballer_medium_grey"
+            android:textSize="13sp"
+            app:layout_constraintEnd_toEndOf="@+id/tvSo"
+            app:layout_constraintStart_toStartOf="@+id/tvSo"
+            app:layout_constraintTop_toBottomOf="@+id/tvFirstDesc" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvThirdDesc"
+            style="@style/TextView.InterMedium"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:text="@string/your_age_height_and_level_so_that_pickup_games_are_balanced"
+            android:textColor="@color/beballer_medium_grey"
+            android:textSize="13sp"
+            app:layout_constraintEnd_toEndOf="@+id/tvSo"
+            app:layout_constraintStart_toStartOf="@+id/tvSo"
+            app:layout_constraintTop_toBottomOf="@+id/tvSecondDesc" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvFourDesc"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:fontFamily="@font/inter_bold"
+            android:text="@string/your_position_so_that_recruiters_know_who_they_are_dealing_with_we_ll_talk_to_you_about_it_when_your_profile_is_created"
+            android:textColor="@color/beballer_medium_grey"
+            android:textSize="13sp"
+            app:layout_constraintEnd_toEndOf="@+id/tvSo"
+            app:layout_constraintStart_toStartOf="@+id/tvSo"
+            app:layout_constraintTop_toBottomOf="@+id/tvThirdDesc" />
+
+
+        <com.google.android.material.divider.MaterialDivider
+            android:id="@+id/next_btn_divider"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
+            app:dividerColor="#D4D4D4"
+            app:layout_constraintBottom_toTopOf="@id/btnNext"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/btnNext"
+            style="@style/GreenButton"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_45sdp"
+            android:layout_marginHorizontal="@dimen/_13sdp"
+            android:layout_marginTop="@dimen/_60sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:background="@drawable/green_btn_bg"
+            android:onClick="@{v->callback.onViewClick(v)}"
+            android:text="Let's go!"
+            android:textSize="@dimen/_14ssp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvFourDesc" />
+
+
+        <com.google.android.material.divider.MaterialDivider
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="13dp"
+            android:visibility="invisible"
+            app:dividerColor="#D4D4D4"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnNext" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

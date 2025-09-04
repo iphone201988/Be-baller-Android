@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="callback"
+            type="com.beballer.beballer.base.SimpleRecyclerViewAdapter.SimpleCallback" />
+
+        <variable
+            name="pos"
+            type="Integer" />
+
+        <variable
+            name="bean"
+            type="com.beballer.beballer.data.model.RankingModel" />
+
+        <import type="android.view.View" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/ranking_card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginVertical="5dp"
+        android:foreground="?android:attr/selectableItemBackground"
+        app:cardBackgroundColor="@color/ranking_user_background"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="0dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:animateLayoutChanges="true">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/player_rank_tv"
+                android:layout_width="@dimen/_60sdp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/inter_bold"
+                android:gravity="center"
+                android:includeFontPadding="false"
+                android:maxLines="1"
+                android:text="@{bean.code}"
+                android:textColor="@color/black"
+                android:textSize="22sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/ranking_divider"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="3." />
+
+            <com.google.android.material.divider.MaterialDivider
+                android:id="@+id/ranking_divider"
+                android:layout_width="5dp"
+                android:layout_height="0dp"
+                app:dividerColor="@color/white"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/player_information_layout"
+                app:layout_constraintStart_toEndOf="@id/player_rank_tv"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/player_information_layout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="5dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/player_score_layout"
+                app:layout_constraintStart_toEndOf="@+id/ranking_divider"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/player_image"
+                    setImageInt="@{bean.image}"
+                    android:layout_width="62dp"
+                    android:layout_height="62dp"
+                    android:src="@drawable/ic_round_account_circle_40"
+                    android:layout_margin="13dp"
+                    android:scaleType="centerCrop"
+                    app:shapeAppearance="@style/ShapeAppearanceOverlay.App.CornerSize50Percent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/player_badge_image_card"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    app:cardCornerRadius="20dp"
+                    app:cardElevation="0dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/player_image"
+                    app:layout_constraintStart_toEndOf="@+id/player_image"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.9">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/player_badge_image"
+                        android:layout_width="26dp"
+                        android:layout_height="26dp"
+                        android:layout_gravity="center"
+                        android:layout_marginBottom="0dp"
+                        android:src="@drawable/badgeloading"
+                        app:layout_constraintDimensionRatio="1:1"
+                        app:layout_constraintWidth_percent="0.15" />
+                </androidx.cardview.widget.CardView>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/player_fullname_tv"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="5dp"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/inter_bold"
+                    android:maxLines="1"
+                    android:text="@{bean.name}"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toTopOf="@id/player_username_tv"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/player_badge_image_card"
+                    app:layout_constraintTop_toTopOf="@+id/player_image"
+                    tools:text="Robuerto Pichet" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/player_username_tv"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="5dp"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/inter_bold"
+                    android:maxLines="1"
+                    android:text="@{bean.userName}"
+                    android:textColor="@color/black"
+                    android:textSize="11sp"
+                    app:layout_constraintBottom_toTopOf="@id/player_sector_tv"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/player_badge_image_card"
+                    app:layout_constraintTop_toBottomOf="@+id/player_fullname_tv"
+                    tools:text="\@roroPichet" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/player_sector_tv"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="5dp"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/inter_bold"
+                    android:maxLines="1"
+                    android:textColor="@color/black"
+                    android:textSize="11sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/player_image"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/player_badge_image_card"
+                    app:layout_constraintTop_toBottomOf="@+id/player_username_tv"
+                    tools:text="Paris" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/player_score_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_chainStyle="packed">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/player_score_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="middle"
+                    android:fontFamily="@font/inter_bold"
+                    android:includeFontPadding="false"
+                    android:text="0"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="22sp"
+                    app:layout_constraintBottom_toTopOf="@id/player_score_title_tv"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_chainStyle="packed"
+                    app:layout_constraintWidth_percent="0.2"
+                    tools:text="45" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/player_score_title_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/inter_bold"
+                    android:includeFontPadding="false"
+                    android:text="@string/ranking_Points"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="10sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@id/player_score_tv"
+                    app:layout_constraintStart_toStartOf="@+id/player_score_tv"
+                    app:layout_constraintTop_toBottomOf="@+id/player_score_tv" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</layout>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="callback"
+            type="com.beballer.beballer.base.SimpleRecyclerViewAdapter.SimpleCallback" />
+
+        <variable
+            name="pos"
+            type="Integer" />
+
+        <variable
+            name="bean"
+            type="com.beballer.beballer.data.model.MpvModel" />
+
+
+        <import type="android.view.View" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="@dimen/_65sdp"
+        android:layout_margin="@dimen/_5sdp"
+        android:paddingHorizontal="@dimen/_6sdp"
+        android:background="@drawable/player_bg"
+        android:layout_height="@dimen/_65sdp">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/ivBg"
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:scaleType="centerCrop"
+            android:background="@drawable/circle_rank"
+            android:backgroundTint="@color/camps_light_color"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:shapeAppearance="@style/ShapeAppearanceOverlay.App.CornerSize50Percent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/ivPlus"
+            android:layout_width="@dimen/_15sdp"
+            android:layout_height="@dimen/_15sdp"
+            android:src="@drawable/ic_plus_sign"
+            android:scaleType="centerCrop"
+            android:tint="@color/white"
+            app:layout_constraintEnd_toEndOf="@+id/ivBg"
+            app:shapeAppearance="@style/ShapeAppearanceOverlay.App.CornerSize50Percent"
+            app:layout_constraintTop_toTopOf="@+id/ivBg"
+            app:layout_constraintBottom_toBottomOf="@+id/ivBg"
+            app:layout_constraintStart_toStartOf="@+id/ivBg" />
+
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

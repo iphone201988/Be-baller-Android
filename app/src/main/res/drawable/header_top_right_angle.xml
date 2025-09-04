@@ -1,0 +1,12 @@
+<!-- res/drawable/top_right_angle.xml -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="330dp"
+    android:height="30dp"
+    android:viewportWidth="330"
+    android:viewportHeight="30">
+
+    <path
+        android:fillColor="#00BFFF"
+        android:pathData="M332,0 L210,0 L0,17 L340,270 Z" />
+
+</vector>

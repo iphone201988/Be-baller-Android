@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="callback"
+            type="com.beballer.beballer.base.SimpleRecyclerViewAdapter.SimpleCallback" />
+
+        <variable
+            name="pos"
+            type="Integer" />
+
+        <variable
+            name="bean"
+            type="com.beballer.beballer.data.model.ChatModel" />
+
+
+        <import type="android.view.View" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/other_user_profile_image_card"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="4dp"
+            android:visibility="@{bean.chatType?View.GONE:View.VISIBLE}"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="0dp"
+            app:layout_constraintBottom_toTopOf="@id/other_user_message_card"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/other_user_profile_image"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/ic_round_account_circle_40" />
+        </androidx.cardview.widget.CardView>
+
+
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/current_user_profile_image_card"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginTop="16dp"
+            android:visibility="@{bean.chatType?View.VISIBLE:View.GONE}"
+            android:layout_marginBottom="4dp"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="0dp"
+            app:layout_constraintBottom_toTopOf="@id/current_user_message_card"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/current_user_profile_image"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/ic_round_account_circle_40" />
+        </androidx.cardview.widget.CardView>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/sender_name_tv"
+            android:layout_width="wrap_content"
+            android:visibility="@{bean.chatType?View.GONE:View.VISIBLE}"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            app:layout_constraintBottom_toBottomOf="@+id/other_user_profile_image_card"
+            app:layout_constraintStart_toEndOf="@id/other_user_profile_image_card"
+            app:layout_constraintTop_toTopOf="@id/other_user_profile_image_card" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/other_user_message_card"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:visibility="@{bean.chatType?View.GONE:View.VISIBLE}"
+            android:foreground="?android:attr/selectableItemBackground"
+            app:cardBackgroundColor="#0F7A8FA6"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@id/other_user_profile_image_card">
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/other_user_message_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/inter_regular"
+                android:includeFontPadding="false"
+                android:visibility="@{bean.chatType?View.GONE:View.VISIBLE}"
+                android:paddingStart="10dp"
+                android:paddingTop="6dp"
+                android:text="@{bean.message}"
+                android:paddingEnd="10dp"
+                android:paddingBottom="6dp"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/current_user_message_card"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:visibility="@{bean.chatType?View.VISIBLE:View.GONE}"
+            android:foreground="?android:attr/selectableItemBackground"
+            app:cardBackgroundColor="@color/beballer_blue"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/current_user_profile_image_card">
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/current_user_message_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/inter_regular"
+                android:includeFontPadding="false"
+                android:paddingStart="10dp"
+                android:visibility="@{bean.chatType?View.VISIBLE:View.GONE}"
+                android:paddingTop="6dp"
+                android:text="@{bean.message}"
+                android:paddingEnd="10dp"
+                android:paddingBottom="6dp"
+                android:textColor="@color/white"
+                android:textSize="16sp" />
+        </androidx.cardview.widget.CardView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

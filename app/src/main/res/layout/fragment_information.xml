@@ -1,0 +1,425 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.beballer.beballer.ui.player.create_profile.information.InformationFragmentVM" />
+
+        <variable
+            name="buttonCheck"
+            type="Boolean" />
+
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.player.create_profile.information.InformationFragment">
+
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/cancelImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:onClick="@{v->vm.onClick(v)}"
+            android:padding="10dp"
+            android:src="@drawable/back_button"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="55dp"
+            android:layout_marginTop="@dimen/_7sdp"
+            android:fontFamily="@font/inter_bold"
+            android:lineSpacingExtra="@dimen/_2sdp"
+            android:text="Fill in the following\ninformation"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_16ssp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/cancelImage" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvSubTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:fontFamily="@font/inter_regular"
+            android:text="They will allow other players and recruiters to \nbetter understanding your profile.\nYou can always change it leter"
+            android:textAlignment="center"
+            android:textColor="@color/grey_8B8FA0"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
+
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/_25sdp"
+            android:clipToPadding="false"
+            android:fillViewport="true"
+            android:fitsSystemWindows="true"
+            android:paddingBottom="@dimen/_20sdp"
+            app:layout_constraintBottom_toTopOf="@+id/nextBtnDivider"
+            app:layout_constraintTop_toBottomOf="@+id/tvSubTitle">
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingVertical="26dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvSubTitle">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvFirstName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_15sdp"
+                    android:fontFamily="@font/inter_bold"
+                    android:text="Date of birth :"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_13ssp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/clFirst"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_45sdp"
+                    android:layout_marginHorizontal="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:background="@drawable/edit_text_bg_with_radius_10"
+                    android:onClick="@{v->vm.onClick(v)}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvFirstName">
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/etDate"
+                        style="@style/EditText"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/_45sdp"
+                        android:layout_margin="@dimen/_2sdp"
+                        android:backgroundTint="@color/transparent"
+                        android:focusable="false"
+                        android:fontFamily="@font/inter_medium"
+                        android:gravity="center"
+                        android:hint="Pick your date of birth"
+                        android:imeOptions="actionNext"
+                        android:inputType="textNoSuggestions|textCapWords"
+                        android:nextFocusForward="@id/etLastName"
+                        android:paddingStart="@dimen/_10sdp"
+                        android:paddingEnd="@dimen/_18sdp"
+                        android:textColor="@color/black_000000"
+                        android:textColorHint="@color/grey_8B8FA0"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="16dp"
+                        android:text="@string/wew"
+                        android:textColor="@color/white"
+                        android:textSize="24sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/etDate"
+                        app:layout_constraintStart_toStartOf="@+id/etDate"
+                        app:layout_constraintTop_toTopOf="@+id/etDate"
+                        tools:ignore="HardcodedText" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/ivDate"
+                        android:layout_width="@dimen/_18sdp"
+                        android:layout_height="@dimen/_18sdp"
+                        android:layout_marginEnd="@dimen/_10sdp"
+                        android:onClick="@{v->vm.onClick(v)}"
+                        android:src="@drawable/arrow_bg"
+                        app:layout_constraintBottom_toBottomOf="@+id/etDate"
+                        app:layout_constraintEnd_toEndOf="@+id/etDate"
+                        app:layout_constraintTop_toTopOf="@+id/etDate" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="@dimen/_8sdp"
+                        android:layout_height="@dimen/_8sdp"
+                        android:rotation="90"
+                        android:src="@drawable/right_arrow"
+                        android:tint="@color/et_stroke_color"
+                        app:layout_constraintBottom_toBottomOf="@+id/ivDate"
+                        app:layout_constraintEnd_toEndOf="@+id/ivDate"
+                        app:layout_constraintStart_toStartOf="@+id/ivDate"
+                        app:layout_constraintTop_toTopOf="@+id/ivDate" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvLastName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="18dp"
+                    android:fontFamily="@font/inter_bold"
+                    android:text="Gender :"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_13ssp"
+                    app:layout_constraintStart_toStartOf="@id/tvFirstName"
+                    app:layout_constraintTop_toBottomOf="@+id/clFirst" />
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/clSecond"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_45sdp"
+                    android:layout_marginHorizontal="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:background="@drawable/edit_text_bg_with_radius_10"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvLastName">
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/etGender"
+                        style="@style/EditText"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/_45sdp"
+                        android:layout_margin="@dimen/_2sdp"
+                        android:backgroundTint="@color/transparent"
+                        android:focusable="false"
+                        android:fontFamily="@font/inter_medium"
+                        android:gravity="center"
+                        android:hint="Pick a gender"
+                        android:imeOptions="actionNext"
+                        android:inputType="textNoSuggestions|textCapWords"
+                        android:nextFocusForward="@id/etUserName"
+                        android:paddingStart="@dimen/_10sdp"
+                        android:paddingEnd="@dimen/_18sdp"
+                        android:textColor="@color/black_000000"
+                        android:textColorHint="@color/grey_8B8FA0"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/ivGender"
+                        android:layout_width="@dimen/_18sdp"
+                        android:layout_height="@dimen/_18sdp"
+                        android:layout_marginEnd="@dimen/_10sdp"
+                        android:onClick="@{v->vm.onClick(v)}"
+                        android:src="@drawable/arrow_bg"
+                        app:layout_constraintBottom_toBottomOf="@+id/etGender"
+                        app:layout_constraintEnd_toEndOf="@+id/etGender"
+                        app:layout_constraintTop_toTopOf="@+id/etGender" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="@dimen/_8sdp"
+                        android:layout_height="@dimen/_8sdp"
+                        android:rotation="90"
+                        android:src="@drawable/right_arrow"
+                        android:tint="@color/et_stroke_color"
+                        app:layout_constraintBottom_toBottomOf="@+id/ivGender"
+                        app:layout_constraintEnd_toEndOf="@+id/ivGender"
+                        app:layout_constraintStart_toStartOf="@+id/ivGender"
+                        app:layout_constraintTop_toTopOf="@+id/ivGender" />
+
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="16dp"
+                        android:text="@string/er"
+                        android:textColor="@color/white"
+                        android:textSize="24sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/etGender"
+                        app:layout_constraintStart_toStartOf="@+id/etGender"
+                        app:layout_constraintTop_toTopOf="@+id/etGender"
+                        tools:ignore="HardcodedText" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvUserName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="18dp"
+                    android:fontFamily="@font/inter_bold"
+                    android:text="Height in CM :"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_13ssp"
+                    app:layout_constraintStart_toStartOf="@id/tvFirstName"
+                    app:layout_constraintTop_toBottomOf="@+id/clSecond" />
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/clThird"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_45sdp"
+                    android:layout_marginHorizontal="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:background="@drawable/edit_text_bg_with_radius_10"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvUserName">
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/etHeight"
+                        style="@style/EditText"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/_45sdp"
+                        android:layout_margin="@dimen/_2sdp"
+                        android:backgroundTint="@color/transparent"
+                        android:focusable="false"
+                        android:fontFamily="@font/inter_medium"
+                        android:gravity="center"
+                        android:hint="Pick Your Height"
+                        android:imeOptions="actionDone"
+                        android:inputType="textNoSuggestions|textCapWords"
+                        android:paddingStart="@dimen/_10sdp"
+                        android:paddingEnd="@dimen/_18sdp"
+                        android:textColor="@color/black_000000"
+                        android:textColorHint="@color/grey_8B8FA0"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="16dp"
+                        android:text="@string/eqw"
+                        android:textColor="@color/white"
+                        android:textSize="24sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/etHeight"
+                        app:layout_constraintStart_toStartOf="@+id/etHeight"
+                        app:layout_constraintTop_toTopOf="@+id/etHeight"
+                        tools:ignore="HardcodedText" />
+
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/ivHeight"
+                        android:layout_width="@dimen/_18sdp"
+                        android:layout_height="@dimen/_18sdp"
+                        android:layout_marginEnd="@dimen/_10sdp"
+                        android:onClick="@{v->vm.onClick(v)}"
+                        android:src="@drawable/arrow_bg"
+                        app:layout_constraintBottom_toBottomOf="@+id/etHeight"
+                        app:layout_constraintEnd_toEndOf="@+id/etHeight"
+                        app:layout_constraintTop_toTopOf="@+id/etHeight" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="@dimen/_8sdp"
+                        android:layout_height="@dimen/_8sdp"
+                        android:rotation="90"
+                        android:src="@drawable/right_arrow"
+                        android:tint="@color/et_stroke_color"
+                        app:layout_constraintBottom_toBottomOf="@+id/ivHeight"
+                        app:layout_constraintEnd_toEndOf="@+id/ivHeight"
+                        app:layout_constraintStart_toStartOf="@+id/ivHeight"
+                        app:layout_constraintTop_toTopOf="@+id/ivHeight" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/clSkip"
+                    android:layout_width="@dimen/_90sdp"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_marginHorizontal="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_18sdp"
+                    android:background="@drawable/player_bg"
+                    android:onClick="@{v->vm.onClick(v)}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/clThird">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tSkip"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_18sdp"
+                        android:fontFamily="@font/inter_bold"
+                        android:text="Skip"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_13ssp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/ivShare"
+                        android:layout_width="@dimen/_18sdp"
+                        android:layout_height="@dimen/_18sdp"
+                        android:layout_marginEnd="@dimen/_10sdp"
+                        android:src="@drawable/arrow_bg"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="@dimen/_8sdp"
+                        android:layout_height="@dimen/_8sdp"
+                        android:src="@drawable/right_arrow"
+                        android:tint="@color/et_stroke_color"
+                        app:layout_constraintBottom_toBottomOf="@+id/ivShare"
+                        app:layout_constraintEnd_toEndOf="@+id/ivShare"
+                        app:layout_constraintStart_toStartOf="@+id/ivShare"
+                        app:layout_constraintTop_toTopOf="@+id/ivShare" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </ScrollView>
+
+        <com.google.android.material.divider.MaterialDivider
+            android:id="@+id/nextBtnDivider"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
+            app:dividerColor="#D4D4D4"
+            app:layout_constraintBottom_toTopOf="@id/btnNext"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/btnNext"
+            style="@style/GreenButton"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_45sdp"
+            android:layout_marginHorizontal="@dimen/_13sdp"
+            android:layout_marginTop="@dimen/_40sdp"
+            android:layout_marginBottom="@dimen/_20sdp"
+            android:background="@drawable/green_btn_bg"
+            android:backgroundTint="@{buttonCheck?@color/green:@color/dark_AAB9EF}"
+            android:onClick="@{v->vm.onClick(v)}"
+            android:text="@string/next"
+            android:textSize="@dimen/_14ssp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>

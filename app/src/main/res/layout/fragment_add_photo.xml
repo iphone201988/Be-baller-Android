@@ -1,0 +1,450 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.beballer.beballer.ui.player.dash_board.find.game.add_photo.AddPhotoFragmentVM" />
+
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.dash_board.find.game.add_photo.AddPhotoFragment">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/cancelImage"
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:layout_marginStart="2dp"
+            android:layout_marginTop="@dimen/_25sdp"
+            android:onClick="@{v->vm.onClick(v)}"
+            android:padding="@dimen/_5sdp"
+            android:src="@drawable/back_button"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvTitle"
+            style="@style/TextView.InterMedium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Add the photo"
+            android:textSize="@dimen/_16ssp"
+            app:layout_constraintBottom_toBottomOf="@+id/cancelImage"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/cancelImage" />
+
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:fillViewport="true"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            app:layout_constraintBottom_toTopOf="@+id/nextBtnDivider"
+            app:layout_constraintTop_toBottomOf="@+id/tvTitle">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_14sdp"
+                android:paddingVertical="26dp">
+
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardAddImage1"
+                    android:layout_width="80dp"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="15dp"
+                    android:onClick="@{v->vm.onClick(v)}"
+                    app:cardCornerRadius="10dp"
+                    app:cardElevation="5dp"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/cardAddImage2"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/ivFirst1"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:adjustViewBounds="true"
+                            android:padding="20dp"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/camera_image"
+                            app:tint="@color/grey" />
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/ivFirst"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:scaleType="centerCrop" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                </androidx.cardview.widget.CardView>
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/ivFabFirst"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@string/done"
+                    android:src="@drawable/ic_plus_sign"
+                    app:backgroundTint="@color/blue_00bef5"
+                    app:fabCustomSize="25dp"
+                    android:onClick="@{v->vm.onClick(v)}"
+                    app:layout_constraintBottom_toBottomOf="@+id/cardAddImage1"
+                    app:layout_constraintEnd_toEndOf="@+id/cardAddImage1"
+                    app:layout_constraintStart_toEndOf="@+id/cardAddImage1"
+                    app:layout_constraintTop_toBottomOf="@+id/cardAddImage1"
+                    app:maxImageSize="15dp"
+                    app:shapeAppearanceOverlay="@style/RoundActionButton"
+                    app:tint="@color/white" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="4dp"
+                    android:fontFamily="@font/inter_semi_bold"
+                    android:text="1."
+                    android:textSize="15sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/cardAddImage1"
+                    app:layout_constraintEnd_toStartOf="@+id/cardAddImage1"
+                    tools:ignore="HardcodedText" />
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardAddImage2"
+                    android:layout_width="80dp"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="15dp"
+                    android:onClick="@{v->vm.onClick(v)}"
+                    app:cardCornerRadius="10dp"
+                    app:cardElevation="5dp"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintEnd_toStartOf="@+id/cardAddImage3"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/cardAddImage1"
+                    app:layout_constraintTop_toTopOf="parent">
+
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/ivSecond1"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:adjustViewBounds="true"
+                            android:padding="20dp"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/camera_image"
+                            app:tint="@color/grey" />
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/ivSecond"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:scaleType="centerCrop" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/ivFabTwo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@string/done"
+                    android:src="@drawable/ic_plus_sign"
+                    app:backgroundTint="@color/blue_00bef5"
+                    android:onClick="@{v->vm.onClick(v)}"
+                    app:fabCustomSize="25dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/cardAddImage2"
+                    app:layout_constraintEnd_toEndOf="@+id/cardAddImage2"
+                    app:layout_constraintStart_toEndOf="@+id/cardAddImage2"
+                    app:layout_constraintTop_toBottomOf="@+id/cardAddImage2"
+                    app:maxImageSize="15dp"
+                    app:shapeAppearanceOverlay="@style/RoundActionButton"
+                    app:tint="@color/white" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="4dp"
+                    android:fontFamily="@font/inter_semi_bold"
+                    android:text="2."
+                    android:textSize="15sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/cardAddImage2"
+                    app:layout_constraintEnd_toStartOf="@+id/cardAddImage2"
+                    tools:ignore="HardcodedText" />
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardAddImage3"
+                    android:layout_width="80dp"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="15dp"
+                    android:onClick="@{v->vm.onClick(v)}"
+                    app:cardCornerRadius="10dp"
+                    app:cardElevation="5dp"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@id/cardAddImage2"
+                    app:layout_constraintTop_toTopOf="parent">
+
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/ivThird1"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:adjustViewBounds="true"
+                            android:padding="20dp"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/camera_image"
+                            app:tint="@color/grey" />
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/ivThird"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:scaleType="centerCrop" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.cardview.widget.CardView>
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/ivFabThree"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@string/done"
+                    android:src="@drawable/ic_plus_sign"
+                    app:backgroundTint="@color/blue_00bef5"
+                    app:fabCustomSize="25dp"
+                    android:onClick="@{v->vm.onClick(v)}"
+                    app:layout_constraintBottom_toBottomOf="@+id/cardAddImage3"
+                    app:layout_constraintEnd_toEndOf="@+id/cardAddImage3"
+                    app:layout_constraintStart_toEndOf="@+id/cardAddImage3"
+                    app:layout_constraintTop_toBottomOf="@+id/cardAddImage3"
+                    app:maxImageSize="15dp"
+                    app:shapeAppearanceOverlay="@style/RoundActionButton"
+                    app:tint="@color/white" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="4dp"
+                    android:fontFamily="@font/inter_semi_bold"
+                    android:text="3."
+                    android:textSize="15sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/cardAddImage3"
+                    app:layout_constraintEnd_toStartOf="@+id/cardAddImage3"
+                    tools:ignore="HardcodedText" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvNotice"
+                    style="@style/TextView.InterMedium"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginTop="18dp"
+                    android:includeFontPadding="false"
+                    android:text="Indications for the photos"
+                    android:textColor="@color/black"
+                    android:textSize="17sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/ivFabThree" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvNoticeSecond"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="@dimen/_15sdp"
+                    android:fontFamily="@font/inter_regular"
+                    android:includeFontPadding="false"
+                    android:paddingEnd="@dimen/_10sdp"
+                    android:text="1. Take the first photo facing the hoop, on the 3- point line"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/tvNotice"
+                    app:layout_constraintTop_toBottomOf="@+id/tvNotice" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvNoticeThird"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/inter_regular"
+                    android:includeFontPadding="false"
+                    android:text="2. Take the second photo at 45 degrees between the 3-point line and the sideline"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="@+id/tvNoticeSecond"
+                    app:layout_constraintStart_toStartOf="@+id/tvNoticeSecond"
+                    app:layout_constraintTop_toBottomOf="@+id/tvNoticeSecond" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvNoticeFour"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/inter_regular"
+                    android:includeFontPadding="false"
+                    android:text="3. Take a photo of the whole court or with all the courts if there are several. Tip: activate the wide- angle or the panorama option"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="@+id/tvNoticeSecond"
+                    app:layout_constraintStart_toStartOf="@+id/tvNoticeSecond"
+                    app:layout_constraintTop_toBottomOf="@+id/tvNoticeThird" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvCourtGrade"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginTop="18dp"
+                    android:fontFamily="@font/inter_bold"
+                    android:text="Overall ratings"
+                    android:textColor="@color/black"
+                    android:textSize="17sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvNoticeFour" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/court_rating_bar_layout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvCourtGrade">
+
+
+                    <com.github.bilalnasir9.library.ratingbar.CustomRatingBar
+                        android:id="@+id/court_rating_bar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="16dp"
+                        android:layout_marginStart="@dimen/_2sdp"
+                        android:layout_marginTop="11dp"
+                        app:iconEmpty="@drawable/ic_basketball_empty"
+                        app:iconFilled="@drawable/ic_basketball_filled"
+                        app:iconHalf="@drawable/ic_basketball_filled"
+                        app:iconPadding="4dp"
+                        app:iconSize="20dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:maxRating="5"
+                        app:stepSize="0.5" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvCourtRating"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="4dp"
+                        android:fontFamily="@font/inter_bold"
+                        android:includeFontPadding="false"
+                        android:text="0.6"
+                        android:textColor="#BFBFBF"
+                        android:textSize="@dimen/_12ssp"
+                        app:layout_constraintBottom_toBottomOf="@+id/court_rating_bar"
+                        app:layout_constraintStart_toEndOf="@id/court_rating_bar"
+                        app:layout_constraintTop_toTopOf="@+id/court_rating_bar" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvCourtDescription"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginTop="18dp"
+                    android:fontFamily="@font/inter_bold"
+                    android:text="Commentaire :"
+                    android:textColor="@color/black"
+                    android:textSize="17sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/court_rating_bar_layout" />
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/etCourtDescription"
+                    style="@style/EditText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_14sdp"
+                    android:layout_marginTop="11dp"
+                    android:autofillHints="none"
+                    android:background="@drawable/edit_text_bg_with_radius_10"
+                    android:gravity="top"
+                    android:inputType="textCapSentences|textNoSuggestions|textMultiLine"
+                    android:letterSpacing="0"
+                    android:minHeight="@dimen/_38sdp"
+                    android:minLines="4"
+                    android:padding="16dp"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/beballer_purple_grey"
+                    android:textSize="17sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvCourtDescription" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+
+        <com.google.android.material.divider.MaterialDivider
+            android:id="@+id/nextBtnDivider"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
+            app:dividerColor="#D4D4D4"
+            app:layout_constraintBottom_toTopOf="@id/btnNext"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/btnNext"
+            style="@style/GreenButton"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_45sdp"
+            android:layout_marginHorizontal="@dimen/_13sdp"
+            android:layout_marginTop="@dimen/_40sdp"
+            android:layout_marginBottom="@dimen/_20sdp"
+            android:background="@drawable/green_btn_bg"
+            android:onClick="@{v->vm.onClick(v)}"
+            android:text="@string/next"
+            android:textSize="@dimen/_14ssp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

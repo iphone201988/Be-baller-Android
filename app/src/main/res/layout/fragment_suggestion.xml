@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.beballer.beballer.ui.player.dash_board.profile.suggestions.SuggestionFragmentVM" />
+
+        <variable
+            name="pos"
+            type="Integer" />
+
+        <variable
+            name="buttonCheck"
+            type="Boolean" />
+
+        <variable
+            name="buttonCheck1"
+            type="Boolean" />
+
+        <import type="android.view.View" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.dash_board.profile.suggestions.SuggestionFragment">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivBack"
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:layout_marginStart="@dimen/_2sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:onClick="@{v->vm.onClick(v)}"
+            android:padding="@dimen/_6sdp"
+            android:src="@drawable/back_button"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvTitle"
+            style="@style/TextView.InterMedium"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Back"
+            android:textSize="@dimen/_16ssp"
+            app:layout_constraintBottom_toBottomOf="@+id/ivBack"
+            app:layout_constraintStart_toEndOf="@+id/ivBack"
+            app:layout_constraintTop_toTopOf="@+id/ivBack" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clTab"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_28sdp"
+            android:layout_marginHorizontal="@dimen/_45sdp"
+            android:layout_marginTop="@dimen/_38sdp"
+            android:background="@drawable/tab_bg"
+            android:backgroundTint="@color/e9e9ea"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ivBack">
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvFeed"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_24sdp"
+                android:layout_marginStart="@dimen/_3sdp"
+                android:layout_marginEnd="@dimen/_3sdp"
+                android:background="@{pos==1?@drawable/round_corner_bg:null}"
+                android:gravity="center"
+                android:onClick="@{v->vm.onClick(v)}"
+                android:text="Problem"
+                android:textColor="@color/black_000000"
+                android:textSize="@dimen/_12ssp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/tvSubscriptions"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvSubscriptions"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_24sdp"
+                android:layout_marginStart="@dimen/_3sdp"
+                android:layout_marginEnd="@dimen/_3sdp"
+                android:background="@{pos==2?@drawable/round_corner_bg:null}"
+                android:gravity="center"
+                android:onClick="@{v->vm.onClick(v)}"
+                android:text="Suggestion"
+                android:textColor="@color/black_000000"
+                android:textSize="@dimen/_12ssp"
+                app:layout_constraintBottom_toBottomOf="@+id/tvFeed"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/tvFeed"
+                app:layout_constraintTop_toTopOf="@+id/tvFeed" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/_35sdp"
+            android:visibility="@{pos==2?View.VISIBLE:View.GONE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/clTab">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvSuggestion"
+                style="@style/TextView.InterMedium"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_12sdp"
+                android:layout_marginTop="@dimen/_32sdp"
+                android:gravity="center|start"
+                android:onClick="@{v->vm.onClick(v)}"
+                android:text="Describe your suggestion"
+                android:textColor="@color/black_000000"
+                android:textSize="@dimen/_12ssp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/etSuggestion"
+                style="@style/EditText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_14sdp"
+                android:layout_marginTop="11dp"
+                android:autofillHints="none"
+                android:background="@drawable/edit_text_bg_with_radius_10"
+                android:gravity="top|start"
+                android:hint="Ex: I would like to be able to send messages to other users"
+                android:inputType="textCapSentences|textNoSuggestions|textMultiLine"
+                android:letterSpacing="0"
+                android:minHeight="@dimen/_148sdp"
+                android:minLines="4"
+                android:paddingVertical="@dimen/_10sdp"
+                android:paddingStart="@dimen/_10sdp"
+                android:paddingEnd="@dimen/_10sdp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/dark_A9A9A9"
+                android:textSize="@dimen/_12ssp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvSuggestion" />
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/btnValidate"
+                style="@style/GreenButton"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_45sdp"
+                android:layout_marginHorizontal="@dimen/_13sdp"
+                android:layout_marginBottom="@dimen/_40sdp"
+                android:background="@drawable/green_btn_bg"
+                android:backgroundTint="@{buttonCheck1?@color/first_color:@color/dark_AAB9EF}"
+                android:onClick="@{v->vm.onClick(v)}"
+                android:text="@string/validate"
+                android:textSize="@dimen/_14ssp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/GreenButton"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_20sdp"
+                android:layout_marginBottom="@dimen/_20sdp"
+                android:background="@drawable/green_btn_bg"
+                android:onClick="@{v->vm.onClick(v)}"
+                android:text="@string/validate"
+                android:visibility="invisible"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/btnValidate" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:fillViewport="true"
+            android:visibility="@{pos==1?View.VISIBLE:View.GONE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/clTab">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvImpact"
+                    style="@style/TextView.InterMedium"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_24sdp"
+                    android:layout_marginStart="@dimen/_12sdp"
+                    android:layout_marginTop="@dimen/_32sdp"
+                    android:gravity="center"
+                    android:onClick="@{v->vm.onClick(v)}"
+                    android:text="Impact of the bug"
+                    android:textColor="@color/black_000000"
+                    android:textSize="@dimen/_12ssp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/etImpact"
+                    style="@style/EditText"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_25sdp"
+                    android:layout_marginHorizontal="@dimen/_14sdp"
+                    android:layout_marginTop="@dimen/_3sdp"
+                    android:background="@drawable/arrow_bg"
+                    android:focusable="false"
+                    android:gravity="center|start"
+                    android:hint="Choose"
+                    android:imeOptions="actionDone"
+                    android:inputType="number"
+                    android:maxLength="14"
+                    android:nextFocusForward="@id/etDetails"
+                    android:onClick="@{v->vm.onClick(v)}"
+                    android:paddingStart="@dimen/_12sdp"
+                    android:paddingEnd="@dimen/_13sdp"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/dark_A9A9A9"
+                    android:textSize="@dimen/_12ssp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvImpact" />
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvDetails"
+                    style="@style/TextView.InterMedium"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_12sdp"
+                    android:layout_marginTop="@dimen/_32sdp"
+                    android:gravity="center|start"
+                    android:onClick="@{v->vm.onClick(v)}"
+                    android:text="Describe the problem with as much\ndetail as possible."
+                    android:textColor="@color/black_000000"
+                    android:textSize="@dimen/_12ssp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/etImpact" />
+
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/etDetails"
+                    style="@style/EditText"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_90sdp"
+                    android:layout_marginHorizontal="@dimen/_14sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:background="@drawable/edit_text_bg_with_radius_10"
+                    android:gravity="top|start"
+                    android:hint="Ex: The app crashes when i go to Find -> Cpurts"
+                    android:inputType="textMultiLine"
+                    android:paddingVertical="@dimen/_10sdp"
+                    android:paddingStart="@dimen/_10sdp"
+                    android:paddingEnd="@dimen/_10sdp"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/dark_A9A9A9"
+                    android:textSize="@dimen/_12ssp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvDetails" />
+
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/ivIssue"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_140sdp"
+                    android:layout_marginHorizontal="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:scaleType="centerCrop"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/etDetails"
+                    app:shapeAppearance="@style/ShapeAppearanceOverlay.App.CornerSize10Percent" />
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvCourtPicture"
+                    android:layout_width="@dimen/_50sdp"
+                    android:layout_height="@dimen/_50sdp"
+                    android:background="@drawable/card_not_selected"
+                    android:elevation="@dimen/_2sdp"
+                    android:gravity="center"
+                    android:onClick="@{v->vm.onClick(v)}"
+                    app:layout_constraintBottom_toBottomOf="@+id/ivIssue"
+                    app:layout_constraintEnd_toEndOf="@id/ivIssue"
+                    app:layout_constraintStart_toStartOf="@+id/ivIssue"
+                    app:layout_constraintTop_toTopOf="@id/ivIssue" />
+
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/ivCamera"
+                    android:layout_width="@dimen/_30sdp"
+                    android:layout_height="@dimen/_30sdp"
+                    android:elevation="@dimen/_2sdp"
+                    android:padding="@dimen/_2sdp"
+                    android:src="@drawable/camera_image"
+                    android:tint="@color/blue"
+                    app:layout_constraintBottom_toBottomOf="@+id/tvCourtPicture"
+                    app:layout_constraintEnd_toEndOf="@id/tvCourtPicture"
+                    app:layout_constraintStart_toStartOf="@id/tvCourtPicture"
+                    app:layout_constraintTop_toTopOf="@id/tvCourtPicture" />
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/btnNext"
+                    style="@style/GreenButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_45sdp"
+                    android:layout_marginHorizontal="@dimen/_13sdp"
+                    android:layout_marginTop="@dimen/_40sdp"
+                    android:layout_marginBottom="@dimen/_20sdp"
+                    android:background="@drawable/green_btn_bg"
+                    android:backgroundTint="@{buttonCheck?@color/first_color:@color/dark_AAB9EF}"
+                    android:onClick="@{v->vm.onClick(v)}"
+                    android:text="@string/validate"
+                    android:textSize="@dimen/_14ssp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/ivIssue" />
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    style="@style/GreenButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_20sdp"
+                    android:background="@drawable/green_btn_bg"
+                    android:onClick="@{v->vm.onClick(v)}"
+                    android:text="@string/validate"
+                    android:visibility="invisible"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/btnNext" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

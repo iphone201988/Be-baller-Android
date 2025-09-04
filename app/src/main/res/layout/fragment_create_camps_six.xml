@@ -1,0 +1,374 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.beballer.beballer.ui.organizers.camps_create.CommonCreateCampsFragmentVM" />
+
+        <variable
+            name="buttonCheck"
+            type="Boolean" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.organizers.camps_create.CreateCampsSixFragment">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/cancelImage"
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:layout_marginStart="@dimen/_2sdp"
+            android:layout_marginTop="@dimen/_40sdp"
+            android:onClick="@{v->vm.onClick(v)}"
+            android:padding="@dimen/_6sdp"
+            android:src="@drawable/back_button"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="55dp"
+            android:layout_marginTop="@dimen/_7sdp"
+            android:fontFamily="@font/inter_bold"
+            android:lineSpacingExtra="@dimen/_2sdp"
+            android:text="Fill in the tournament information"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_16ssp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/cancelImage" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvSubTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:fontFamily="@font/inter_regular"
+            android:text="Fill out the informations"
+            android:textAlignment="center"
+            android:textColor="@color/grey_8B8FA0"
+            android:textSize="@dimen/_12ssp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
+
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/_25sdp"
+            android:clipToPadding="false"
+            android:fillViewport="true"
+            android:fitsSystemWindows="true"
+            android:paddingBottom="@dimen/_20sdp"
+            app:layout_constraintBottom_toTopOf="@+id/nextBtnDivider"
+            app:layout_constraintTop_toBottomOf="@+id/tvSubTitle">
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingVertical="26dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvSubTitle">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvFirstName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_15sdp"
+                    android:fontFamily="@font/inter_bold"
+                    android:text="Tournament name:"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_13ssp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/clFirst"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_45sdp"
+                    android:layout_marginHorizontal="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:background="@drawable/edit_text_bg_with_radius_10"
+                    android:onClick="@{v->vm.onClick(v)}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvFirstName">
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/etTournamentName"
+                        style="@style/EditText"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/_45sdp"
+                        android:layout_margin="@dimen/_2sdp"
+                        android:backgroundTint="@color/transparent"
+                        android:fontFamily="@font/inter_medium"
+                        android:gravity="center|start"
+                        android:hint="Ex.BEBALLER Cuo"
+                        android:imeOptions="actionNext"
+                        android:inputType="textNoSuggestions|textCapWords"
+                        android:nextFocusForward="@id/etNumberOfItem"
+                        android:paddingStart="@dimen/_32ssp"
+                        android:paddingEnd="@dimen/_18sdp"
+                        android:textColor="@color/black_000000"
+                        android:textColorHint="@color/grey_8B8FA0"
+                        android:textSize="@dimen/_12ssp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_6sdp"
+                        android:layout_marginBottom="12dp"
+                        android:text="@string/write"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_16ssp"
+                        app:layout_constraintBottom_toBottomOf="@+id/etTournamentName"
+                        app:layout_constraintStart_toStartOf="@+id/etTournamentName"
+                        app:layout_constraintTop_toTopOf="@+id/etTournamentName"
+                        tools:ignore="HardcodedText" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvTournamentAddress"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="18dp"
+                    android:fontFamily="@font/inter_bold"
+                    android:text="Number of teams:"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_13ssp"
+                    app:layout_constraintStart_toStartOf="@+id/tvFirstName"
+                    app:layout_constraintTop_toBottomOf="@+id/clFirst" />
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/clSecond"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_45sdp"
+                    android:layout_marginHorizontal="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:background="@drawable/edit_text_bg_with_radius_10"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvTournamentAddress">
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/etNumberOfItem"
+                        style="@style/EditText"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/_45sdp"
+                        android:layout_margin="@dimen/_2sdp"
+                        android:backgroundTint="@color/transparent"
+                        android:fontFamily="@font/inter_medium"
+                        android:gravity="center|start"
+                        android:hint="Ex: 8"
+                        android:imeOptions="actionNext"
+                        android:inputType="number"
+                        android:nextFocusForward="@id/etNumberOfGroup"
+                        android:paddingStart="@dimen/_32sdp"
+                        android:paddingEnd="@dimen/_18sdp"
+                        android:textColor="@color/black_000000"
+                        android:textColorHint="@color/grey_8B8FA0"
+                        android:textSize="@dimen/_12ssp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_4ssp"
+                        android:text="@string/ball"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_16ssp"
+                        app:layout_constraintBottom_toBottomOf="@+id/etNumberOfItem"
+                        app:layout_constraintStart_toStartOf="@+id/etNumberOfItem"
+                        app:layout_constraintTop_toTopOf="@+id/etNumberOfItem"
+                        tools:ignore="HardcodedText" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvAgeRange"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="18dp"
+                    android:fontFamily="@font/inter_bold"
+                    android:text="Number of groups:"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_13ssp"
+                    app:layout_constraintStart_toStartOf="@+id/tvFirstName"
+                    app:layout_constraintTop_toBottomOf="@+id/clSecond" />
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/clThird"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_45sdp"
+                    android:layout_marginHorizontal="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:background="@drawable/edit_text_bg_with_radius_10"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvAgeRange">
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/etNumberOfGroup"
+                        style="@style/EditText"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/_45sdp"
+                        android:layout_margin="@dimen/_2sdp"
+                        android:backgroundTint="@color/transparent"
+                        android:fontFamily="@font/inter_medium"
+                        android:gravity="center|start"
+                        android:hint="Ex: 6"
+                        android:imeOptions="actionNext"
+                        android:inputType="number"
+                        android:maxLength="3"
+                        android:nextFocusForward="@id/etNumberOfCourts"
+                        android:paddingStart="@dimen/_32sdp"
+                        android:paddingEnd="@dimen/_18sdp"
+                        android:singleLine="true"
+                        android:textColor="@color/black_000000"
+                        android:textColorHint="@color/grey_8B8FA0"
+                        android:textSize="@dimen/_12ssp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/_6sdp"
+                        android:text="@string/group"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_16ssp"
+                        app:layout_constraintBottom_toBottomOf="@+id/etNumberOfGroup"
+                        app:layout_constraintStart_toStartOf="@+id/etNumberOfGroup"
+                        app:layout_constraintTop_toTopOf="@+id/etNumberOfGroup"
+                        tools:ignore="HardcodedText" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvNumberOfCourts"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="18dp"
+                    android:fontFamily="@font/inter_bold"
+                    android:text="Number of available courts:"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_13ssp"
+                    app:layout_constraintStart_toStartOf="@+id/tvFirstName"
+                    app:layout_constraintTop_toBottomOf="@+id/clThird" />
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/clFour"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_45sdp"
+                    android:layout_marginHorizontal="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:background="@drawable/edit_text_bg_with_radius_10"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvNumberOfCourts">
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/etNumberOfCourts"
+                        style="@style/EditText"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/_45sdp"
+                        android:layout_margin="@dimen/_2sdp"
+                        android:backgroundTint="@color/transparent"
+                        android:fontFamily="@font/inter_medium"
+                        android:gravity="center|start"
+                        android:hint="Ex: 6"
+                        android:imeOptions="actionDone"
+                        android:inputType="number"
+                        android:maxLength="3"
+                        android:paddingStart="@dimen/_35sdp"
+                        android:paddingEnd="@dimen/_18sdp"
+                        android:singleLine="true"
+                        android:textColor="@color/black_000000"
+                        android:textColorHint="@color/grey_8B8FA0"
+                        android:textSize="@dimen/_12ssp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="@dimen/_20sdp"
+                        android:layout_height="@dimen/_20sdp"
+                        android:layout_marginStart="@dimen/_6sdp"
+                        android:src="@drawable/ic_court_24"
+                        app:layout_constraintBottom_toBottomOf="@+id/etNumberOfCourts"
+                        app:layout_constraintStart_toStartOf="@+id/etNumberOfCourts"
+                        app:layout_constraintTop_toTopOf="@+id/etNumberOfCourts" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </ScrollView>
+
+        <com.google.android.material.divider.MaterialDivider
+            android:id="@+id/nextBtnDivider"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
+            app:dividerColor="#D4D4D4"
+            app:layout_constraintBottom_toTopOf="@id/btnNext"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/btnNext"
+            style="@style/GreenButton"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_45sdp"
+            android:layout_marginHorizontal="@dimen/_13sdp"
+            android:layout_marginTop="@dimen/_40sdp"
+            android:layout_marginBottom="@dimen/_20sdp"
+            android:background="@drawable/green_btn_bg"
+            android:backgroundTint="@{buttonCheck?@color/green:@color/dark_AAB9EF}"
+            android:onClick="@{v->vm.onClick(v)}"
+            android:text="@string/next"
+            android:textSize="@dimen/_14ssp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

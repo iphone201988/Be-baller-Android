@@ -1,0 +1,170 @@
+<resources>
+    <string name="app_name">BEBALLER</string>
+    <string name="default_web_client_id">AIzaSyDbJF5yGGiAxNmPUvVuDxmVHV3s2P7wrJU.apps.googleusercontent.com</string>
+    <string name="maps_api_key" translatable="false">AIzaSyDnm1YR4oHhIorXFYFoGSQU3_4d-8G_WX8</string>
+    <string name="session_expired">session_expired</string>
+    <string name="alert">Alert</string>
+    <string name="post_detail">Post Detail</string>
+    <string name="please_try_again">Please try again</string>
+    <string name="plz_wait">Plz wait</string>
+    <string name="error_found">Error Found</string>
+    <string name="click_me">Click Me</string>
+    <string name="android_base_2025">Android Base 2025</string>
+    <string name="todo">TODO</string>
+    <string name="next">Next</string>
+    <string name="start">Start</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="phone_number">Phone number</string>
+    <string name="already_have_an_account"><u>Already have an account?</u></string>
+    <string name="no_yet_account"><u>No account yet?</u></string>
+    <string name="enter_validation_code">Enter Validation Code</string>
+    <string name="subscriptions">Subscriptions</string>
+    <string name="beballer">@BEBALLER</string>
+    <string name="findCourts_SurCeTerrain">On this court:</string>
+    <string name="findCourts_DeviensKingDuTerrain">Become King of the court</string>
+    <string name="subscribe">Subscribe</string>
+    <string name="welcome">Welcome 🙌</string>
+    <string name="congrats">Congrats 🙌</string>
+    <string name="so_that_other_players_know_who_they_are_going_to_play_with">So that other players know who they are going to play with:</string>
+    <string name="let_s_create_your_profile">Let\'s create your profile</string>
+    <string name="add_your_information">Add your information:</string>
+    <string name="your_photo_so_that_other_players_can_recognize_you_on_the_playgrounds">📸 your photo so that other players can recognize you on the playgrounds</string>
+    <string name="your_age_height_and_level_so_that_pickup_games_are_balanced">🏀 Your age, height and level so that pickup games are balanced</string>
+    <string name="your_position_so_that_recruiters_know_who_they_are_dealing_with_we_ll_talk_to_you_about_it_when_your_profile_is_created">⛹️‍♂️ Your position so that recruiters know who they are dealing with (we’ll talk to you about it when your profile is created 😉)</string>
+    <string name="er">⛹️‍♂️</string>
+    <string name="wew">🥳</string>
+    <string name="write">✍️</string>
+    <string name="fire">🔥</string>
+    <string name="eqw">📏</string>
+    <string name="man">🧔‍</string>
+    <string name="group">📋‍</string>
+    <string name="location">📍</string>
+    <string name="calender">🗓️</string>
+    <string name="mobile">📱</string>
+    <string name="calender1">🗒️</string>
+    <string name="price">💶</string>
+    <string name="link">🔗</string>
+    <string name="ball">🏀</string>
+    <string name="accountSettings_DateDeNaissance">Birthdate</string>
+    <string name="done">Done</string>
+    <string name="findCourts_CeTerrainABesoinDUnePhoto">This court needs a photo</string>
+    <string name="findCourts_AccessibleATous">Accessible to everyone</string>
+    <string name="add_a_courts">Add a courts</string>
+    <string name="add_a_court">Add a court</string>
+    <string name="findCourts_Paniers">1 Hoop</string>
+
+    <string name="fsd">fsd</string>
+    <string name="profile_Posts">Posts</string>
+    <string name="profile_Classement">classement</string>
+    <string name="statistics">Statistics</string>
+    <string name="inventory">Inventory</string>
+    <string name="rossylan">@Rossylan</string>
+    <string name="ranking_Points">Points</string>
+    <string name="statistics_Victoires">Victories</string>
+    <string name="are_you_sure_you_want_to_delete">Are you sure you want to \nDelete Account?</string>
+    <string name="are_you_sure_you_want_to_logout">Are you sure you want to \nLogout?</string>
+    <string name="statistics_Defaites">Defeat</string>
+    <string name="mode_1VS11">1VS1</string>
+    <string name="the_court_is_your_kingdom_nwin_games_to_wear_the_crown">The court is your kingdom!\nWin games to wear the crown.</string>
+    <string name="findGames_FormatDeJeu">Game Format</string>
+    <string name="mode_1VS1">1 VS 1</string>
+    <string name="findGames_PartageLeMatch">Share the game:</string>
+    <string name="fill_in_information">Fill in the information</string>
+    <string name="game_score">Game Score</string>
+    <string name="i_m_looking_for_a_team"><u>I\'m looking for a team</u></string>
+    <string name="save">Save</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="by_sharing_your_most_beautiful_actions">🫵 By sharing your most beautiful actions</string>
+    <string name="by_winning_games_against_other_players">🏀 By winning games against other players</string>
+    <string name="and_by_having_the_most_points_in_the_ranking">📈 And by having the most points in the ranking!</string>
+    <string name="validate">Submit</string>
+    <string name="player">Player</string>
+    <string name="organizer">Organizer</string>
+    <string name="create_matches_with_the_ballers_and_become_the_king_of_your_playground">Create matches with the ballers and become the King of your playground.</string>
+    <string name="sign_up">Sign up</string>
+    <string name="choose_a_sign_in_option">Choose a sign in option</string>
+    <string name="your_mobile">Your mobile:</string>
+    <string name="sign_in">Sign in</string>
+    <string name="matches_completed">Matches completed</string>
+    <string name="fossesmarlybasket">@FossesMarlyBasket</string>
+    <string name="fonds">@</string>
+    <string name="all_events">All Events</string>
+    <string name="my_events">My Events</string>
+    <string name="create_court">Court name %1$s</string>
+    <string name="hint_court">Ex: « Court %1$s »</string>
+    <string name="your_camp_is_now_available_n_on_beballer">🥳Your camp is now available\n on BEBALLER</string>
+    <string name="key">🔑</string>
+    <string name="team_name">🏷️</string>
+    <string name="or">OR</string>
+    <string name="snapClientId">6c9e37dc-684d-4f09-9370-07dc8897adc1</string>
+    <string name="snapRedirectUri">beballer://redirect</string>
+    <string name="scopes">https://auth.snapchat.com/oauth2/api/user.display_name</string>
+    <string name="facebook_app_id">684749202246183</string>
+    <string name="client_token">f3476f1816909bda5d8f9c510357a1ec</string>
+    <string name="welcome_to_beballer">Welcome to BEBALLER</string>
+    <string name="here_is_the_social_tab">Here is the Social tab.</string>
+    <string name="this_is_where_you_can_interact_with_the_community">This is where you can interact with the community!</string>
+    <string name="use_the_button">Use the + button at the bottom right to share your best plays, news, updates, or basketball articles:</string>
+    <string name="to_show_you_like_a_post_click_on_the_ball">To show you like a post, click on the ball.</string>
+    <string name="and_since">And since we\'re all about basketball, you can give it the value of a free throw, a 2-pointer, or a 3-pointer by clicking 1, 2, or 3 times depending on how much you enjoyed the content 😉</string>
+    <string name="abonnements">Abonnements</string>
+    <string name="this_is_where">This is where you\'ll find everything related to you. What you\'ve posted in Social, your ranking, your stats, and the badges you\'ve earned.\nYou can also change your photo and adjust your settings.</string>
+    <string name="unlock_a_badge">Unlock a badge 🙌</string>
+    <string name="sponsor_a_friend">Sponsor a friend by sharing\nyour profil code</string>
+    <string name="share_your_profile_on_social_medias">Share your profile on social medias</string>
+    <string name="in_the_meantime_choose_nfrom_those_avatars">In the meantime, choose\nfrom those avatars</string>
+    <string name="subscribed">Subscribed</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="previous">Previous</string>
+
+    <string name="lorem_ipsum">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in scelerisque sem. Mauris
+        volutpat, dolor id interdum ullamcorper, risus dolor egestas lectus, sit amet mattis purus
+        dui nec risus. Maecenas non sodales nisi, vel dictum dolor. Class aptent taciti sociosqu ad
+        litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse blandit eleifend
+        diam, vel rutrum tellus vulputate quis. Aliquam eget libero aliquet, imperdiet nisl a,
+        ornare ex. Sed rhoncus est ut libero porta lobortis. Fusce in dictum tellus.\n\n
+        Suspendisse interdum ornare ante. Aliquam nec cursus lorem. Morbi id magna felis. Vivamus
+        egestas, est a condimentum egestas, turpis nisl iaculis ipsum, in dictum tellus dolor sed
+        neque. Morbi tellus erat, dapibus ut sem a, iaculis tincidunt dui. Interdum et malesuada
+        fames ac ante ipsum primis in faucibus. Curabitur et eros porttitor, ultricies urna vitae,
+        molestie nibh. Phasellus at commodo eros, non aliquet metus. Sed maximus nisl nec dolor
+        bibendum, vel congue leo egestas.\n\n
+        Sed interdum tortor nibh, in sagittis risus mollis quis. Curabitur mi odio, condimentum sit
+        amet auctor at, mollis non turpis. Nullam pretium libero vestibulum, finibus orci vel,
+        molestie quam. Fusce blandit tincidunt nulla, quis sollicitudin libero facilisis et. Integer
+        interdum nunc ligula, et fermentum metus hendrerit id. Vestibulum lectus felis, dictum at
+        lacinia sit amet, tristique id quam. Cras eu consequat dui. Suspendisse sodales nunc ligula,
+        in lobortis sem porta sed. Integer id ultrices magna, in luctus elit. Sed a pellentesque
+        est.\n\n
+        Aenean nunc velit, lacinia sed dolor sed, ultrices viverra nulla. Etiam a venenatis nibh.
+        Morbi laoreet, tortor sed facilisis varius, nibh orci rhoncus nulla, id elementum leo dui
+        non lorem. Nam mollis ipsum quis auctor varius. Quisque elementum eu libero sed commodo. In
+        eros nisl, imperdiet vel imperdiet et, scelerisque a mauris. Pellentesque varius ex nunc,
+        quis imperdiet eros placerat ac. Duis finibus orci et est auctor tincidunt. Sed non viverra
+        ipsum. Nunc quis augue egestas, cursus lorem at, molestie sem. Morbi a consectetur ipsum, a
+        placerat diam. Etiam vulputate dignissim convallis. Integer faucibus mauris sit amet finibus
+        convallis.\n\n
+        Phasellus in aliquet mi. Pellentesque habitant morbi tristique senectus et netus et
+        malesuada fames ac turpis egestas. In volutpat arcu ut felis sagittis, in finibus massa
+        gravida. Pellentesque id tellus orci. Integer dictum, lorem sed efficitur ullamcorper,
+        libero justo consectetur ipsum, in mollis nisl ex sed nisl. Donec maximus ullamcorper
+        sodales. Praesent bibendum rhoncus tellus nec feugiat. In a ornare nulla. Donec rhoncus
+        libero vel nunc consequat, quis tincidunt nisl eleifend. Cras bibendum enim a justo luctus
+        vestibulum. Fusce dictum libero quis erat maximus, vitae volutpat diam dignissim.
+    </string>
+    <string name="followers">Followers</string>
+    <string name="following">Following</string>
+    <string name="in_this_section_you_ll_find_the_posts_from_people_you_follow_tap_here_to_discover_other_ballers">In this section, you\'ll find the posts from people you follow. Tap here to discover other ballers.</string>
+    <string name="feed">Feed</string>
+    <string name="suggested_users">Suggested users</string>
+    <string name="subscription">Subscription</string>
+    <string name="edit_profile">Edit profile</string>
+    <string name="share_profile">Share profile</string>
+    <string name="unsubscribe">Unsubscribe</string>
+
+</resources>

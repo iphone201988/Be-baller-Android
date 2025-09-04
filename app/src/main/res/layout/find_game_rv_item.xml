@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="callback"
+            type="com.beballer.beballer.base.SimpleRecyclerViewAdapter.SimpleCallback" />
+
+        <variable
+            name="pos"
+            type="Integer" />
+
+        <variable
+            name="bean"
+            type="com.beballer.beballer.data.model.FindModel" />
+
+        <import type="android.view.View" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/clMain"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginVertical="10dp"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:onClick="@{v->callback.onItemClick(v,bean,pos)}"
+        app:cardCornerRadius="10dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:animateLayoutChanges="true">
+
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/ivCourt"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:adjustViewBounds="true"
+                android:background="@color/grey"
+                android:padding="@dimen/_3sdp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/iv_event"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintWidth_percent="0.32"
+                app:shapeAppearance="@style/ShapeAppearanceOverlay.App.CornerSize8Percent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvCourtName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_2sdp"
+                android:layout_marginTop="@dimen/_4sdp"
+                android:layout_marginEnd="@dimen/_6sdp"
+                android:ellipsize="end"
+                android:fontFamily="@font/inter_bold"
+                android:includeFontPadding="false"
+                android:maxLines="2"
+                android:text="Test Court"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_10ssp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/ivCourt"
+                app:layout_constraintTop_toTopOf="@+id/ivCourt" />
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvCourtCity"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_12sdp"
+                android:ellipsize="end"
+                android:fontFamily="@font/inter_bold"
+                android:includeFontPadding="false"
+                android:maxLines="2"
+                android:text="Sahibzada Ajit Singh Nager 160059"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_10ssp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/tvCourtName"
+                app:layout_constraintStart_toStartOf="@+id/tvCourtName"
+                app:layout_constraintTop_toBottomOf="@+id/tvCourtName" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/clRating"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_4sdp"
+                android:layout_marginEnd="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/tvCourtCity"
+                app:layout_constraintTop_toBottomOf="@+id/tvCourtCity">
+
+
+
+                <com.github.bilalnasir9.library.ratingbar.CustomRatingBar
+                    android:id="@+id/ratingBarCourt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:iconEmpty="@drawable/ic_basketball_empty"
+                    app:iconFilled="@drawable/ic_basketball_filled"
+                    app:iconHalf="@drawable/ic_basketball_filled"
+                    android:layout_marginStart="@dimen/_2sdp"
+                    app:iconSize="20dp"
+                    app:stepSize="0.5"
+                    app:layout_constraintStart_toEndOf="@id/tvCourtRating"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:iconPadding="4dp"
+                    app:maxRating="5"
+                    />
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvCourtRating"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="4dp"
+                    android:fontFamily="@font/inter_bold"
+                    android:includeFontPadding="false"
+                    android:text="N/A"
+                    android:textColor="#BFBFBF"
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvCourtDistance"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:ellipsize="end"
+                android:fontFamily="@font/inter_regular"
+                android:includeFontPadding="false"
+                android:maxLines="2"
+                android:text="2.2km"
+                android:textColor="#989898"
+                android:textSize="@dimen/_9ssp"
+                app:layout_constraintEnd_toEndOf="@+id/tvCourtName"
+                app:layout_constraintStart_toStartOf="@+id/clRating"
+                app:layout_constraintTop_toBottomOf="@+id/clRating" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvCourtHoops"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:ellipsize="end"
+                android:fontFamily="@font/inter_regular"
+                android:includeFontPadding="false"
+                android:maxLines="2"
+                android:text="1 hope"
+                android:textColor="#989898"
+                android:textSize="@dimen/_9ssp"
+                app:layout_constraintEnd_toEndOf="@+id/clRating"
+                app:layout_constraintStart_toStartOf="@+id/clRating"
+                app:layout_constraintTop_toBottomOf="@+id/tvCourtDistance" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvCourtKingIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:fontFamily="@font/inter_bold"
+                android:includeFontPadding="false"
+                android:maxLines="2"
+                android:text="👑 "
+                android:textColor="@color/black"
+                android:textSize="@dimen/_10ssp"
+                app:layout_constraintBottom_toBottomOf="@+id/tvCourtKing"
+                app:layout_constraintStart_toStartOf="@+id/clRating"
+                app:layout_constraintTop_toTopOf="@+id/tvCourtKing"
+                tools:ignore="HardcodedText" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvCourtKing"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="8dp"
+                android:ellipsize="end"
+                android:fontFamily="@font/inter_medium"
+                android:gravity="start|center"
+                android:includeFontPadding="false"
+                android:maxLines="2"
+                android:text="Become king of the field"
+                android:textColor="@color/blue"
+                android:textSize="@dimen/_9ssp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/tvCourtKingIcon"
+                app:layout_constraintTop_toBottomOf="@id/tvCourtHoops" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginTop="-2dp"
+                android:background="@color/blue"
+                app:layout_constraintEnd_toEndOf="@+id/tvCourtKing"
+                app:layout_constraintStart_toStartOf="@+id/tvCourtKing"
+                app:layout_constraintTop_toBottomOf="@+id/tvCourtKing" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</layout>

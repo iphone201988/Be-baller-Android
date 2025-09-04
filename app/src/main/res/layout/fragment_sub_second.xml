@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.beballer.beballer.ui.player.dash_board.social.SocialsFragmentVM" />
+
+        <variable
+            name="visibilityHandel"
+            type="Boolean" />
+
+        <import type="android.view.View" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/green_btn_bg"
+        android:backgroundTint="@color/white"
+        tools:context=".ui.player.dash_board.social.sub.SubFragment">
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvWelcome"
+            style="@style/TextView.InterMedium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_14sdp"
+            android:layout_marginTop="@dimen/_14sdp"
+            android:gravity="start"
+            android:visibility="invisible"
+            android:text="@string/welcome_to_beballer"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_13ssp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvTab"
+            style="@style/TextView.InterRegular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_14sdp"
+            android:layout_marginTop="@dimen/_4sdp"
+            android:visibility="invisible"
+            android:gravity="start"
+            android:text="@string/here_is_the_social_tab"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_10ssp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvWelcome" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvTabCommunity"
+            style="@style/TextView.InterRegular"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_14sdp"
+            android:visibility="invisible"
+            android:layout_marginTop="@dimen/_2sdp"
+            android:layout_marginEnd="@dimen/_14sdp"
+            android:gravity="start"
+            android:text="@string/this_is_where_you_can_interact_with_the_community"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_10ssp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvTab" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvUse"
+            style="@style/TextView.InterRegular"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_14sdp"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:layout_marginEnd="@dimen/_14sdp"
+            android:gravity="start"
+            android:visibility="invisible"
+            android:text="@string/use_the_button"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_10ssp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvTabCommunity" />
+
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/ivPlus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_16sdp"
+            android:backgroundTint="#00BFFF"
+            android:contentDescription="@string/save"
+            android:visibility="invisible"
+            android:src="@drawable/ic_plus_sign"
+            android:tint="@color/white"
+            app:fabCustomSize="@dimen/_40sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvUse" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvShow"
+            style="@style/TextView.InterRegular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_14sdp"
+            android:layout_marginTop="@dimen/_16sdp"
+            android:visibility="invisible"
+            android:gravity="start"
+            android:text="@string/to_show_you_like_a_post_click_on_the_ball"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_10ssp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ivPlus" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvAnd"
+            style="@style/TextView.InterRegular"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_14sdp"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:layout_marginEnd="@dimen/_14sdp"
+            android:gravity="start"
+            android:text="@string/and_since"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_10ssp"
+            android:visibility="invisible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvShow" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivFirst"
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_marginStart="@dimen/_30sdp"
+            android:layout_marginTop="@dimen/_30sdp"
+            android:visibility="invisible"
+            android:src="@drawable/like_icon0"
+            app:layout_constraintEnd_toStartOf="@+id/ivSecond"
+            app:layout_constraintStart_toStartOf="@+id/tvAnd"
+            app:layout_constraintTop_toBottomOf="@+id/tvAnd" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivSecond"
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:visibility="invisible"
+            android:src="@drawable/like_icon1"
+            app:layout_constraintBottom_toBottomOf="@+id/ivFirst"
+            app:layout_constraintEnd_toStartOf="@+id/ivThree"
+            app:layout_constraintStart_toEndOf="@+id/ivFirst"
+            app:layout_constraintTop_toTopOf="@+id/ivFirst" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivThree"
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:src="@drawable/like_icon2"
+            app:layout_constraintBottom_toBottomOf="@+id/ivFirst"
+            android:visibility="invisible"
+            app:layout_constraintEnd_toStartOf="@+id/ivFour"
+            app:layout_constraintStart_toEndOf="@+id/ivSecond"
+            app:layout_constraintTop_toTopOf="@+id/ivFirst" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivFour"
+            android:layout_width="@dimen/_40sdp"
+            android:visibility="invisible"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_marginEnd="@dimen/_30sdp"
+            android:src="@drawable/like_icon3"
+            app:layout_constraintBottom_toBottomOf="@+id/ivFirst"
+            app:layout_constraintEnd_toEndOf="@+id/tvAnd"
+            app:layout_constraintStart_toEndOf="@+id/ivThree"
+            app:layout_constraintTop_toTopOf="@+id/ivFirst" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/btnNext"
+            style="@style/GreenButton"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/_28sdp"
+            android:layout_marginTop="@dimen/_60sdp"
+            android:layout_marginEnd="@dimen/_14sdp"
+            android:background="@drawable/green_btn_bg"
+            android:backgroundTint="@color/blue_00bef5"
+            android:onClick="@{v->vm.onClick(v)}"
+            android:paddingHorizontal="@dimen/_12sdp"
+            android:text="@string/start"
+            android:textSize="@dimen/_14ssp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ivFirst" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+
+            style="@style/TextView.InterRegular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="start"
+            android:text="@string/here_is_the_social_tab"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_10ssp"
+            android:visibility="invisible"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnNext" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvWelcome1"
+            style="@style/TextView.InterRegular"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginStart="@dimen/_14sdp"
+            android:layout_marginTop="@dimen/_14sdp"
+            android:layout_marginEnd="@dimen/_14sdp"
+            android:gravity="start"
+            android:text="You'll also see that the view is split into 2 tabs:"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_10ssp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clTab"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_22sdp"
+            android:layout_marginHorizontal="@dimen/_40sdp"
+            android:layout_marginTop="@dimen/_16sdp"
+            android:background="@drawable/tab_bg"
+            android:backgroundTint="@color/e9e9ea"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvWelcome">
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvFeed"
+                style="@style/TextView.InterMedium"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_18sdp"
+                android:layout_marginStart="@dimen/_3sdp"
+                android:layout_marginEnd="@dimen/_3sdp"
+                android:background="@drawable/round_corner_bg"
+                android:gravity="center"
+                android:onClick="@{v->vm.onClick(v)}"
+                android:text="Feed"
+                android:textColor="@color/black_000000"
+                android:textSize="@dimen/_10ssp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/tvSubscriptions"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvSubscriptions"
+                style="@style/TextView.InterMedium"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_18sdp"
+                android:layout_marginStart="@dimen/_3sdp"
+                android:layout_marginEnd="@dimen/_3sdp"
+                android:gravity="center"
+                android:onClick="@{v->vm.onClick(v)}"
+                android:text="@string/abonnements"
+                android:textColor="@color/black_000000"
+                android:textSize="@dimen/_10ssp"
+                app:layout_constraintBottom_toBottomOf="@+id/tvFeed"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/tvFeed"
+                app:layout_constraintTop_toTopOf="@+id/tvFeed" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvInFeed"
+            style="@style/TextView.InterRegular"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_14sdp"
+            android:layout_marginTop="@dimen/_16sdp"
+            android:layout_marginEnd="@dimen/_14sdp"
+            android:gravity="start"
+            android:text="In the feed you'll find the most relevant content for the whole community."
+            android:textColor="@color/black"
+            android:textSize="@dimen/_10ssp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/clTab" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvInSubscription"
+            style="@style/TextView.InterRegular"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_14sdp"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:layout_marginEnd="@dimen/_14sdp"
+            android:gravity="start"
+            android:text="In the subscriptions tab you'll only see content from the ballers you follow."
+            android:textColor="@color/black"
+            android:textSize="@dimen/_10ssp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvInFeed" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvInStart"
+            style="@style/TextView.InterRegular"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_14sdp"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:layout_marginEnd="@dimen/_14sdp"
+            android:gravity="start"
+            android:text="Start sharing with the community now!"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_10ssp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvInSubscription" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

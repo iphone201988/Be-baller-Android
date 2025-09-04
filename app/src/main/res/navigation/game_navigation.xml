@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/game_navigation">
+
+    <action
+        android:id="@+id/navigateFindFragmentFragment"
+        app:destination="@id/findGameFragment" />
+    <action
+        android:id="@+id/navigateCreateGameFragment"
+        app:destination="@id/createGameFragment" />
+
+    <action
+        android:id="@+id/navigateAddCourtFragment"
+        app:destination="@id/addCourtFragment" />
+
+    <action
+        android:id="@+id/navigateShareCreateGameFragment"
+        app:destination="@id/shareCreateGameFragment" />
+
+    <action
+        android:id="@+id/navigateCourtsAboutFragment"
+        app:destination="@id/courtsAboutFragment" />
+
+    <action
+        android:id="@+id/navigateAddPhotoFragment"
+        app:destination="@id/addPhotoFragment" />
+
+    <action
+        android:id="@+id/navigateGameDetailsFragment"
+        app:destination="@id/gameDetailsFragment" />
+
+    <action
+        android:id="@+id/navigateTournamentDetailsFragment"
+        app:destination="@id/tournamentDetailsFragment" />
+
+    <action
+        android:id="@+id/navigateCampsDetailsFragment"
+        app:destination="@id/campsDetailsFragment" />
+
+
+    <fragment
+        android:id="@+id/findGameFragment"
+        android:name="com.beballer.beballer.ui.player.dash_board.find.game.find_game.FindGameFragment"
+        tools:layout="@layout/fragment_find_game" />
+    <fragment
+        android:id="@+id/createGameFragment"
+        android:name="com.beballer.beballer.ui.player.dash_board.find.game.create_game.CreateGameFragment"
+        tools:layout="@layout/fragment_create_game" />
+
+    <fragment
+        android:id="@+id/addCourtFragment"
+        android:name="com.beballer.beballer.ui.player.dash_board.find.game.add_court.AddCourtFragment"
+        tools:layout="@layout/fragment_add_court" />
+
+    <fragment
+        android:id="@+id/shareCreateGameFragment"
+        android:name="com.beballer.beballer.ui.player.dash_board.find.game.share_create_game.ShareCreateGameFragment"
+        tools:layout="@layout/fragment_share_create_game" />
+
+    <fragment
+        android:id="@+id/courtsAboutFragment"
+        android:name="com.beballer.beballer.ui.player.dash_board.find.game.court_detail.CourtAboutFragment"
+        tools:layout="@layout/fragment_court_about" />
+    <fragment
+        android:id="@+id/addPhotoFragment"
+        android:name="com.beballer.beballer.ui.player.dash_board.find.game.add_photo.AddPhotoFragment"
+        tools:layout="@layout/fragment_add_photo" />
+    <fragment
+        android:id="@+id/gameDetailsFragment"
+        android:name="com.beballer.beballer.ui.player.dash_board.find.game.details_game.GameDetailsFragment"
+        tools:layout="@layout/fragment_game_details" />
+
+    <fragment
+        android:id="@+id/tournamentDetailsFragment"
+        android:name="com.beballer.beballer.ui.player.dash_board.find.tournament.details.TournamentDetailsFragment"
+        tools:layout="@layout/fragment_tournament_details" />
+    <fragment
+        android:id="@+id/campsDetailsFragment"
+        android:name="com.beballer.beballer.ui.player.dash_board.find.camps.details.CampsDetailsFragment"
+        tools:layout="@layout/fragment_camps_details" />
+
+</navigation>

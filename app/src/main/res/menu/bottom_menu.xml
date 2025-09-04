@@ -1,0 +1,31 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/socialFragment"
+        android:enabled="true"
+        android:icon="@drawable/chat"
+        android:title="Social" />
+    <item
+        android:id="@+id/findFragment"
+        android:icon="@drawable/map"
+        android:title="Find" />
+
+    <item
+        android:id="@+id/gameFragment"
+        android:icon="@drawable/game"
+        android:title="Game" />
+
+    <item
+        android:id="@+id/progressionFragment"
+        android:icon="@drawable/progress"
+        android:title="Progression" />
+
+    <item
+        android:id="@+id/profileFragment"
+        android:icon="@drawable/profile"
+        android:title="Profile" />
+
+</menu>
+
+

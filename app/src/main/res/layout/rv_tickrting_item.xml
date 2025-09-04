@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginVertical="10dp"
+        android:foreground="?android:attr/selectableItemBackground"
+        app:cardCornerRadius="10dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:animateLayoutChanges="true">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/home_team_image"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintEnd_toEndOf="@+id/home_team_name_tv"
+                app:layout_constraintStart_toStartOf="@+id/home_team_name_tv"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintWidth_percent="0.2" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/home_team_name_tv"
+                style="@style/TextView.InterRegular"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="4dp"
+                android:gravity="center"
+                android:paddingHorizontal="4dp"
+                android:text="Lyon -\nVilleurbanne"
+                android:textColor="@color/grey"
+                android:textSize="10sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/home_team_image"
+                app:layout_constraintWidth_percent="0.33" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/outside_team_image"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintEnd_toEndOf="@+id/outside_team_name_tv"
+                app:layout_constraintStart_toStartOf="@+id/outside_team_name_tv"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintWidth_percent="0.2" />
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/outside_team_name_tv"
+                style="@style/TextView.InterRegular"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="4dp"
+                android:gravity="center"
+                android:paddingHorizontal="4dp"
+                android:text="Monaco"
+                android:textColor="@color/grey"
+                android:textSize="10sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/outside_team_image"
+                app:layout_constraintWidth_percent="0.33" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/game_date_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/inter_bold"
+                android:text="09.06.2025"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="10sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/game_time_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:fontFamily="@font/inter_bold"
+                android:text="12:22"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="10sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/game_date_tv" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/btnBy"
+                style="@style/TextView.InterMedium"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_35sdp"
+                android:layout_marginTop="@dimen/_6sdp"
+                android:background="@drawable/arrow_bg"
+                android:backgroundTint="@color/green"
+                android:gravity="center"
+                android:text="Buy a place"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_9ssp"
+                app:layout_constraintEnd_toStartOf="@+id/outside_team_name_tv"
+                app:layout_constraintStart_toEndOf="@+id/home_team_name_tv"
+                app:layout_constraintTop_toBottomOf="@id/game_time_tv" />
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/btnWatch"
+                style="@style/TextView.InterMedium"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_35sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:background="@drawable/arrow_bg"
+                android:backgroundTint="@color/play_color"
+                android:gravity="center"
+                android:text="Watch the match"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_9ssp"
+                app:layout_constraintEnd_toStartOf="@+id/outside_team_name_tv"
+                app:layout_constraintStart_toEndOf="@+id/home_team_name_tv"
+                app:layout_constraintTop_toBottomOf="@id/btnBy" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_12sdp"
+                android:gravity="center"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/btnWatch" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</layout>

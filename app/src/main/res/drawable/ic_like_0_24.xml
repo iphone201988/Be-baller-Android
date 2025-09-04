@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@android:id/background"
+        android:top="1dp"
+        android:bottom="1dp"
+        android:left="1dp"
+        android:right="1dp">
+        <shape
+            android:shape="oval"
+            android:tint="@color/white">
+            <size
+                android:width="22dp"
+                android:height="22dp" />
+        </shape>
+    </item>
+    <item
+        android:id="@+id/ball"
+        android:drawable="@drawable/ic_like_background_black_24" />
+
+    <item
+        android:top="11.5dp"
+        android:bottom="11.5dp">
+        <shape
+            android:shape="rectangle"
+            android:tint="@color/black" />
+    </item>
+
+    <item
+        android:left="11.5dp"
+        android:right="11.5dp">
+        <shape
+            android:shape="rectangle"
+            android:tint="@color/black" />
+    </item>
+</layer-list>

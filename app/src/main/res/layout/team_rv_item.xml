@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="callback"
+            type="com.beballer.beballer.base.SimpleRecyclerViewAdapter.SimpleCallback" />
+
+        <variable
+            name="pos"
+            type="Integer" />
+
+        <variable
+            name="bean"
+            type="com.beballer.beballer.data.model.PlayerTeamData" />
+
+        <import type="android.view.View" />
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clTeam"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_90sdp"
+        android:layout_marginHorizontal="@dimen/_5sdp"
+        android:onClick="@{v->callback.onItemClick(v,bean,pos)}"
+        android:layout_marginVertical="@dimen/_15sdp"
+        android:background="@drawable/edit_text_bg_with_radius_10">
+
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/court_image"
+            android:layout_width="@dimen/_70sdp"
+            android:layout_height="@dimen/_70sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:adjustViewBounds="true"
+            android:padding="@dimen/_7sdp"
+            android:scaleType="centerCrop"
+            setTeamFromUrl="@{bean.imageURL}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:shapeAppearance="@style/ShapeAppearanceOverlay.App.CornerSize50Percent" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivSelect"
+            android:layout_width="@dimen/_18sdp"
+            android:layout_height="@dimen/_18sdp"
+            android:layout_marginEnd="@dimen/_6sdp"
+            android:layout_marginBottom="@dimen/_8sdp"
+            android:src="@drawable/unselected_circle"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivTick"
+            android:layout_width="@dimen/_16sdp"
+            android:layout_height="@dimen/_16sdp"
+            android:src="@drawable/tick"
+            android:visibility="@{bean.check?View.VISIBLE:View.GONE}"
+            app:layout_constraintBottom_toBottomOf="@+id/ivSelect"
+            app:layout_constraintEnd_toEndOf="@+id/ivSelect"
+            app:layout_constraintStart_toStartOf="@+id/ivSelect"
+            app:layout_constraintTop_toTopOf="@+id/ivSelect" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

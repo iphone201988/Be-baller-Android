@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.beballer.beballer.ui.player.dash_board.social.SocialsFragmentVM" />
+
+        <variable
+            name="pos"
+            type="Integer" />
+
+        <import type="android.view.View" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/sdsdsds"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        tools:context=".ui.dash_board.social.SocialsFragment">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clHeader"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_65sdp"
+            android:background="@color/fafafa"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvTitle"
+                style="@style/TextView.InterMedium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_16sdp"
+                android:gravity="center"
+                android:text="Social"
+                android:textSize="@dimen/_18ssp"
+                app:layout_constraintBottom_toBottomOf="@+id/ivNotification"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/ivNotification" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="fitXY"
+                android:src="@drawable/top_right_angle" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivNotification"
+                android:layout_width="@dimen/_26sdp"
+                android:layout_height="@dimen/_26sdp"
+                android:layout_marginEnd="@dimen/_13sdp"
+                android:layout_marginBottom="@dimen/_8sdp"
+                android:onClick="@{v->vm.onClick(v)}"
+                android:padding="@dimen/_2sdp"
+                android:src="@drawable/only_strock"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="@dimen/_15sdp"
+                android:layout_height="@dimen/_15sdp"
+                android:padding="@dimen/_2sdp"
+                android:src="@drawable/bell"
+                android:tint="@color/white"
+                app:layout_constraintBottom_toBottomOf="@+id/ivNotification"
+                app:layout_constraintEnd_toEndOf="@+id/ivNotification"
+                app:layout_constraintStart_toStartOf="@+id/ivNotification"
+                app:layout_constraintTop_toTopOf="@+id/ivNotification" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clTab"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_28sdp"
+            android:layout_marginHorizontal="@dimen/_15sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:background="@drawable/tab_bg"
+            android:backgroundTint="@color/e9e9ea"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/clHeader">
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvFeed"
+                style="@style/TextView.InterMedium"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_24sdp"
+                android:layout_marginStart="@dimen/_3sdp"
+                android:layout_marginEnd="@dimen/_3sdp"
+                android:background="@{pos==1?@drawable/round_corner_bg:null}"
+                android:gravity="center"
+                android:onClick="@{v->vm.onClick(v)}"
+                android:text="@string/feed"
+                android:textColor="@color/black_000000"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/tvSubscriptions"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvSubscriptions"
+                style="@style/TextView.InterMedium"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_24sdp"
+                android:layout_marginStart="@dimen/_3sdp"
+                android:layout_marginEnd="@dimen/_3sdp"
+                android:background="@{pos==2?@drawable/round_corner_bg:null}"
+                android:gravity="center"
+                android:onClick="@{v->vm.onClick(v)}"
+                android:text="@string/subscriptions"
+                android:textColor="@color/black_000000"
+                app:layout_constraintBottom_toBottomOf="@+id/tvFeed"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/tvFeed"
+                app:layout_constraintTop_toTopOf="@+id/tvFeed" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <com.nabilmh.lottieswiperefreshlayout.LottieSwipeRefreshLayout
+            android:id="@+id/ssPullRefreshSub"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:visibility="@{pos==2?View.VISIBLE:View.GONE}"
+            app:indicator_overlay="false"
+            android:layout_marginTop="@dimen/_10sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/clTab"
+            app:lottie_rawRes="@raw/refresh">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvHomeSub"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clipToPadding="false"
+                    android:orientation="vertical"
+                    android:paddingBottom="@dimen/_15sdp"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:itemCount="5"
+                    tools:listitem="@layout/item_image_post" />
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvSubscription"
+                    style="@style/TextView.InterMedium"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginHorizontal="@dimen/_15sdp"
+                    android:gravity="start"
+                    android:visibility="gone"
+                    android:onClick="@{v->vm.onClick(v)}"
+                    android:text="@string/in_this_section_you_ll_find_the_posts_from_people_you_follow_tap_here_to_discover_other_ballers"
+                    android:textColor="@color/black_000000"
+                    android:textSize="@dimen/_12ssp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/rvHomeSub" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </com.nabilmh.lottieswiperefreshlayout.LottieSwipeRefreshLayout>
+
+
+        <com.nabilmh.lottieswiperefreshlayout.LottieSwipeRefreshLayout
+            android:id="@+id/ssPullRefresh"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:visibility="@{pos==1?View.VISIBLE:View.GONE}"
+            app:indicator_overlay="false"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/clTab"
+            app:lottie_rawRes="@raw/refresh">
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvHome"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clipToPadding="false"
+                android:orientation="vertical"
+                android:paddingBottom="@dimen/_15sdp"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:itemCount="5"
+                tools:listitem="@layout/item_image_post" />
+
+        </com.nabilmh.lottieswiperefreshlayout.LottieSwipeRefreshLayout>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/buttonSettings"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_16sdp"
+            android:layout_marginBottom="@dimen/_20sdp"
+            android:backgroundTint="#00BFFF"
+            android:onClick="@{v->vm.onClick(v)}"
+            android:src="@drawable/ic_plus_sign"
+            android:tint="@color/white"
+            app:fabCustomSize="@dimen/_35sdp"
+            app:fabSize="normal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

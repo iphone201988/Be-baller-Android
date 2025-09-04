@@ -1,0 +1,21 @@
+package com.beballer.beballer.data.model
+
+
+data class OptionModel( var emoji: String ,var title: String, var positionId:Int,var positionCode: String,var check: Boolean =false)
+data class AvatarModel( var avatar: Int,var id:Int,var check: Boolean =false)
+data class PlayerPostModel( var avatar: Int,var title:String,var type: Int)
+data class FindModel( var image: Int,var title:String,var id:Int,var check: Boolean =false)
+data class MpvModel( var name: String ,var desc: String, var point: String )
+data class RankingModel( var code: String , var image :Int ,var name: String, var userName: String)
+data class StatistModel( var name: String , var point :Int)
+data class InventModel( var match: String , var percentage :Int)
+data class GameModeModel( var title: String )
+data class SubscriptionModel( var title: String )
+data class ChatModel( var message: String,var chatType: Boolean=false)
+data class SocialModel( var message:String ,var name :String,var check: Boolean=false)
+data class SettingsModel( var teamIcon: Int,var type:String , var colorCode:String)
+data class CreateTournamentModel( var name: String)
+data class AddTournamentModel( var name: String)
+data class FinalModel( var name: String,var check: Boolean=false)
+data class MatchModel( var headingTitle: String,var title: String,var subTitle: String , var newTeam :String , var team:String)
+data class PoolModel( var count: String,var teamName: String,var point: String)

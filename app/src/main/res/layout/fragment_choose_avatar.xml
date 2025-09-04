@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.beballer.beballer.ui.player.create_profile.add_profile.AddProfilePictureFragmentVM" />
+
+
+        <variable
+            name="buttonCheck"
+            type="Boolean" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        tools:context=".ui.player.create_profile.choose_avtar.ChooseAvatarFragment">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/cancelImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:onClick="@{v->vm.onClick(v)}"
+            android:padding="10dp"
+            android:src="@drawable/back_button"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="55dp"
+            android:layout_marginTop="@dimen/_7sdp"
+            android:fontFamily="@font/inter_bold"
+            android:lineSpacingExtra="@dimen/_2sdp"
+            android:gravity="center"
+            android:text="In the meantime, choose\nfrom those avatars"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_16ssp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/cancelImage" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/subtitleTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:fontFamily="@font/inter_medium"
+            android:text="Add an avtar"
+            android:textAlignment="center"
+            android:textColor="@color/grey_8B8FA0"
+            android:textSize="@dimen/_12ssp"
+            app:layout_collapseMode="parallax"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvTitle1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_100sdp"
+            android:fontFamily="@font/inter_bold"
+            android:lineSpacingExtra="@dimen/_2sdp"
+            android:text="Avatars generated with DALL-E-AI"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_15ssp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/subtitleTv" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:fillViewport="true"
+            app:layout_constraintBottom_toTopOf="@+id/clSkip"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvTitle1">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/ivPerson"
+                    android:layout_width="@dimen/_70sdp"
+                    android:layout_height="@dimen/_70sdp"
+                    android:layout_marginTop="@dimen/_18sdp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/ic_beballer_grey_800"
+                    app:layout_constraintEnd_toStartOf="@+id/ivPersonFirst"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:shapeAppearance="@style/ShapeAppearanceOverlay.App.CornerSize50Percent" />
+
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/profileImageFab"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="-2dp"
+                    android:layout_marginBottom="4dp"
+                    android:contentDescription="@string/save"
+                    android:src="@drawable/ic_plus_sign"
+                    app:backgroundTint="#607d92"
+                    app:fabCustomSize="25dp"
+                    android:onClick="@{v->vm.onClick(v)}"
+                    app:layout_constraintBottom_toBottomOf="@+id/ivPerson"
+                    app:layout_constraintEnd_toEndOf="@+id/ivPerson"
+                    app:maxImageSize="15dp"
+                    app:shapeAppearanceOverlay="@style/RoundActionButton"
+                    app:tint="@color/white" />
+
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/ivPersonFirst"
+                    android:layout_width="@dimen/_70sdp"
+                    android:layout_height="@dimen/_70sdp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/first_avtar"
+                    android:onClick="@{v->vm.onClick(v)}"
+                    app:layout_constraintBottom_toBottomOf="@+id/ivPerson"
+                    app:layout_constraintEnd_toStartOf="@+id/ivPersonSecond"
+                    app:layout_constraintStart_toEndOf="@+id/ivPerson"
+                    app:layout_constraintTop_toTopOf="@+id/ivPerson"
+                    app:shapeAppearance="@style/ShapeAppearanceOverlay.App.CornerSize50Percent" />
+
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/ivPersonSecond"
+                    android:layout_width="@dimen/_70sdp"
+                    android:layout_height="@dimen/_70sdp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/second_avtar"
+                    android:onClick="@{v->vm.onClick(v)}"
+                    app:layout_constraintBottom_toBottomOf="@+id/ivPerson"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/ivPersonFirst"
+                    app:layout_constraintTop_toTopOf="@+id/ivPerson"
+                    app:shapeAppearance="@style/ShapeAppearanceOverlay.App.CornerSize50Percent"
+                    tools:src="@drawable/second_avtar" />
+
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/ivPersonThird"
+                    android:layout_width="@dimen/_70sdp"
+                    android:layout_height="@dimen/_70sdp"
+                    android:layout_marginTop="@dimen/_14sdp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/third_avtar"
+                    android:onClick="@{v->vm.onClick(v)}"
+                    app:layout_constraintEnd_toStartOf="@+id/ivPersonFour"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/ivPerson"
+                    app:shapeAppearance="@style/ShapeAppearanceOverlay.App.CornerSize50Percent" />
+
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/ivPersonFour"
+                    android:layout_width="@dimen/_70sdp"
+                    android:layout_height="@dimen/_70sdp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/four_avtar"
+                    android:onClick="@{v->vm.onClick(v)}"
+                    app:layout_constraintBottom_toBottomOf="@+id/ivPersonThird"
+                    app:layout_constraintEnd_toStartOf="@+id/ivPersonFive"
+                    app:layout_constraintStart_toEndOf="@+id/ivPersonThird"
+                    app:layout_constraintTop_toTopOf="@+id/ivPersonThird"
+                    app:shapeAppearance="@style/ShapeAppearanceOverlay.App.CornerSize50Percent" />
+
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/ivPersonFive"
+                    android:layout_width="@dimen/_70sdp"
+                    android:layout_height="@dimen/_70sdp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/five_avtar"
+                    android:onClick="@{v->vm.onClick(v)}"
+                    app:layout_constraintBottom_toBottomOf="@+id/ivPersonFour"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/ivPersonFour"
+                    app:layout_constraintTop_toTopOf="@+id/ivPersonFour"
+                    app:shapeAppearance="@style/ShapeAppearanceOverlay.App.CornerSize50Percent" />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/ivPersonSix"
+                    android:layout_width="@dimen/_70sdp"
+                    android:layout_height="@dimen/_70sdp"
+                    android:layout_marginTop="@dimen/_14sdp"
+                    android:scaleType="centerCrop"
+                    android:onClick="@{v->vm.onClick(v)}"
+                    android:src="@drawable/six_avtar"
+                    app:layout_constraintEnd_toStartOf="@+id/ivPersonFour"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/ivPersonThird"
+                    app:shapeAppearance="@style/ShapeAppearanceOverlay.App.CornerSize50Percent" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clSkip"
+            android:layout_width="@dimen/_90sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_marginHorizontal="@dimen/_15sdp"
+            android:layout_marginBottom="@dimen/_20sdp"
+            android:background="@drawable/edit_text_bg_with_radius_10"
+            android:onClick="@{v->vm.onClick(v)}"
+            app:layout_constraintBottom_toTopOf="@+id/nextBtnDivider"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tSkip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_18sdp"
+                android:fontFamily="@font/inter_bold"
+                android:text="Skip"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_13ssp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivShare"
+                android:layout_width="@dimen/_18sdp"
+                android:layout_height="@dimen/_18sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:src="@drawable/arrow_bg"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="@dimen/_8sdp"
+                android:layout_height="@dimen/_8sdp"
+                android:src="@drawable/right_arrow"
+                android:tint="@color/beballer_purple_grey"
+                app:layout_constraintBottom_toBottomOf="@+id/ivShare"
+                app:layout_constraintEnd_toEndOf="@+id/ivShare"
+                app:layout_constraintStart_toStartOf="@+id/ivShare"
+                app:layout_constraintTop_toTopOf="@+id/ivShare" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <com.google.android.material.divider.MaterialDivider
+            android:id="@+id/nextBtnDivider"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
+            app:dividerColor="#D4D4D4"
+            app:layout_constraintBottom_toTopOf="@id/btnNext"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/btnNext"
+            style="@style/GreenButton"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_45sdp"
+            android:layout_marginHorizontal="@dimen/_13sdp"
+            android:layout_marginTop="@dimen/_40sdp"
+            android:layout_marginBottom="@dimen/_20sdp"
+            android:background="@drawable/green_btn_bg"
+            android:backgroundTint="@{buttonCheck?@color/green:@color/dark_AAB9EF}"
+            android:onClick="@{v->vm.onClick(v)}"
+            android:text="@string/next"
+            android:textSize="@dimen/_14ssp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

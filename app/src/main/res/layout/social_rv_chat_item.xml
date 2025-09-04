@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="callback"
+            type="com.beballer.beballer.base.SimpleRecyclerViewAdapter.SimpleCallback" />
+
+        <variable
+            name="pos"
+            type="Integer" />
+
+        <variable
+            name="bean"
+            type="com.beballer.beballer.data.model.PostCommentData" />
+
+
+        <import type="android.view.View" />
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clChat"
+        android:layout_width="match_parent"
+        android:layout_marginStart="@dimen/_14sdp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_12sdp"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/ivPerson"
+            android:layout_width="@dimen/_45sdp"
+            android:layout_height="@dimen/_45sdp"
+            android:scaleType="centerCrop"
+            setImageFromUrl="@{bean.publisherData.profilePicture}"
+            android:src="@drawable/ic_round_account_circle_40"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:shapeAppearance="@style/ShapeAppearanceOverlay.App.CornerSize50Percent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvUserName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_5sdp"
+            android:fontFamily="@font/inter_semi_bold"
+            android:text='@{((bean.publisherData.firstName != null ? bean.publisherData.firstName : "user") + " " + (bean.publisherData.lastName != null ? bean.publisherData.lastName : "")).trim()}'
+            android:textColor="#1B1B1B"
+            android:textSize="@dimen/_11ssp"
+            app:layout_constraintEnd_toStartOf="@id/tvHour"
+            app:layout_constraintStart_toEndOf="@+id/ivPerson"
+            app:layout_constraintTop_toTopOf="@+id/ivPerson" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvPublisherUsername"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_13sdp"
+            android:fontFamily="@font/inter_regular"
+            android:text="@{bean.comment}"
+            android:textColor="#989898"
+            android:textSize="@dimen/_9ssp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/tvUserName"
+            app:layout_constraintTop_toBottomOf="@+id/tvUserName" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvHour"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_4sdp"
+            android:layout_marginEnd="@dimen/_13sdp"
+            android:fontFamily="@font/inter_regular"
+            setTime="@{bean.createdAt}"
+            android:textColor="@color/beballer_medium_grey"
+            android:textSize="@dimen/_8ssp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tvUserName" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginEnd="@dimen/_25sdp"
+            android:background="@drawable/chat_bg"
+            android:paddingStart="@dimen/_1sdp"
+            android:paddingEnd="@dimen/_5sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvPublisherUsername">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivLikeImage"
+                android:layout_width="@dimen/_23sdp"
+                android:layout_height="@dimen/_23sdp"
+                android:padding="@dimen/_3sdp"
+                likeCountSet="@{bean.currentUserLikeCount}"
+                android:onClick="@{v->callback.onItemClick(v,bean,pos)}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvLike"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_6sdp"
+                android:fontFamily="@font/inter_semi_bold"
+                android:includeFontPadding="false"
+                android:text="@{String.valueOf(bean.likeCount)}"
+                android:textColor="#707070"
+                android:textSize="@dimen/_12ssp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/ivLikeImage"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="HardcodedText" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:background="@color/view_color"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/clView" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

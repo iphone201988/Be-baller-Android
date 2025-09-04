@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/organizers_tournaments">
+
+
+    <fragment
+        android:id="@+id/organizersFindDetailsFragment"
+        android:name="com.beballer.beballer.ui.organizers.dash_board.find.details.OrganizersFindDetailsFragment"
+        tools:layout="@layout/fragment_organizers_find_details" />
+
+    <!-- - - - - - -  - - - -  -create camps - - -  - -  - -  - - -  - -->
+    <fragment
+        android:id="@+id/createCampsFirstFragment"
+        android:name="com.beballer.beballer.ui.organizers.camps_create.CreateCampsFirstFragment"
+        tools:layout="@layout/fragment_create_camps_first" />
+
+    <fragment
+        android:id="@+id/createCampsSecondFragment"
+        android:name="com.beballer.beballer.ui.organizers.camps_create.CreateCampsSecondFragment"
+        tools:layout="@layout/fragment_create_camps_seconds" />
+
+    <fragment
+        android:id="@+id/createCampsThirdFragment"
+        android:name="com.beballer.beballer.ui.organizers.camps_create.CreateCampsThirdFragment"
+        tools:layout="@layout/fragment_create_camps_third" />
+
+    <fragment
+        android:id="@+id/createCampsFourFragment"
+        android:name="com.beballer.beballer.ui.organizers.camps_create.CreateCampsFourFragment"
+        tools:layout="@layout/fragment_create_camps_four" />
+
+    <fragment
+        android:id="@+id/createCampsFiveFragment"
+        android:name="com.beballer.beballer.ui.organizers.camps_create.CreateCampsFiveFragment"
+        tools:layout="@layout/fragment_create_camps_five" />
+
+    <fragment
+        android:id="@+id/createCampsSixFragment"
+        android:name="com.beballer.beballer.ui.organizers.camps_create.CreateCampsSixFragment"
+        tools:layout="@layout/fragment_create_camps_six" />
+
+    <fragment
+        android:id="@+id/createCampsSevenFragment"
+        android:name="com.beballer.beballer.ui.organizers.camps_create.CreateCampsSevenFragment"
+        tools:layout="@layout/fragment_create_camps_seven" />
+
+    <fragment
+        android:id="@+id/completeCampsFragment"
+        android:name="com.beballer.beballer.ui.organizers.camps_create.CreateCampsCompleteFragment"
+        tools:layout="@layout/fragment_create_camps_complete" />
+
+    <!-- - - -  - -  - -  - - -  create tournaments - - - - - - - - - - - -->
+
+    <fragment
+        android:id="@+id/organizersEventTypeFragment"
+        android:name="com.beballer.beballer.ui.organizers.tournament_create.event.EventTypeFragment"
+        tools:layout="@layout/fragment_event_type" />
+
+    <fragment
+        android:id="@+id/tournamentFirst"
+        android:name="com.beballer.beballer.ui.organizers.tournament_create.CreateTournamentFirstFragment"
+        tools:layout="@layout/fragment_create_tournament_first" />
+
+    <fragment
+        android:id="@+id/tournamentSecond"
+        android:name="com.beballer.beballer.ui.organizers.tournament_create.CreateTournamentSecondFragment"
+        tools:layout="@layout/fragment_create_tournament_second" />
+    <fragment
+        android:id="@+id/tournamentThird"
+        android:name="com.beballer.beballer.ui.organizers.tournament_create.CreateTournamentThirdFragment"
+        tools:layout="@layout/fragment_create_tournament_third" />
+    <fragment
+        android:id="@+id/tournamentFour"
+        android:name="com.beballer.beballer.ui.organizers.tournament_create.CreateTournamentFourFragment"
+        tools:layout="@layout/fragment_create_tournament_four" />
+    <fragment
+        android:id="@+id/tournamentFive"
+        android:name="com.beballer.beballer.ui.organizers.tournament_create.CreateTournamentFiveFragment"
+        tools:layout="@layout/fragment_create_tournament_five" />
+    <fragment
+        android:id="@+id/tournamentSix"
+        android:name="com.beballer.beballer.ui.organizers.tournament_create.CreateTournamentSixFragment"
+        tools:layout="@layout/fragment_create_tournament_six" />
+    <fragment
+        android:id="@+id/tournamentSeven"
+        android:name="com.beballer.beballer.ui.organizers.tournament_create.CreateTournamentSevenFragment"
+        tools:layout="@layout/fragment_create_tournament_second" />
+    <fragment
+        android:id="@+id/tournamentEight"
+        android:name="com.beballer.beballer.ui.organizers.tournament_create.CreateTournamentEightFragment"
+        tools:layout="@layout/fragment_create_tournament_eight" />
+
+    <!-- - - -  - -  - -  - - -  Details - - - - - - - - - - - -->
+    <fragment
+        android:id="@+id/OrgTournamentDetailsFragment"
+        android:name="com.beballer.beballer.ui.organizers.tournament_create.details.OrgTournamentDetailsFragment"
+        tools:layout="@layout/fragment_org_tournament_details" />
+
+    <fragment
+        android:id="@+id/orgCampsDetailsFragment"
+        android:name="com.beballer.beballer.ui.organizers.camps_create.details.OrgCampsDetailsFragment"
+        tools:layout="@layout/fragment_org_camps_details" />
+
+    <fragment
+        android:id="@+id/poolsFragment"
+        android:name="com.beballer.beballer.ui.organizers.pools.PoolsFragment"
+        tools:layout="@layout/fragment_pools" />
+
+    <fragment
+        android:id="@+id/matchFragment"
+        android:name="com.beballer.beballer.ui.organizers.match.MatchFragment"
+        tools:layout="@layout/fragment_match" />
+
+    <fragment
+        android:id="@+id/finalFragment"
+        android:name="com.beballer.beballer.ui.organizers.finals.FinalsFragment"
+        tools:layout="@layout/fragment_finals" />
+
+
+    <fragment
+        android:id="@+id/campsViewFragment"
+        android:name="com.beballer.beballer.ui.organizers.camps_view.CampsViewFragment"
+        tools:layout="@layout/fragment_camps_view" />
+
+
+</navigation>

@@ -1,0 +1,25 @@
+<!-- res/drawable/top_right_angle_gradient.xml -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    android:width="360dp"
+    android:height="100dp"
+    android:viewportWidth="360"
+    android:viewportHeight="100">
+
+    <path
+        android:pathData="M360,0 L210,0 L190,100 L360,100 Z">
+        <aapt:attr name="android:fillColor">
+            <gradient
+                android:startX="360"
+                android:startY="0"
+                android:endX="0"
+                android:endY="0"
+                android:type="linear"
+                android:startColor="#E94E1B"
+                android:endColor="#171C35"
+
+               />
+        </aapt:attr>
+
+    </path>
+</vector>

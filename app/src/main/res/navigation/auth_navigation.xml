@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/auth_navigation">
+
+    <action
+        android:id="@+id/navigateToOnBoardingFragment"
+        app:destination="@id/fragmentOnBoarding" />
+    <action
+        android:id="@+id/navigateOptionFragment"
+        app:destination="@id/fragmentOption" />
+
+    <action
+        android:id="@+id/navigateSignupFragment"
+        app:destination="@id/fragmentSignup" />
+    <action
+        android:id="@+id/navigateLoginFragment"
+        app:destination="@id/fragmentLogin" />
+    <action
+        android:id="@+id/navigateOrganisateurLoginFragment"
+        app:destination="@id/fragmentOrganisateurLogin" />
+
+    <action
+        android:id="@+id/navigateOrganizersProfileFragment"
+        app:destination="@id/fragmentOrganizersProfile" />
+
+
+    <fragment
+        android:id="@+id/fragmentOnBoarding"
+        android:name="com.beballer.beballer.ui.player.auth.onboarding.OnBoardingFragment"
+        tools:layout="@layout/fragment_signup" />
+
+    <fragment
+        android:id="@+id/fragmentOption"
+        android:name="com.beballer.beballer.ui.player.auth.options.OptionsFragment"
+        tools:layout="@layout/fragment_options" />
+
+    <fragment
+        android:id="@+id/fragmentSignup"
+        android:name="com.beballer.beballer.ui.player.auth.login.SignupFragment"
+        tools:layout="@layout/fragment_signup" />
+    <fragment
+        android:id="@+id/fragmentLogin"
+        android:name="com.beballer.beballer.ui.player.auth.login.LoginFragment"
+        tools:layout="@layout/fragment_login" />
+
+    <fragment
+        android:id="@+id/fragmentOrganisateurLogin"
+        android:name="com.beballer.beballer.ui.organizers.login.OrganizersLoginFragment"
+        tools:layout="@layout/fragment_organizers_login" />
+
+
+
+    <fragment
+        android:id="@+id/fragmentOrganizersProfile"
+        android:name="com.beballer.beballer.ui.organizers.profile.OrganizersProfileFragment"
+        tools:layout="@layout/fragment_organizers_profile" />
+
+
+</navigation>

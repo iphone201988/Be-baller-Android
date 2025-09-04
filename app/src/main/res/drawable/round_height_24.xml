@@ -1,0 +1,21 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="32"
+    android:viewportHeight="32">
+    <path
+        android:fillType="evenOdd"
+        android:pathData="m15,7.43v17.168l-1.29,-1.302c-0.388,-0.392 -1.022,-0.395 -1.414,-0.006 -0.392,0.388 -0.395,1.022 -0.006,1.414l3,3.027c0.187,0.189 0.442,0.296 0.708,0.296 0.266,0.001 0.521,-0.104 0.709,-0.293l3,-3c0.39,-0.39 0.39,-1.024 0,-1.414s-1.024,-0.39 -1.414,0l-1.293,1.293v-17.199l1.293,1.293c0.39,0.39 1.024,0.39 1.414,0s0.39,-1.024 0,-1.414l-3,-3c-0.188,-0.188 -0.443,-0.294 -0.709,-0.293s-0.521,0.107 -0.708,0.296l-3,3.027c-0.389,0.392 -0.386,1.026 0.006,1.415 0.392,0.388 1.026,0.385 1.414,-0.007z"
+        android:strokeLineJoin="round">
+        <aapt:attr name="android:fillColor">
+            <gradient
+                android:endColor="@color/beballer_orange"
+                android:endX="16"
+                android:endY="32"
+                android:startColor="@color/play_color"
+                android:startX="16"
+                android:startY="0" />
+        </aapt:attr>
+    </path>
+</vector>

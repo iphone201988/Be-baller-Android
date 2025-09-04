@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_graph"
+    app:startDestination="@id/socialFragment">
+
+    <fragment
+        android:id="@+id/socialFragment"
+        android:name="com.beballer.beballer.ui.player.dash_board.social.SocialsFragment"
+        tools:layout="@layout/fragment_socials" />
+    <fragment
+        android:id="@+id/findFragment"
+        android:name="com.beballer.beballer.ui.player.dash_board.find.FindFragment"
+        tools:layout="@layout/fragment_find" />
+
+    <fragment
+        android:id="@+id/progressionFragment"
+        android:name="com.beballer.beballer.ui.player.dash_board.progression.ProgressionsFragment"
+        tools:layout="@layout/fragment_progressions" />
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.beballer.beballer.ui.player.dash_board.profile.ProfileFragment"
+        tools:layout="@layout/fragment_profile" />
+
+    <fragment
+        android:id="@+id/courtsFragment"
+        android:name="com.beballer.beballer.ui.player.dash_board.find.courts.CourtsFragment"
+        tools:layout="@layout/fragment_courts" />
+
+
+
+</navigation>

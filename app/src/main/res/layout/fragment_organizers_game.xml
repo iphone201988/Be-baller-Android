@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.beballer.beballer.ui.organizers.dash_board.game.OrganizersGameFragmentVM" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clHeader"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_65sdp"
+            android:background="@color/fafafa"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvTitle"
+                style="@style/TextView.InterMedium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_16sdp"
+                android:gravity="center"
+                android:text="Game"
+                android:textSize="@dimen/_18ssp"
+                app:layout_constraintBottom_toBottomOf="@+id/ivNotification"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/ivNotification" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="fitXY"
+                android:src="@drawable/org_game_bg" />
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/ivNotification"
+                android:layout_width="@dimen/_24sdp"
+                android:layout_height="@dimen/_24sdp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_13sdp"
+                android:src="@drawable/only_strock"
+                android:tint="@color/beballer_grey"
+                android:scaleType="centerCrop"
+                app:shapeAppearance="@style/ShapeAppearanceOverlay.App.CornerSize50Percent"/>
+
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="@dimen/_13sdp"
+                android:layout_height="@dimen/_13sdp"
+                android:src="@drawable/bell"
+                android:tint="@color/white"
+                app:layout_constraintBottom_toBottomOf="@+id/ivNotification"
+                app:layout_constraintEnd_toEndOf="@+id/ivNotification"
+                app:layout_constraintStart_toStartOf="@+id/ivNotification"
+                app:layout_constraintTop_toTopOf="@+id/ivNotification" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clTournament"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_62sdp"
+            android:layout_margin="@dimen/_8sdp"
+            android:background="@drawable/tab_bg"
+            android:onClick="@{v->vm.onClick(v)}"
+            android:elevation="@dimen/_4sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/tournamentCardView"
+                android:layout_width="85dp"
+                android:layout_height="match_parent"
+                app:cardBackgroundColor="@color/tournaments_light_color"
+                app:cardCornerRadius="10dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="58dp"
+                    android:layout_height="58dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_tournament_24"
+                    android:tint="@color/tournaments_dark_color" />
+            </androidx.cardview.widget.CardView>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvTournament"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="85dp"
+                android:fontFamily="@font/inter_bold"
+                android:gravity="center"
+                android:text="Tournament"
+                android:textAllCaps="false"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_16ssp" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clCamps"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_60sdp"
+            android:layout_marginTop="@dimen/_28sdp"
+            android:onClick="@{v->vm.onClick(v)}"
+            android:background="@drawable/tab_bg"
+            android:elevation="@dimen/_4sdp"
+            app:layout_constraintEnd_toEndOf="@+id/clTournament"
+            app:layout_constraintStart_toStartOf="@+id/clTournament"
+            app:layout_constraintTop_toBottomOf="@+id/clTournament">
+
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/CampsCardView"
+                android:layout_width="85dp"
+                android:layout_height="match_parent"
+                app:cardBackgroundColor="@color/camps_light_color"
+                app:cardCornerRadius="10dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="58dp"
+                    android:layout_height="58dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_camp_24" />
+            </androidx.cardview.widget.CardView>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvCamps"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="85dp"
+                android:fontFamily="@font/inter_bold"
+                android:gravity="center"
+                android:text="Camps"
+                android:textAllCaps="false"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_16ssp" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="callback"
+            type="com.beballer.beballer.base.SimpleRecyclerViewAdapter.SimpleCallback" />
+
+        <variable
+            name="pos"
+            type="Integer" />
+
+        <variable
+            name="bean"
+            type="com.beballer.beballer.data.model.AvatarModel" />
+
+        <import type="android.view.View" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clAvatar"
+        android:layout_width="match_parent"
+        android:layout_margin="@dimen/_5sdp"
+        android:padding="@dimen/_5sdp"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/ivPerson"
+            android:layout_width="@dimen/_70sdp"
+            android:layout_height="@dimen/_70sdp"
+            android:scaleType="centerCrop"
+            setImageInt="@{bean.avatar}"
+            app:layout_constraintStart_toStartOf="parent"
+            android:onClick="@{v->callback.onItemClick(v,bean,pos)}"
+            app:shapeAppearance="@style/ShapeAppearanceOverlay.App.CornerSize50Percent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/first_avtar"/>
+
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/profileImageFab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="-2dp"
+            android:layout_marginBottom="4dp"
+            android:contentDescription="@string/save"
+            android:onClick="@{v->callback.onItemClick(v,bean,pos)}"
+            android:src="@drawable/ic_plus_sign"
+            app:backgroundTint="#607d92"
+            app:fabCustomSize="25dp"
+            android:visibility="@{pos==0?View.VISIBLE:View.GONE}"
+            app:layout_constraintBottom_toBottomOf="@+id/ivPerson"
+            app:layout_constraintEnd_toEndOf="@+id/ivPerson"
+            app:maxImageSize="15dp"
+            app:shapeAppearanceOverlay="@style/RoundActionButton"
+            app:tint="@color/white" />
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

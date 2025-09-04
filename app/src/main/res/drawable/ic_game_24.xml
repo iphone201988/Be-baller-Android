@@ -1,0 +1,31 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="443"
+    android:viewportHeight="443">
+    <path
+        android:fillColor="#00000000"
+        android:pathData="m430.5,221.5c0,115.43 -93.57,209 -209,209 -59.1,0 -112.47,-24.53 -150.48,-63.96 36.8,-37.69 59.48,-89.21 59.48,-146.04s-22.28,-107.45 -58.52,-145.04C109.93,36.62 162.9,12.5 221.5,12.5c115.43,0 209,93.57 209,209Z"
+        android:strokeWidth="25"
+        android:strokeColor="@color/games_dark_color" />
+    <path
+        android:fillColor="#00000000"
+        android:pathData="m130.5,220.5c0,56.83 -22.68,108.35 -59.48,146.04 -36.24,-37.59 -58.52,-88.71 -58.52,-145.04s22.68,-108.35 59.48,-146.04c36.24,37.59 58.52,88.71 58.52,145.04Z"
+        android:strokeWidth="25"
+        android:strokeColor="@color/games_dark_color" />
+    <path
+        android:fillColor="#00000000"
+        android:pathData="m430.15,220.29c0,56.83 -22.68,108.35 -59.48,146.04 -36.24,-37.59 -58.52,-88.71 -58.52,-145.04s22.68,-108.35 59.48,-146.04c36.24,37.59 58.52,88.71 58.52,145.04Z"
+        android:strokeWidth="25"
+        android:strokeColor="@color/games_dark_color" />
+    <path
+        android:fillColor="#fff"
+        android:pathData="M221.5,12.5L221.5,430.5"
+        android:strokeWidth="25"
+        android:strokeColor="@color/games_dark_color" />
+    <path
+        android:fillColor="#fff"
+        android:pathData="M12.5,221.5L430.15,220.29"
+        android:strokeWidth="25"
+        android:strokeColor="@color/games_dark_color" />
+</vector>

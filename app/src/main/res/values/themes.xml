@@ -1,0 +1,255 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!--  <style name="Base.Theme.beballer" parent="Theme.Material3.DayNight.NoActionBar">
+          <item name="android:statusBarColor">@color/colorPrimary</item>
+          <item name="android:windowLightStatusBar">false</item>
+          <item name="android:windowTranslucentStatus">true</item>
+      </style>-->
+
+
+    <style name="Theme.MyApplication" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@android:color/transparent</item>
+        <item name="colorPrimaryDark">@android:color/transparent</item>
+        <item name="android:windowContentTransitions">true</item>
+        <item name="colorAccent">@color/colorPrimary</item>
+        <item name="android:windowDisablePreview">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowLightStatusBar" tools:ignore="NewApi">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+
+    </style>
+
+
+    <style name="CustomDialogProgress" parent="@android:style/Theme.DeviceDefault.Dialog">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
+
+    <style name="BottomSheetAnimation">
+        <item name="android:windowEnterAnimation">@anim/slide_up_slow</item>
+        <item name="android:windowExitAnimation">@anim/slide_down_slow</item>
+    </style>
+
+
+    <style name="FullScreenTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowTranslucentNavigation">true</item>
+        <item name="android:windowTranslucentStatus">true</item>
+    </style>
+
+
+    <style name="SheetDialog" parent="Theme.Design.Light.BottomSheetDialog">
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:colorBackground">@android:color/transparent</item>
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:backgroundDimAmount">0.5</item>
+        <item name="android:layout_marginHorizontal">@dimen/_2sdp</item>
+        <item name="android:windowFrame">@null</item>
+        <item name="behavior_draggable">false</item>
+        <item name="android:windowIsFloating">false</item>
+    </style>
+
+
+    <style name="SheetDialog1" parent="Theme.Design.Light.BottomSheetDialog">
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:colorBackground">@android:color/transparent</item>
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:backgroundDimAmount">0.5</item>
+        <item name="android:windowFrame">@null</item>
+        <item name="behavior_draggable">true</item>
+        <item name="android:windowIsFloating">false</item>
+    </style>
+
+    <style name="CustomBottomSheetDialog" parent="@style/ThemeOverlay.MaterialComponents.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/CustomBottomSheet</item>
+
+    </style>
+
+    <style name="CustomBottomSheet" parent="Widget.MaterialComponents.BottomSheet">
+        <item name="shapeAppearanceOverlay">@style/CustomShapeAppearanceBottomSheetDialog</item>
+    </style>
+
+    <style name="CustomShapeAppearanceBottomSheetDialog" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeTopRight">@dimen/_20sdp</item>
+        <item name="cornerSizeTopLeft">@dimen/_20sdp</item>
+        <item name="cornerSizeBottomRight">0dp</item>
+        <item name="cornerSizeBottomLeft">0dp</item>
+    </style>
+
+    <style name="Dialog" parent="Theme.AppCompat.Dialog.Alert">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:backgroundDimAmount">0.4</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_marginStart">@dimen/_10sdp</item>
+        <item name="android:layout_marginEnd">@dimen/_10sdp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:windowTitleStyle">@null</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
+        <item name="android:windowSoftInputMode">stateUnspecified|adjustPan</item>
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:background">@color/transparent</item>
+    </style>
+
+
+    <style name="EditText" parent="Widget.AppCompat.EditText">
+        <item name="android:layout_height">@dimen/_38sdp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:textSize">@dimen/_13ssp</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:textCursorDrawable">@null</item>
+        <item name="android:paddingStart">@dimen/_5sdp</item>
+        <item name="android:background">@drawable/edit_text_bg_with_radius_10</item>
+        <item name="android:paddingEnd">@dimen/_5sdp</item>
+        <item name="android:textColorHint">@color/white</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:fontFamily">@font/inter_medium</item>
+    </style>
+
+    <style name="TextView" parent="Widget.AppCompat.TextView">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:textSize">@dimen/_10ssp</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+
+    <style name="RoundActionButton" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">100%</item>
+    </style>
+
+    <style name="ThemeOverlay.App.DatePickerSocial" parent="@style/ThemeOverlay.Material3.MaterialCalendar">
+        <item name="colorPrimary">@color/beballer_blue</item>
+        <item name="colorOnPrimary">@color/white</item>
+    </style>
+
+    <style name="GreenButton" parent="Widget.AppCompat.TextView">
+        <item name="android:layout_height">@dimen/_40sdp</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:textSize">@dimen/_12ssp</item>
+        <item name="android:elevation" tools:targetApi="lollipop">@dimen/_2sdp</item>
+        <item name="android:fontFamily">@font/inter_bold</item>
+        <item name="android:background">@drawable/green_btn_bg</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+
+    <style name="BottomSheetDialogTheme" parent="Theme.MaterialComponents.BottomSheetDialog">
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:colorBackground">@android:color/transparent</item>
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:backgroundDimAmount">0.5</item>
+        <item name="android:windowFrame">@null</item>
+        <item name="behavior_draggable">false</item>
+        <item name="android:windowIsFloating">false</item>
+
+    </style>
+
+    <style name="TextView.InterMedium">
+        <item name="android:textSize">@dimen/_13ssp</item>
+        <item name="android:lineSpacingMultiplier">1.0</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/black_040404</item>
+        <item name="android:lineSpacingExtra">0dp</item>
+        <item name="android:fontFamily">@font/inter_medium</item>
+    </style>
+
+    <style name="TextView.InterBold">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/_20ssp</item>
+        <item name="android:lineSpacingMultiplier">1.0</item>
+        <item name="android:gravity">center</item>
+        <item name="android:lineSpacingExtra">0dp</item>
+        <item name="android:fontFamily">@font/inter_bold</item>
+    </style>
+
+    <style name="TextView.InterSemiBold">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/_13ssp</item>
+        <item name="android:lineSpacingMultiplier">1.0</item>
+        <item name="android:gravity">center</item>
+        <item name="android:lineSpacingExtra">0dp</item>
+        <item name="android:fontFamily">@font/inter_semi_bold</item>
+    </style>
+
+
+    <style name="TextView.InterRegular">
+        <item name="android:fontFamily">@font/inter_regular</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/_12ssp</item>
+        <item name="android:lineSpacingMultiplier">1.0</item>
+        <item name="android:gravity">center</item>
+        <item name="android:lineSpacingExtra">0dp</item>
+    </style>
+
+
+
+
+
+    <style name="Theme.AppCompat.Translucent" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="colorPrimary">@color/black</item>
+        <item name="colorPrimaryDark">@color/transparent</item>
+        <item name="colorAccent">@color/black_000000</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:colorBackgroundCacheHint">@null</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation</item>
+    </style>
+
+
+
+
+    <style name="SquareActionButton" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">25%</item>
+    </style>
+
+
+    <style name="ShapeAppearanceOverlay.App.CornerSize10Percent" parent="">
+        <item name="cornerSize">10%</item>
+    </style>
+
+    <style name="ShapeAppearanceOverlay.App.CornerSize5Percent" parent="">
+        <item name="cornerSize">5%</item>
+    </style>
+
+    <style name="ShapeAppearanceOverlay.App.CornerSize8Percent" parent="">
+        <item name="cornerSize">8%</item>
+    </style>
+
+    <style name="ShapeAppearanceOverlay.App.BottomCorners5Percent" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeBottomLeft">5%</item>
+        <item name="cornerSizeBottomRight">5%</item>
+
+    </style>
+
+
+    <style name="ShapeAppearanceOverlay.App.CornerSize20Percent" parent="">
+        <item name="cornerSize">20%</item>
+    </style>
+
+    <style name="ShapeAppearanceOverlay.App.CornerSize50Percent" parent="">
+        <item name="cornerSize">50%</item>
+    </style>
+
+
+    <style name="App.Custom.Indicator" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
+        <item name="android:color">@android:color/transparent</item>
+    </style>
+    <!-- Base application theme. -->
+    <style name="Base.Theme.MyApplication" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+    </style>
+
+
+</resources>

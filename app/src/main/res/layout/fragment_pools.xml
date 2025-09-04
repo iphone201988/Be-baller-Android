@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.beballer.beballer.ui.organizers.pools.PoolsFragmentVM" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.organizers.pools.PoolsFragment">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvPool"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:clipToPadding="false"
+            android:orientation="vertical"
+            android:paddingVertical="@dimen/_12sdp"
+            android:layout_marginHorizontal="@dimen/_12sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toTopOf="@+id/ivPlus"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:itemCount="4"
+            tools:listitem="@layout/rv_pools_items" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/ivPlus"
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_marginBottom="@dimen/_20sdp"
+            android:background="@drawable/player_bg"
+            android:backgroundTint="@color/camps_dark_color"
+            android:scaleType="centerCrop"
+            android:onClick="@{v->vm.onClick(v)}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:shapeAppearance="@style/ShapeAppearanceOverlay.App.CornerSize50Percent" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_plus_sign"
+            android:tint="@color/white"
+            app:layout_constraintBottom_toBottomOf="@+id/ivPlus"
+            app:layout_constraintEnd_toEndOf="@+id/ivPlus"
+            app:layout_constraintStart_toStartOf="@+id/ivPlus"
+            app:layout_constraintTop_toTopOf="@+id/ivPlus"
+            app:shapeAppearance="@style/ShapeAppearanceOverlay.App.CornerSize50Percent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
