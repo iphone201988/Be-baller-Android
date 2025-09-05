@@ -57,6 +57,8 @@ class GameActivity : BaseActivity<ActivityGameBinding>() {
                             setStartDestination(R.id.campsDetailsFragment)
                         }else if (pathType.contains("addCourt")){
                             setStartDestination(R.id.addCourtFragment)
+                        }else if (pathType.contains("five")){
+                            setStartDestination(R.id.findGameFragment)
                         }
 
                     }

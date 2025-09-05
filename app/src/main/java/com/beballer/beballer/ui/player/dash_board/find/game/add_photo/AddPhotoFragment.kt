@@ -16,8 +16,9 @@ import androidx.navigation.fragment.findNavController
 import com.beballer.beballer.R
 import com.beballer.beballer.base.BaseFragment
 import com.beballer.beballer.base.BaseViewModel
+import com.beballer.beballer.data.model.AddCourtResponse
 import com.beballer.beballer.data.model.CommonResponse
-import com.beballer.beballer.data.model.CommonSecondResponse
+import com.beballer.beballer.data.model.CourtAddress
 import com.beballer.beballer.data.model.GameModeModel
 import com.beballer.beballer.utils.BaseCustomDialog
 import com.beballer.beballer.utils.BindingUtils
@@ -26,6 +27,7 @@ import com.beballer.beballer.databinding.FragmentAddPhotoBinding
 import com.beballer.beballer.databinding.VideoImagePickerDialogBoxBinding
 import com.beballer.beballer.ui.player.add_post.AddPostActivity.Companion.addPostInterface
 import com.beballer.beballer.ui.player.create_profile.choose_avtar.ChooseAvatarFragment.Companion.sendMultipartImage
+import com.beballer.beballer.ui.player.dash_board.find.game.GameActivity
 import com.beballer.beballer.ui.player.dash_board.profile.user.UserProfileActivity
 import com.beballer.beballer.utils.AppUtils
 import com.beballer.beballer.utils.Status
@@ -55,19 +57,9 @@ class AddPhotoFragment : BaseFragment<FragmentAddPhotoBinding>() {
     private var gradeValue = 1.0
 
 
-    data class CourtAddress(
-        val lat: Double,
-        val long: Double,
-        val addressString: String,
-        val city: String,
-        val region: String,
-        val country: String,
-        val zipCode: String
-    )
-
 
     companion object{
-
+      var courtType :Int?=null
     }
 
     override fun getLayoutResource(): Int {
@@ -83,46 +75,8 @@ class AddPhotoFragment : BaseFragment<FragmentAddPhotoBinding>() {
         initOnclick()
         // observer
         initObserver()
-
-    }
-    fun mapAccessibility(input: String?): String {
-        return when {
-            input?.contains("Everyone", ignoreCase = true) == true -> "availableToEveryone"
-            input?.contains("Licensee", ignoreCase = true) == true -> "availableToLicensees"
-            input?.contains("Special", ignoreCase = true) == true -> "specialOpeningHours"
-            else -> ""
-        }
     }
 
-    fun mapBoardType(input: String?): String {
-        return when {
-            input?.contains("Steel", ignoreCase = true) == true -> "steel"
-            input?.contains("Wood", ignoreCase = true) == true -> "wood"
-            input?.contains("Plastic", ignoreCase = true) == true -> "plastic"
-            input?.contains("Plexi", ignoreCase = true) == true -> "plexiglas"
-            else -> ""
-        }
-    }
-
-    fun mapNetType(input: String?): String {
-        return when {
-            input?.contains("String", ignoreCase = true) == true -> "string"
-            input?.contains("Chain", ignoreCase = true) == true -> "chains"
-            input?.contains("Plastic", ignoreCase = true) == true -> "plastic"
-            input?.contains("Without", ignoreCase = true) == true -> "without"
-            else -> ""
-        }
-    }
-
-    fun mapFloorType(input: String?): String {
-        return when {
-            input?.contains("Synthetic", ignoreCase = true) == true -> "synthetic"
-            input?.contains("Bitumen", ignoreCase = true) == true -> "bitumen"
-            input?.contains("Wood", ignoreCase = true) == true -> "woodenFloor"
-            input?.contains("Gravel", ignoreCase = true) == true -> "gravelBitumen"
-            else -> ""
-        }
-    }
 
     /*** click event handel **/
     private fun initOnclick() {
@@ -216,10 +170,6 @@ class AddPhotoFragment : BaseFragment<FragmentAddPhotoBinding>() {
                 binding.tvCourtRating.text = gradeValue.toString()
             }
         }
-
-
-
-
     }
 
     /**  api response observer  **/
@@ -234,7 +184,7 @@ class AddPhotoFragment : BaseFragment<FragmentAddPhotoBinding>() {
                     when (it.message) {
                         "createCourtApi" -> {
                             try {
-                                val myDataModel: CommonSecondResponse? =
+                                val myDataModel: AddCourtResponse? =
                                     BindingUtils.parseJson(it.data.toString())
                                 if (myDataModel != null) {
                                     if (myDataModel.message?.isNotEmpty() == true) {
@@ -470,12 +420,22 @@ class AddPhotoFragment : BaseFragment<FragmentAddPhotoBinding>() {
         ) {
             when (it?.id) {
                 R.id.tvBtn -> {
-                    val intent = Intent(requireContext(), UserProfileActivity::class.java)
-                    intent.putExtra("userType", "courtFragment")
-                    startActivity(intent)
-                    requireActivity().overridePendingTransition(
-                        R.anim.slide_in_right, R.anim.slide_out_left
-                    )
+                    if (courtType==1){
+                        val intent = Intent(requireContext(), UserProfileActivity::class.java)
+                        intent.putExtra("userType", "courtFragment")
+                        startActivity(intent)
+                        requireActivity().overridePendingTransition(
+                            R.anim.slide_in_right, R.anim.slide_out_left
+                        )
+                    }else{
+                        val intent = Intent(requireContext(), GameActivity::class.java)
+                        intent.putExtra("pathType", "five")
+                        startActivity(intent)
+                        requireActivity().overridePendingTransition(
+                            R.anim.slide_in_right, R.anim.slide_out_left
+                        )
+                    }
+
                     addDialogItem.dismiss()
                 }
             }
@@ -485,5 +445,47 @@ class AddPhotoFragment : BaseFragment<FragmentAddPhotoBinding>() {
         addDialogItem.show()
     }
 
+    /**
+     * add court mapping
+     */
+
+    fun mapAccessibility(input: String?): String {
+        return when {
+            input?.contains("Everyone", ignoreCase = true) == true -> "availableToEveryone"
+            input?.contains("Licensee", ignoreCase = true) == true -> "availableToLicensees"
+            input?.contains("Special", ignoreCase = true) == true -> "specialOpeningHours"
+            else -> ""
+        }
+    }
+
+    fun mapBoardType(input: String?): String {
+        return when {
+            input?.contains("Steel", ignoreCase = true) == true -> "steel"
+            input?.contains("Wood", ignoreCase = true) == true -> "wood"
+            input?.contains("Plastic", ignoreCase = true) == true -> "plastic"
+            input?.contains("Plexi", ignoreCase = true) == true -> "plexiglas"
+            else -> ""
+        }
+    }
+
+    fun mapNetType(input: String?): String {
+        return when {
+            input?.contains("String", ignoreCase = true) == true -> "string"
+            input?.contains("Chain", ignoreCase = true) == true -> "chains"
+            input?.contains("Plastic", ignoreCase = true) == true -> "plastic"
+            input?.contains("Without", ignoreCase = true) == true -> "without"
+            else -> ""
+        }
+    }
+
+    fun mapFloorType(input: String?): String {
+        return when {
+            input?.contains("Synthetic", ignoreCase = true) == true -> "synthetic"
+            input?.contains("Bitumen", ignoreCase = true) == true -> "bitumen"
+            input?.contains("Wood", ignoreCase = true) == true -> "woodenFloor"
+            input?.contains("Gravel", ignoreCase = true) == true -> "gravelBitumen"
+            else -> ""
+        }
+    }
 
 }

@@ -18,6 +18,7 @@ import com.beballer.beballer.data.model.GetCourtData
 import com.beballer.beballer.databinding.FragmentCourtsBinding
 import com.beballer.beballer.databinding.RecyclerCourtItemBinding
 import com.beballer.beballer.ui.player.dash_board.find.game.GameActivity
+import com.beballer.beballer.ui.player.dash_board.find.game.add_photo.AddPhotoFragment
 import com.beballer.beballer.ui.player.dash_board.profile.user.UserProfileActivity
 import com.beballer.beballer.utils.BindingUtils
 import com.beballer.beballer.utils.Status
@@ -149,6 +150,7 @@ class CourtsFragment : BaseFragment<FragmentCourtsBinding>(), OnMapReadyCallback
                 }
                 // add court button click
                 R.id.cardView -> {
+                    AddPhotoFragment.courtType = 1
                     val intent = Intent(requireContext(), GameActivity::class.java)
                     intent.putExtra("pathType", "addCourt")
                     startActivity(intent)

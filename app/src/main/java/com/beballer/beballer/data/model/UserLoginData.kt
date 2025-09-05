@@ -7,11 +7,21 @@ import kotlinx.parcelize.Parcelize
 data class CommonResponse(
     val message: String?, val success: Boolean?
 )
-
-data class CommonSecondResponse(
+/** add court  model class **/
+data class AddCourtResponse(
     val courtId: String?,
     val message: String?,
     val success: Boolean?
+)
+/** address data class **/
+data class CourtAddress(
+    val lat: Double,
+    val long: Double,
+    val addressString: String,
+    val city: String,
+    val region: String,
+    val country: String,
+    val zipCode: String
 )
 
 

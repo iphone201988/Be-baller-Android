@@ -13,6 +13,7 @@ import com.beballer.beballer.utils.BindingUtils
 import com.beballer.beballer.data.model.FindModel
 import com.beballer.beballer.databinding.FindGameRvItemBinding
 import com.beballer.beballer.databinding.FragmentFindGameBinding
+import com.beballer.beballer.ui.player.dash_board.find.game.add_photo.AddPhotoFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -44,6 +45,7 @@ class FindGameFragment : BaseFragment<FragmentFindGameBinding>() {
                 }
 
                 R.id.tvAddCourt->{
+                    AddPhotoFragment.courtType = 2
                     BindingUtils.navigateWithSlide(
                         findNavController(), R.id.navigateAddCourtFragment, null
                     )
